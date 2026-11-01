@@ -1,0 +1,272 @@
+---
+const navLinks = [
+  { label: 'Tentang Kami', href: '#tentang' },
+  { label: 'Visi & Misi', href: '#visi-misi' },
+  { label: 'Layanan', href: '#layanan' },
+  { label: 'Produk', href: '#produk' },
+  { label: 'Keunggulan', href: '#keunggulan' },
+];
+---
+
+<header id="navbar">
+  <div class="nav-container">
+    <!-- Logo -->
+    <a href="#hero" class="nav-logo">
+      <img src="/logo.png" alt="Best Power Servis Logo" width="40" height="40" />
+      <div class="nav-logo-text">
+        <span class="nav-logo-main">Best Power</span>
+        <span class="nav-logo-sub">Servis</span>
+      </div>
+    </a>
+
+    <!-- Desktop Links -->
+    <nav class="nav-links">
+      {navLinks.map(link => (
+        <a href={link.href} class="nav-link">{link.label}</a>
+      ))}
+    </nav>
+
+    <!-- CTA -->
+    <a href="#kontak" class="nav-cta">
+      <span>Hubungi Kami</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+
+    <!-- Mobile Hamburger -->
+    <button class="hamburger" id="menuBtn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    {navLinks.map(link => (
+      <a href={link.href} class="mobile-link">{link.label}</a>
+    ))}
+    <a href="#kontak" class="mobile-cta">Hubungi Kami</a>
+  </div>
+</header>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    padding: 20px 0;
+  }
+
+  header.scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201, 146, 42, 0.15);
+    padding: 14px 0;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.5);
+  }
+
+  header.hidden-nav {
+    transform: translateY(-100%);
+  }
+
+  .nav-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  /* Logo */
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .nav-logo img {
+    filter: brightness(1.1);
+    transition: transform 0.3s ease;
+  }
+  .nav-logo:hover img { transform: rotate(-5deg) scale(1.05); }
+
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .nav-logo-main {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    color: #fff;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-logo-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: #C9922A;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* Nav Links */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+  }
+
+  .nav-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: color 0.25s ease, background 0.25s ease;
+    letter-spacing: 0.01em;
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 14px;
+    right: 14px;
+    height: 1px;
+    background: #C9922A;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: #fff;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    transform: scaleX(1);
+  }
+
+  /* CTA Button */
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    background: linear-gradient(135deg, #C9922A, #E8B84B);
+    color: #000;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+  }
+
+  .nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(201, 146, 42, 0.45);
+  }
+
+  /* Hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    margin-left: auto;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 20px 40px 30px;
+    border-top: 1px solid rgba(201, 146, 42, 0.15);
+    gap: 4px;
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: color 0.2s ease;
+  }
+  .mobile-link:hover { color: #C9922A; }
+
+  .mobile-cta {
+    margin-top: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    background: linear-gradient(135deg, #C9922A, #E8B84B);
+    color: #000;
+    font-weight: 700;
+    border-radius: 6px;
+  }
+
+  @media (max-width: 900px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu { display: flex; }
+    .nav-container { gap: 0; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-container { padding: 0 24px; }
+  }
+</style>

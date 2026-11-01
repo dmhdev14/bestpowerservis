@@ -1,0 +1,223 @@
+---
+const services = [
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+    </svg>`,
+    num: '01',
+    title: 'Rental Genset & Loadbank',
+    desc: 'Menyediakan genset dan loadbank berkualitas dengan berbagai kapasitas. Unit silent dan open tersedia untuk kebutuhan temporary power di seluruh wilayah Indonesia.',
+    points: ['Sewa jangka pendek & panjang', 'Unit silent & open type', 'Berbagai kapasitas tersedia'],
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+    </svg>`,
+    num: '02',
+    title: 'Service & Perawatan Genset',
+    desc: 'Layanan perawatan berkala untuk memastikan genset tetap beroperasi dalam kondisi optimal. Perbaikan dengan teknisi berpengalaman guna meminimalkan downtime.',
+    points: ['Perawatan berkala terjadwal', 'Teknisi berpengalaman', 'Pengujian & analisis kinerja'],
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+      <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+    </svg>`,
+    num: '03',
+    title: 'Penyediaan Suku Cadang',
+    desc: 'Menyediakan berbagai jenis suku cadang genset berkualitas tinggi. Komponen asli dan kompatibel untuk berbagai merek genset dengan ketersediaan terjamin.',
+    points: ['Komponen asli & kompatibel', 'Multi-merek genset', 'Stok selalu tersedia'],
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+    </svg>`,
+    num: '04',
+    title: 'Sistem Filtrasi & Part Filter',
+    desc: 'Solusi filtrasi bahan bakar yang dirancang untuk meningkatkan efisiensi mesin. Teknologi canggih mampu meningkatkan efisiensi hingga 50% dibandingkan filter OEM.',
+    points: ['Fuel & Oil Filter premium', 'Hemat hingga 50% vs OEM', 'Multi-sektor industri'],
+  },
+];
+---
+
+<section id="layanan" class="section section-dark">
+  <div class="hex-pattern"></div>
+  <div class="container" style="position: relative; z-index: 1;">
+
+    <div class="services-header">
+      <div class="section-label reveal">Layanan Kami</div>
+      <h2 class="section-title reveal delay-100">APA YANG KAMI<br/>TAWARKAN</h2>
+      <p class="section-desc reveal delay-200">
+        Kami siap melayani berbagai kebutuhan energi dan filtrasi industri Anda dengan standar kualitas tertinggi dan tim profesional berpengalaman.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {services.map((s, i) => (
+        <div class={`service-card reveal delay-${(i % 2 === 0 ? i + 1 : i) * 100}`}>
+          <div class="card-num">{s.num}</div>
+          <div class="card-icon" set:html={s.icon}></div>
+          <h3 class="card-title">{s.title}</h3>
+          <p class="card-desc">{s.desc}</p>
+          <ul class="card-points">
+            {s.points.map(p => (
+              <li>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#C9922A" stroke="none"><path d="M20 7l-8 8-4-4 1.4-1.4L12 12.2l6.6-6.6L20 7z"/></svg>
+                {p}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #layanan { background: #111111; }
+
+  .services-header {
+    max-width: 600px;
+    margin-bottom: 60px;
+  }
+
+  /* Grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  /* Card */
+  .service-card {
+    background: #181818;
+    border: 1px solid rgba(201, 146, 42, 0.12);
+    border-radius: 16px;
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    cursor: default;
+    group: '';
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #C9922A, #E8B84B, #C9922A);
+    background-size: 200% auto;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+    animation: none;
+  }
+
+  .service-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top left, rgba(201,146,42,0.06) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .service-card:hover {
+    border-color: rgba(201, 146, 42, 0.35);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,146,42,0.08);
+  }
+
+  .service-card:hover::after { opacity: 1; }
+
+  /* Card Number */
+  .card-num {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    color: rgba(201, 146, 42, 0.07);
+    line-height: 1;
+    transition: color 0.4s ease;
+    pointer-events: none;
+  }
+
+  .service-card:hover .card-num {
+    color: rgba(201, 146, 42, 0.14);
+  }
+
+  /* Icon */
+  .card-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201, 146, 42, 0.08);
+    border: 1px solid rgba(201, 146, 42, 0.2);
+    border-radius: 14px;
+    color: #C9922A;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+  }
+
+  .service-card:hover .card-icon {
+    background: rgba(201, 146, 42, 0.15);
+    border-color: rgba(201, 146, 42, 0.4);
+    box-shadow: 0 0 20px rgba(201, 146, 42, 0.15);
+  }
+
+  .card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    color: #fff;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-desc {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-points {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-points li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .card-points li svg { flex-shrink: 0; }
+
+  @media (max-width: 768px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { padding: 32px 28px; }
+  }
+</style>

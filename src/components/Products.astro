@@ -1,0 +1,422 @@
+---
+const brands = [
+  { name: 'Parker', abbr: 'PK' },
+  { name: 'Cimtek', abbr: 'CT' },
+  { name: 'Hydac', abbr: 'HY' },
+  { name: 'Hy-Pro', abbr: 'HP' },
+  { name: 'Rexroth', abbr: 'RX' },
+  { name: 'Pall', abbr: 'PL' },
+];
+
+const advantages = [
+  { icon: '💰', text: 'Harga Kompetitif', sub: 'Hemat hingga 50%' },
+  { icon: '⚡', text: 'Pengadaan Cepat', sub: 'Lead time lebih singkat' },
+  { icon: '✅', text: 'Kualitas Terjamin', sub: 'Standar internasional' },
+  { icon: '🔧', text: 'Custom Solution', sub: 'Develop bersama customer' },
+];
+---
+
+<section id="produk" class="section" style="background: #F5F2ED;">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="products-header">
+      <div class="section-label reveal" style="color: #C9922A;">
+        <span style="background:#C9922A;display:block;width:32px;height:2px;"></span>
+        Produk Kami
+      </div>
+      <h2 class="section-title text-dark reveal delay-100">SOLUSI FILTRASI<br/>INDUSTRI LENGKAP</h2>
+      <p class="section-desc reveal delay-200" style="color: #666;">
+        Kami menyediakan replacement filter element dari brand-brand global terpercaya dengan harga kompetitif dan kualitas terjamin.
+      </p>
+    </div>
+
+    <!-- Filter Element Section -->
+    <div class="product-block">
+      <div class="product-block-header reveal">
+        <div class="product-block-tag">Replacement Filter Element</div>
+        <div class="product-block-line"></div>
+      </div>
+
+      <!-- Brand Grid -->
+      <div class="brands-grid">
+        {brands.map((b, i) => (
+          <div class={`brand-card reveal delay-${(i + 1) * 100}`}>
+            <div class="brand-abbr">{b.abbr}</div>
+            <div class="brand-name">{b.name}</div>
+            <div class="brand-label">Filter</div>
+            <div class="brand-dot"></div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Plus more -->
+      <div class="brand-plus reveal delay-400">
+        <span class="plus-badge">+ BP Filter</span>
+        <span class="plus-badge">+ Wiremesh Filter</span>
+        <span class="plus-badge">+ Custom Order</span>
+      </div>
+
+      <!-- Advantages -->
+      <div class="filter-advantages reveal delay-300">
+        {advantages.map(a => (
+          <div class="adv-item">
+            <span class="adv-icon">{a.icon}</span>
+            <div>
+              <div class="adv-text">{a.text}</div>
+              <div class="adv-sub">{a.sub}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Fuel Filtration Vessel Section -->
+    <div class="vessel-block">
+      <div class="vessel-content reveal-left">
+        <div class="product-block-tag" style="margin-bottom: 20px;">Fuel Filtration Vessel</div>
+        <h3 class="vessel-title">Sistem Filtrasi Bahan Bakar Industri</h3>
+        <p class="vessel-desc">
+          Produk Fuel Filtration Vessel kami dirancang khusus untuk industri berat, mampu menyaring kontaminan secara efisien dan memperpanjang usia peralatan. Cocok untuk sektor pertambangan, manufaktur, transportasi, dan energi.
+        </p>
+        <ul class="vessel-features">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2.5"><path d="M20 7l-8 8-4-4"/></svg>
+            Filtrasi untuk sektor pertambangan & manufaktur
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2.5"><path d="M20 7l-8 8-4-4"/></svg>
+            Teknologi filtrasi presisi tinggi
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2.5"><path d="M20 7l-8 8-4-4"/></svg>
+            Meningkatkan efisiensi bahan bakar mesin
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2.5"><path d="M20 7l-8 8-4-4"/></svg>
+            Memperpanjang umur peralatan industri
+          </li>
+        </ul>
+        <a href="#kontak" class="btn btn-gold" style="display:inline-flex; margin-top: 8px;">
+          Konsultasi Produk
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="vessel-visual reveal-right delay-200">
+        <div class="vessel-card">
+          <div class="vessel-glow"></div>
+          <div class="vessel-icon-wrap">
+            <!-- Stylized filter vessel illustration -->
+            <svg width="120" height="160" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Vessel body -->
+              <rect x="30" y="20" width="60" height="100" rx="10" fill="#1A1A1A" stroke="#C9922A" stroke-width="1.5"/>
+              <!-- Top cap -->
+              <rect x="20" y="14" width="80" height="14" rx="7" fill="#222" stroke="#C9922A" stroke-width="1.5"/>
+              <!-- Bottom cap -->
+              <rect x="20" y="112" width="80" height="14" rx="7" fill="#222" stroke="#C9922A" stroke-width="1.5"/>
+              <!-- Filter layers -->
+              <rect x="38" y="36" width="44" height="6" rx="3" fill="#C9922A" opacity="0.7"/>
+              <rect x="38" y="50" width="44" height="6" rx="3" fill="#C9922A" opacity="0.5"/>
+              <rect x="38" y="64" width="44" height="6" rx="3" fill="#C9922A" opacity="0.35"/>
+              <rect x="38" y="78" width="44" height="6" rx="3" fill="#C9922A" opacity="0.2"/>
+              <rect x="38" y="92" width="44" height="6" rx="3" fill="#C9922A" opacity="0.1"/>
+              <!-- Inlet pipe -->
+              <rect x="90" y="28" width="20" height="6" rx="3" fill="#333" stroke="#C9922A" stroke-width="1"/>
+              <!-- Outlet pipe -->
+              <rect x="90" y="110" width="20" height="6" rx="3" fill="#333" stroke="#C9922A" stroke-width="1"/>
+              <!-- Legs -->
+              <rect x="35" y="126" width="8" height="20" rx="4" fill="#222" stroke="#555" stroke-width="1"/>
+              <rect x="77" y="126" width="8" height="20" rx="4" fill="#222" stroke="#555" stroke-width="1"/>
+              <!-- Glow -->
+              <ellipse cx="60" cy="80" rx="25" ry="30" fill="url(#goldGlow)" opacity="0.15"/>
+              <defs>
+                <radialGradient id="goldGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#C9922A"/>
+                  <stop offset="100%" stop-color="#C9922A" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="vessel-label">Fuel Filtration Vessel</div>
+          <div class="vessel-specs">
+            <span>High-Pressure Rated</span>
+            <span>•</span>
+            <span>Multi-Stage Filtration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #produk { background: #F5F2ED; }
+
+  .products-header {
+    max-width: 640px;
+    margin-bottom: 64px;
+  }
+
+  .products-header .section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Product Block */
+  .product-block {
+    margin-bottom: 80px;
+  }
+
+  .product-block-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+
+  .product-block-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #C9922A;
+    background: rgba(201, 146, 42, 0.1);
+    border: 1px solid rgba(201, 146, 42, 0.25);
+    border-radius: 100px;
+    padding: 6px 16px;
+    white-space: nowrap;
+  }
+
+  .product-block-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(201,146,42,0.4), transparent);
+  }
+
+  /* Brand Grid */
+  .brands-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .brand-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 12px;
+    padding: 24px 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .brand-card:hover {
+    border-color: rgba(201, 146, 42, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(201,146,42,0.15);
+  }
+
+  .brand-abbr {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: #C9922A;
+    line-height: 1;
+    margin-bottom: 6px;
+    letter-spacing: 0.05em;
+  }
+
+  .brand-name {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 2px;
+    letter-spacing: 0.03em;
+  }
+
+  .brand-label {
+    font-size: 0.68rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .brand-dot {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 6px;
+    height: 6px;
+    background: #C9922A;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .brand-card:hover .brand-dot { opacity: 1; }
+
+  /* Plus badges */
+  .brand-plus {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .plus-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    background: #fff;
+    border: 1px dashed rgba(201, 146, 42, 0.4);
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #C9922A;
+  }
+
+  /* Filter advantages */
+  .filter-advantages {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    background: #111;
+    border-radius: 16px;
+    padding: 28px 32px;
+  }
+
+  .adv-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .adv-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+
+  .adv-text {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+
+  .adv-sub {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* Vessel */
+  .vessel-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .vessel-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: #111;
+    margin-bottom: 16px;
+    letter-spacing: 0.04em;
+  }
+
+  .vessel-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 24px;
+  }
+
+  .vessel-features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .vessel-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #333;
+  }
+
+  /* Vessel visual card */
+  .vessel-visual { display: flex; justify-content: center; }
+
+  .vessel-card {
+    background: linear-gradient(145deg, #1A1A1A, #0D0D0D);
+    border: 1px solid rgba(201, 146, 42, 0.2);
+    border-radius: 20px;
+    padding: 48px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 320px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .vessel-glow {
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(201,146,42,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .vessel-icon-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .vessel-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+
+  .vessel-specs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.06em;
+  }
+
+  @media (max-width: 1100px) {
+    .brands-grid { grid-template-columns: repeat(3, 1fr); }
+    .filter-advantages { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .vessel-block { grid-template-columns: 1fr; gap: 40px; }
+    .brands-grid { grid-template-columns: repeat(2, 1fr); }
+    .filter-advantages { grid-template-columns: 1fr 1fr; gap: 16px; padding: 20px; }
+  }
+
+  @media (max-width: 480px) {
+    .brands-grid { grid-template-columns: repeat(3, 1fr); }
+    .filter-advantages { grid-template-columns: 1fr; }
+  }
+</style>

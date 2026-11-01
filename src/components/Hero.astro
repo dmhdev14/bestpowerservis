@@ -1,0 +1,419 @@
+---
+---
+
+<section id="hero">
+  <!-- Noise + Hex Pattern -->
+  <div class="hero-bg">
+    <div class="hex-pattern"></div>
+    <div class="hero-gradient-orb orb-1"></div>
+    <div class="hero-gradient-orb orb-2"></div>
+    <div class="hero-grid"></div>
+  </div>
+
+  <!-- Canvas Particles -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Content -->
+  <div class="hero-content">
+    <div class="hero-badge reveal">
+      <span class="badge-dot"></span>
+      Solusi Industri Terpercaya
+    </div>
+
+    <h1 class="hero-title reveal delay-100">
+      <span class="title-line-1">BEST POWER</span>
+      <span class="title-line-2">SERVIS</span>
+    </h1>
+
+    <p class="hero-tagline reveal delay-200">
+      Solusi Energi &amp; Filtrasi Terbaik
+      <br />
+      <em>untuk Industri Anda</em>
+    </p>
+
+    <p class="hero-desc reveal delay-300">
+      Menyediakan rental genset, service perawatan, suku cadang berkualitas, serta sistem filtrasi canggih yang meningkatkan efisiensi operasional industri Anda di seluruh Indonesia.
+    </p>
+
+    <div class="hero-cta reveal delay-400">
+      <a href="#layanan" class="btn btn-gold">
+        Lihat Layanan Kami
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#kontak" class="btn btn-outline">
+        Konsultasi Gratis
+      </a>
+    </div>
+
+    <!-- Stats Strip -->
+    <div class="hero-stats reveal delay-500">
+      <div class="stat-item">
+        <span class="stat-num" data-counter data-target="4">0</span>
+        <span class="stat-suffix">+</span>
+        <span class="stat-lbl">Layanan Utama</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-counter data-target="6">0</span>
+        <span class="stat-suffix">+</span>
+        <span class="stat-lbl">Brand Filter Global</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-counter data-target="50">0</span>
+        <span class="stat-suffix">%</span>
+        <span class="stat-lbl">Hemat Biaya Filter</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <a href="#tentang" class="scroll-indicator" aria-label="Scroll ke bawah">
+    <span>Scroll</span>
+    <div class="scroll-arrow">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </a>
+</section>
+
+<style>
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #0D0D0D;
+  }
+
+  /* Background layers */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+  }
+
+  .orb-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201,146,42,0.12) 0%, transparent 70%);
+    top: -100px;
+    right: -100px;
+    animation: orbFloat 8s ease-in-out infinite;
+  }
+
+  .orb-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(201,146,42,0.07) 0%, transparent 70%);
+    bottom: 0;
+    left: -100px;
+    animation: orbFloat 10s ease-in-out infinite reverse;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,146,42,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,146,42,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  #particleCanvas {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Content */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 860px;
+    padding: 140px 40px 100px;
+    margin: 0 auto;
+  }
+
+  /* Badge */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: rgba(201, 146, 42, 0.1);
+    border: 1px solid rgba(201, 146, 42, 0.25);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #E8B84B;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    background: #E8B84B;
+    border-radius: 50%;
+    animation: blink 1.8s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  /* Title */
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    line-height: 0.9;
+    letter-spacing: 0.04em;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title-line-1 {
+    font-size: clamp(5rem, 14vw, 10rem);
+    color: #fff;
+    display: block;
+  }
+
+  .title-line-2 {
+    font-size: clamp(5rem, 14vw, 10rem);
+    background: linear-gradient(135deg, #C9922A, #F0C060, #C9922A);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+    display: block;
+  }
+
+  @keyframes shimmer {
+    from { background-position: 0% center; }
+    to { background-position: 200% center; }
+  }
+
+  /* Tagline */
+  .hero-tagline {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-tagline em {
+    font-style: italic;
+    color: #E8B84B;
+    font-weight: 300;
+  }
+
+  /* Description */
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.5);
+    max-width: 580px;
+    margin: 0 auto 40px;
+  }
+
+  /* CTA */
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+  }
+
+  /* Stats */
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    border: 1px solid rgba(201, 146, 42, 0.15);
+    border-radius: 12px;
+    background: rgba(201, 146, 42, 0.04);
+    backdrop-filter: blur(10px);
+    padding: 20px 40px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .stat-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.4rem;
+    color: #C9922A;
+    line-height: 1;
+  }
+
+  .stat-suffix {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: #E8B84B;
+    margin-top: -20px;
+    align-self: flex-start;
+    margin-left: 2px;
+  }
+
+  .stat-lbl {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .stat-sep {
+    width: 1px;
+    height: 44px;
+    background: rgba(201, 146, 42, 0.2);
+    flex-shrink: 0;
+  }
+
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+
+  .scroll-indicator:hover { color: #C9922A; }
+
+  .scroll-arrow {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(201, 146, 42, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bounceDown 2s ease-in-out infinite;
+    color: rgba(201, 146, 42, 0.6);
+    transition: all 0.3s ease;
+  }
+
+  .scroll-indicator:hover .scroll-arrow {
+    border-color: #C9922A;
+    color: #C9922A;
+  }
+
+  @keyframes bounceDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  @keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(20px, 20px) scale(1.05); }
+  }
+
+  @media (max-width: 600px) {
+    .hero-stats {
+      padding: 16px 20px;
+      gap: 0;
+    }
+    .hero-content { padding: 120px 24px 80px; }
+  }
+</style>
+
+<script>
+  // Gold particle system
+  const canvas = document.getElementById('particleCanvas') as HTMLCanvasElement | null;
+  const ctx = canvas ? canvas.getContext('2d') : null;
+
+  if (canvas && ctx) {
+    let W = canvas.width = window.innerWidth;
+    let H = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    });
+
+    interface Particle {
+      x: number; y: number; vx: number; vy: number;
+      size: number; opacity: number; life: number; maxLife: number;
+    }
+    const particles: Particle[] = [];
+    const PARTICLE_COUNT = 60;
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4 - 0.1,
+        size: Math.random() * 2 + 0.5,
+        opacity: Math.random() * 0.5 + 0.1,
+        life: Math.random() * 200,
+        maxLife: 200 + Math.random() * 100,
+      });
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach((p: Particle) => {
+        p.life++;
+        if (p.life > p.maxLife) {
+          p.life = 0;
+          p.x = Math.random() * W;
+          p.y = H + 10;
+        }
+        const progress = p.life / p.maxLife;
+        const fade = progress < 0.2 ? progress / 0.2 : progress > 0.8 ? (1 - progress) / 0.2 : 1;
+        p.x += p.vx;
+        p.y += p.vy;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(201, 146, 42, ${p.opacity * fade})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(drawParticles);
+    }
+
+    drawParticles();
+  }
+  // Note: counter animation is handled globally by Layout.astro
+</script>
