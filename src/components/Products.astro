@@ -410,13 +410,26 @@ const advantages = [
   }
 
   @media (max-width: 768px) {
-    .vessel-block { grid-template-columns: 1fr; gap: 40px; }
-    .brands-grid { grid-template-columns: repeat(2, 1fr); }
-    .filter-advantages { grid-template-columns: 1fr 1fr; gap: 16px; padding: 20px; }
+    .products-header { margin-bottom: 40px; }
+    .product-block { margin-bottom: 56px; }
+    .vessel-block { grid-template-columns: 1fr; gap: 36px; }
+    .brands-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .filter-advantages { grid-template-columns: 1fr 1fr; gap: 14px; padding: 20px; }
   }
 
   @media (max-width: 480px) {
-    .brands-grid { grid-template-columns: repeat(3, 1fr); }
-    .filter-advantages { grid-template-columns: 1fr; }
+    .brands-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .brand-card { padding: 18px 10px; border-radius: 10px; }
+    .brand-abbr { font-size: 1.7rem; }
+    .brand-name { font-size: 0.78rem; }
+    .brand-label { font-size: 0.62rem; }
+    .brand-plus { gap: 8px; margin-bottom: 24px; }
+    .plus-badge { font-size: 0.72rem; padding: 6px 12px; }
+    .filter-advantages { grid-template-columns: 1fr; padding: 16px; gap: 12px; }
+    .vessel-card { padding: 32px 18px; border-radius: 14px; max-width: 100%; }
+    .vessel-content .btn { width: 100%; justify-content: center; min-height: 48px; }
+    .vessel-title { font-size: 1.6rem; }
+    .vessel-desc { font-size: 0.92rem; line-height: 1.65; }
+    .vessel-features li { font-size: 0.85rem; }
   }
 </style>

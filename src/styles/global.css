@@ -52,6 +52,9 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -59,7 +62,9 @@ body {
   background-color: var(--bg-dark);
   color: var(--text-white);
   overflow-x: hidden;
+  width: 100%;
   cursor: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 img { display: block; max-width: 100%; }
@@ -387,8 +392,18 @@ ul { list-style: none; }
    RESPONSIVE
    ========================================= */
 @media (max-width: 768px) {
-  .section { padding: 72px 0; }
-  .container { padding: 0 24px; }
-  body { cursor: auto; }
-  .cursor-dot, .cursor-ring { display: none; }
+  .section { padding: 68px 0; }
+  .container { padding: 0 20px; }
+  body { cursor: auto !important; }
+  .cursor-dot, .cursor-ring { display: none !important; }
+  .section-title { font-size: clamp(2rem, 8vw, 3.2rem); }
+  .section-desc { font-size: 0.95rem; line-height: 1.65; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 52px 0; }
+  .container { padding: 0 16px; }
+  .section-label { font-size: 0.7rem; gap: 8px; margin-bottom: 12px; }
+  .section-label::before { width: 20px; }
+  .gold-divider { width: 44px; height: 2.5px; margin-bottom: 24px; }
 }

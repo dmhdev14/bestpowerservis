@@ -217,7 +217,16 @@ const services = [
   .card-points li svg { flex-shrink: 0; }
 
   @media (max-width: 768px) {
-    .services-grid { grid-template-columns: 1fr; }
-    .service-card { padding: 32px 28px; }
+    .services-header { margin-bottom: 40px; }
+    .services-grid { grid-template-columns: 1fr; gap: 20px; }
+    .service-card { padding: 30px 24px; }
+  }
+
+  @media (max-width: 480px) {
+    .service-card { padding: 24px 18px; border-radius: 14px; }
+    .card-top { margin-bottom: 20px; }
+    .card-num { font-size: 2.2rem; }
+    .card-desc { font-size: 0.88rem; line-height: 1.65; margin-bottom: 16px; }
+    .card-points li { font-size: 0.8rem; }
   }
 </style>

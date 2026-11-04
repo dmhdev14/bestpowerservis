@@ -85,11 +85,11 @@
           <div class="form-row">
             <div class="form-group">
               <label for="telepon">Nomor Telepon *</label>
-              <input type="tel" id="telepon" name="telepon" placeholder="08xxxxxxxxxx" required />
+              <input type="tel" id="telepon" name="telepon" placeholder="08xxxxxxxxxx" inputmode="tel" required />
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="email@perusahaan.com" />
+              <input type="email" id="email" name="email" placeholder="email@perusahaan.com" inputmode="email" />
             </div>
           </div>
 
@@ -298,7 +298,7 @@
   .form-group select,
   .form-group textarea {
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
+    font-size: 16px; /* Prevents auto-zoom on iOS Safari */
     color: #111;
     background: #FAFAFA;
     border: 1.5px solid #E5E5E5;
@@ -308,6 +308,12 @@
     transition: border-color 0.25s ease, box-shadow 0.25s ease;
     resize: none;
     width: 100%;
+    min-height: 48px;
+    box-sizing: border-box;
+  }
+
+  .form-group textarea {
+    min-height: 110px;
   }
 
   .form-group input::placeholder,
@@ -345,8 +351,14 @@
   }
 
   @media (max-width: 520px) {
-    .contact-form-wrap { padding: 32px 24px; }
-    .form-row { grid-template-columns: 1fr; }
+    .contact-form-wrap { padding: 24px 18px; border-radius: 14px; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .form-title { font-size: 1.6rem; }
+    .form-sub { font-size: 0.85rem; margin-bottom: 20px; }
+    .founder-card { padding: 18px 16px; border-radius: 12px; }
+    .contact-item { gap: 12px; }
+    .contact-icon { width: 40px; height: 40px; border-radius: 10px; }
+    .detail-text, .detail-link { font-size: 0.92rem; }
   }
 </style>
 

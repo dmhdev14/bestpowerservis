@@ -190,13 +190,14 @@
   }
 
   .title-line-1 {
-    font-size: clamp(5rem, 14vw, 10rem);
+    font-size: clamp(3.2rem, 13vw, 9.5rem);
     color: #fff;
     display: block;
+    word-break: break-word;
   }
 
   .title-line-2 {
-    font-size: clamp(5rem, 14vw, 10rem);
+    font-size: clamp(3.2rem, 13vw, 9.5rem);
     background: linear-gradient(135deg, #C9922A, #F0C060, #C9922A);
     background-size: 200% auto;
     -webkit-background-clip: text;
@@ -204,6 +205,7 @@
     background-clip: text;
     animation: shimmer 4s linear infinite;
     display: block;
+    word-break: break-word;
   }
 
   @keyframes shimmer {
@@ -350,11 +352,35 @@
   }
 
   @media (max-width: 600px) {
-    .hero-stats {
-      padding: 16px 20px;
-      gap: 0;
+    .hero-content { padding: 100px 16px 60px; }
+    .hero-badge { margin-bottom: 20px; font-size: 0.7rem; padding: 6px 14px; }
+    .hero-title { margin-bottom: 18px; }
+    .hero-tagline { font-size: 1.15rem; margin-bottom: 16px; }
+    .hero-desc { font-size: 0.92rem; line-height: 1.65; margin-bottom: 28px; }
+    .hero-cta {
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto 36px;
     }
-    .hero-content { padding: 120px 24px 80px; }
+    .hero-cta .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 14px 20px;
+      min-height: 48px;
+    }
+    .hero-stats {
+      padding: 14px 12px;
+      width: 100%;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .stat-num { font-size: 1.8rem; }
+    .stat-suffix { font-size: 1.1rem; margin-top: -12px; }
+    .stat-lbl { font-size: 0.62rem; letter-spacing: 0.04em; }
+    .stat-sep { height: 32px; margin: 0 4px; }
+    .scroll-indicator { display: none; }
   }
 </style>
 
