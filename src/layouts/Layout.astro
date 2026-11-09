@@ -26,7 +26,7 @@ const {
     <meta property="og:type" content="website" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/webp" href="/logo.webp" />
 
     <title>{title}</title>
 
@@ -39,14 +39,10 @@ const {
     />
   </head>
   <body>
-    <!-- Custom Cursor -->
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
-
     <!-- Page Loader -->
     <div id="pageLoader">
       <div class="loader-inner">
-        <img src="/logo.png" alt="Best Power Servis" width="64" height="64" />
+        <img src="/logo.webp" alt="Best Power Servis" width="64" height="64" />
         <div class="loader-bar">
           <div class="loader-progress"></div>
         </div>
@@ -174,53 +170,33 @@ const {
     </style>
 
     <script>
-      // Page Loader
+      // Page Loader with fast safety fallback
+      const hidePageLoader = () => {
+        const loader = document.getElementById('pageLoader');
+        if (loader && !loader.classList.contains('hidden')) {
+          loader.classList.add('hidden');
+        }
+      };
+
       window.addEventListener('load', () => {
-        setTimeout(() => {
-          const loader = document.getElementById('pageLoader');
-          if (loader) loader.classList.add('hidden');
-        }, 1400);
+        setTimeout(hidePageLoader, 500);
+      });
+      // Safety timeout: dismiss loader after 1.8s regardless of network conditions
+      setTimeout(hidePageLoader, 1800);
+
+      // Immediately reveal Hero elements so they are never hidden or delayed
+      document.querySelectorAll('#hero .reveal').forEach((el) => {
+        el.classList.add('visible');
       });
 
-      // Custom Cursor (desktop only)
-      const dot = document.getElementById('cursorDot');
-      const ring = document.getElementById('cursorRing');
-
-      if (dot && ring && window.matchMedia('(pointer: fine)').matches) {
-        let mouseX = 0, mouseY = 0;
-        let ringX = 0, ringY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-          dot.style.left = mouseX + 'px';
-          dot.style.top = mouseY + 'px';
-        });
-
-        function animateRing() {
-          ringX += (mouseX - ringX) * 0.12;
-          ringY += (mouseY - ringY) * 0.12;
-          // ring is guaranteed non-null inside this if block
-          ring!.style.left = ringX + 'px';
-          ring!.style.top = ringY + 'px';
-          requestAnimationFrame(animateRing);
-        }
-        animateRing();
-
-        document.querySelectorAll('a, button, .service-card, .adv-card, .brand-card').forEach((el) => {
-          el.addEventListener('mouseenter', () => ring!.classList.add('hovering'));
-          el.addEventListener('mouseleave', () => ring!.classList.remove('hovering'));
-        });
-      }
-
-      // Intersection Observer for reveal animations
+      // Intersection Observer for reveal animations on remaining sections
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
           }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
 
       document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el) => {
         revealObserver.observe(el);
@@ -247,7 +223,7 @@ const {
             animateCounter(entry.target);
           }
         });
-      }, { threshold: 0.5 });
+      }, { threshold: 0.2 });
 
       document.querySelectorAll('[data-counter]').forEach((el) => {
         counterObserver.observe(el);
@@ -264,8 +240,7 @@ const {
             const currentScroll = window.scrollY;
 
             if (navbar) {
-              navbar.classList.toggle('scrolled', currentScroll > 80);
-              navbar.classList.toggle('hidden-nav', currentScroll > lastScroll && currentScroll > 300);
+              navbar.classList.toggle('scrolled', currentScroll > 30);
             }
 
             // Active nav link — cast to HTMLElement for offsetTop access
@@ -288,15 +263,40 @@ const {
       const menuBtn = document.getElementById('menuBtn');
       const mobileMenu = document.getElementById('mobileMenu');
       if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', () => {
-          mobileMenu.classList.toggle('open');
-          menuBtn.classList.toggle('active');
+        const toggleMenu = (open?: boolean) => {
+          const shouldOpen = open !== undefined ? open : !mobileMenu.classList.contains('open');
+          mobileMenu.classList.toggle('open', shouldOpen);
+          menuBtn.classList.toggle('active', shouldOpen);
+          menuBtn.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+        };
+
+        menuBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleMenu();
         });
+
         mobileMenu.querySelectorAll('a').forEach((link) => {
           link.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
-            menuBtn.classList.remove('active');
+            toggleMenu(false);
           });
+        });
+
+        // Close on click outside
+        document.addEventListener('click', (e) => {
+          if (
+            mobileMenu.classList.contains('open') &&
+            !mobileMenu.contains(e.target as Node) &&
+            !menuBtn.contains(e.target as Node)
+          ) {
+            toggleMenu(false);
+          }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+            toggleMenu(false);
+          }
         });
       }
     </script>

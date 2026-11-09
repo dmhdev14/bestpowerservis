@@ -48,20 +48,26 @@
     <!-- Stats Strip -->
     <div class="hero-stats reveal delay-500">
       <div class="stat-item">
-        <span class="stat-num" data-counter data-target="4">0</span>
-        <span class="stat-suffix">+</span>
+        <div class="stat-val-wrap">
+          <span class="stat-num" data-counter data-target="4">0</span>
+          <span class="stat-suffix">+</span>
+        </div>
         <span class="stat-lbl">Layanan Utama</span>
       </div>
       <div class="stat-sep"></div>
       <div class="stat-item">
-        <span class="stat-num" data-counter data-target="6">0</span>
-        <span class="stat-suffix">+</span>
+        <div class="stat-val-wrap">
+          <span class="stat-num" data-counter data-target="6">0</span>
+          <span class="stat-suffix">+</span>
+        </div>
         <span class="stat-lbl">Brand Filter Global</span>
       </div>
       <div class="stat-sep"></div>
       <div class="stat-item">
-        <span class="stat-num" data-counter data-target="50">0</span>
-        <span class="stat-suffix">%</span>
+        <div class="stat-val-wrap">
+          <span class="stat-num" data-counter data-target="50">0</span>
+          <span class="stat-suffix">%</span>
+        </div>
         <span class="stat-lbl">Hemat Biaya Filter</span>
       </div>
     </div>
@@ -82,6 +88,7 @@
   #hero {
     position: relative;
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -267,23 +274,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
+  }
+
+  .stat-val-wrap {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
   }
 
   .stat-num {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.4rem;
+    font-size: 2.6rem;
     color: #C9922A;
     line-height: 1;
   }
 
   .stat-suffix {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: #E8B84B;
-    margin-top: -20px;
-    align-self: flex-start;
-    margin-left: 2px;
+    line-height: 1;
   }
 
   .stat-lbl {
@@ -352,58 +363,97 @@
   }
 
   @media (max-width: 600px) {
-    .hero-content { padding: 100px 16px 60px; }
-    .hero-badge { margin-bottom: 20px; font-size: 0.7rem; padding: 6px 14px; }
-    .hero-title { margin-bottom: 18px; }
-    .hero-tagline { font-size: 1.15rem; margin-bottom: 16px; }
-    .hero-desc { font-size: 0.92rem; line-height: 1.65; margin-bottom: 28px; }
+    #hero {
+      min-height: 100svh;
+      padding-top: 76px;
+      padding-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-content {
+      padding: 16px 16px 20px;
+      width: 100%;
+    }
+    .hero-badge {
+      margin-bottom: 14px;
+      font-size: 0.68rem;
+      padding: 5px 12px;
+      letter-spacing: 0.08em;
+    }
+    .hero-title {
+      margin-bottom: 12px;
+      line-height: 0.95;
+    }
+    .title-line-1,
+    .title-line-2 {
+      font-size: clamp(2.6rem, 12vw, 3.8rem);
+      line-height: 0.95;
+    }
+    .hero-tagline {
+      font-size: 1.05rem;
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+    .hero-desc {
+      font-size: 0.84rem;
+      line-height: 1.6;
+      margin-bottom: 22px;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
     .hero-cta {
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       width: 100%;
-      max-width: 320px;
-      margin: 0 auto 36px;
+      max-width: 290px;
+      margin: 0 auto 24px;
     }
     .hero-cta .btn {
       width: 100%;
       justify-content: center;
-      padding: 14px 20px;
-      min-height: 48px;
+      padding: 12px 18px;
+      min-height: 44px;
+      font-size: 0.88rem;
     }
     .hero-stats {
-      padding: 14px 12px;
+      padding: 12px 6px;
       width: 100%;
       max-width: 100%;
       border-radius: 10px;
     }
-    .stat-num { font-size: 1.8rem; }
-    .stat-suffix { font-size: 1.1rem; margin-top: -12px; }
-    .stat-lbl { font-size: 0.62rem; letter-spacing: 0.04em; }
-    .stat-sep { height: 32px; margin: 0 4px; }
+    .stat-num { font-size: 1.6rem; }
+    .stat-suffix { font-size: 1.05rem; }
+    .stat-lbl { font-size: 0.58rem; letter-spacing: 0.03em; }
+    .stat-sep { height: 26px; margin: 0 2px; }
     .scroll-indicator { display: none; }
   }
 </style>
 
 <script>
-  // Gold particle system
+  // Gold particle system with mobile optimization & pause offscreen
   const canvas = document.getElementById('particleCanvas') as HTMLCanvasElement | null;
   const ctx = canvas ? canvas.getContext('2d') : null;
 
   if (canvas && ctx) {
     let W = canvas.width = window.innerWidth;
     let H = canvas.height = window.innerHeight;
+    let isVisible = true;
 
     window.addEventListener('resize', () => {
       W = canvas.width = window.innerWidth;
       H = canvas.height = window.innerHeight;
     });
 
+    const isMobile = window.innerWidth <= 600;
+    const PARTICLE_COUNT = isMobile ? 25 : 55;
+
     interface Particle {
       x: number; y: number; vx: number; vy: number;
       size: number; opacity: number; life: number; maxLife: number;
     }
     const particles: Particle[] = [];
-    const PARTICLE_COUNT = 60;
 
     for (let i = 0; i < PARTICLE_COUNT; i++) {
       particles.push({
@@ -418,28 +468,37 @@
       });
     }
 
+    const heroSection = document.getElementById('hero');
+    if (heroSection && 'IntersectionObserver' in window) {
+      const heroObserver = new IntersectionObserver((entries) => {
+        isVisible = entries[0].isIntersecting;
+      }, { threshold: 0.05 });
+      heroObserver.observe(heroSection);
+    }
+
     function drawParticles() {
-      ctx.clearRect(0, 0, W, H);
-      particles.forEach((p: Particle) => {
-        p.life++;
-        if (p.life > p.maxLife) {
-          p.life = 0;
-          p.x = Math.random() * W;
-          p.y = H + 10;
-        }
-        const progress = p.life / p.maxLife;
-        const fade = progress < 0.2 ? progress / 0.2 : progress > 0.8 ? (1 - progress) / 0.2 : 1;
-        p.x += p.vx;
-        p.y += p.vy;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(201, 146, 42, ${p.opacity * fade})`;
-        ctx.fill();
-      });
+      if (isVisible) {
+        ctx!.clearRect(0, 0, W, H);
+        particles.forEach((p: Particle) => {
+          p.life++;
+          if (p.life > p.maxLife) {
+            p.life = 0;
+            p.x = Math.random() * W;
+            p.y = H + 10;
+          }
+          const progress = p.life / p.maxLife;
+          const fade = progress < 0.2 ? progress / 0.2 : progress > 0.8 ? (1 - progress) / 0.2 : 1;
+          p.x += p.vx;
+          p.y += p.vy;
+          ctx!.beginPath();
+          ctx!.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx!.fillStyle = `rgba(201, 146, 42, ${p.opacity * fade})`;
+          ctx!.fill();
+        });
+      }
       requestAnimationFrame(drawParticles);
     }
 
     drawParticles();
   }
-  // Note: counter animation is handled globally by Layout.astro
 </script>

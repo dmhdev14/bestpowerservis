@@ -1,13 +1,14 @@
 ---
 ---
 
-<section id="tentang" class="section section-light">
-  <div class="container">
+<section id="tentang" class="section section-dark">
+  <div class="hex-pattern"></div>
+  <div class="container" style="position: relative; z-index: 1;">
     <div class="about-grid">
       <!-- Left: Text -->
       <div class="about-text">
         <div class="section-label reveal-left">Tentang Perusahaan</div>
-        <h2 class="section-title text-dark reveal-left delay-100">
+        <h2 class="section-title reveal-left delay-100">
           Siapa Kami?
         </h2>
         <div class="gold-divider reveal-left delay-200"></div>
@@ -50,7 +51,7 @@
           <!-- Industrial visual -->
           <div class="visual-inner">
             <div class="visual-icon-ring">
-              <img src="/logo.png" alt="Best Power Servis" width="72" height="72" />
+              <img src="/logo.webp" alt="Best Power Servis" width="72" height="72" />
             </div>
             <div class="visual-line"></div>
             <p class="visual-quote">
@@ -99,7 +100,7 @@
 </section>
 
 <style>
-  #tentang { background-color: #F5F2ED; }
+  #tentang { background-color: #121212; }
 
   .about-grid {
     display: grid;
@@ -112,7 +113,7 @@
   .about-desc {
     font-size: 1rem;
     line-height: 1.85;
-    color: #4A4A4A;
+    color: var(--text-silver);
     margin-bottom: 20px;
   }
 
@@ -134,7 +135,7 @@
     gap: 10px;
     font-size: 0.9rem;
     font-weight: 500;
-    color: #2A2A2A;
+    color: rgba(255, 255, 255, 0.85);
   }
 
   .tag-item svg { color: #C9922A; flex-shrink: 0; }
@@ -145,12 +146,13 @@
   }
 
   .visual-card {
-    background: linear-gradient(145deg, #1A1A1A, #111111);
-    border: 1px solid rgba(201, 146, 42, 0.2);
+    background: linear-gradient(145deg, #181818, #0F0F0F);
+    border: 1px solid rgba(201, 146, 42, 0.25);
     border-radius: 20px;
     overflow: hidden;
     padding: 48px 36px 0;
     position: relative;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
   }
 
   .visual-bg-glow {
@@ -282,9 +284,8 @@
     50% { transform: translateY(-6px); }
   }
 
-  /* Section label for light bg */
+  /* Section label */
   #tentang .section-label { color: #C9922A; }
-  #tentang .section-title { color: #111; }
   #tentang .section-label::before { background: #C9922A; }
 
   @media (max-width: 900px) {

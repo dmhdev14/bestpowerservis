@@ -3,6 +3,7 @@ const navLinks = [
   { label: 'Tentang Kami', href: '#tentang' },
   { label: 'Visi & Misi', href: '#visi-misi' },
   { label: 'Layanan', href: '#layanan' },
+  { label: 'Proyek', href: '#proyek' },
   { label: 'Produk', href: '#produk' },
   { label: 'Keunggulan', href: '#keunggulan' },
   { label: 'Kontak', href: '#kontak' },
@@ -16,11 +17,8 @@ const navLinks = [
       <!-- Brand -->
       <div class="footer-brand">
         <a href="#hero" class="footer-logo">
-          <img src="/logo.png" alt="Best Power Servis" width="44" height="44" />
-          <div>
-            <div class="footer-logo-main">Best Power Servis</div>
-            <div class="footer-logo-sub">PT Best Power Servis</div>
-          </div>
+          <img src="/logo.webp" alt="Best Power Servis" width="50" height="50" />
+          <span class="footer-logo-text">Best Power Servis</span>
         </a>
         <p class="footer-tagline">
           "Solusi Energi dan Filtrasi Terbaik untuk Industri Anda."
@@ -79,7 +77,7 @@ const navLinks = [
   <!-- Footer Bottom -->
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <span>© 2024 PT Best Power Servis. Hak Cipta Dilindungi.</span>
+      <span>© {new Date().getFullYear()} PT Best Power Servis. Hak Cipta Dilindungi.</span>
       <span class="footer-divider">|</span>
       <span>Bekasi, Jawa Barat, Indonesia</span>
     </div>
@@ -104,22 +102,22 @@ const navLinks = [
   .footer-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     margin-bottom: 20px;
   }
 
-  .footer-logo-main {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    color: #fff;
-    letter-spacing: 0.06em;
+  .footer-logo img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
   }
 
-  .footer-logo-sub {
-    font-size: 0.68rem;
-    color: #C9922A;
-    font-weight: 600;
-    letter-spacing: 0.1em;
+  .footer-logo-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #EBB136;
+    letter-spacing: -0.01em;
   }
 
   .footer-tagline {
@@ -217,8 +215,17 @@ const navLinks = [
   }
 
   @media (max-width: 520px) {
-    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-    .footer-brand { margin-bottom: 8px; }
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 28px 16px;
+    }
+    .footer-brand {
+      grid-column: span 2;
+      margin-bottom: 4px;
+    }
+    .footer-nav-group:last-child {
+      grid-column: span 2;
+    }
     .footer-bottom-inner { flex-direction: column; gap: 6px; text-align: center; }
     .footer-divider { display: none; }
   }

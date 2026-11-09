@@ -1,0 +1,491 @@
+---
+interface ProjectItem {
+  id: string;
+  category: string;
+  categorySlug: 'rental' | 'service' | 'filtrasi';
+  title: string;
+  desc: string;
+  image: string;
+  tags: string[];
+}
+
+const projects: ProjectItem[] = [
+  {
+    id: 'proj-1',
+    category: 'Rental & Temporary Power',
+    categorySlug: 'rental',
+    title: 'Penyediaan & Instalasi Unit Genset Industri',
+    desc: 'Pengadaan dan pengoperasian unit genset silent & open type kapasitas tinggi untuk kebutuhan temporary power di lokasi proyek industri dan manufaktur.',
+    image: '/projects/project-genset.webp',
+    tags: ['Unit Silent 500+ kVA', 'Operasional 24/7', 'Wilayah Nasional'],
+  },
+  {
+    id: 'proj-2',
+    category: 'Service & Maintenance',
+    categorySlug: 'service',
+    title: 'Perawatan Berkala & Preventive Overhaul Genset',
+    desc: 'Inspeksi berkala menyeluruh, tune-up, pengujian loadbank, dan perbaikan mesin oleh teknisi berpengalaman guna meminimalkan risiko downtime operasional.',
+    image: '/projects/project-service.webp',
+    tags: ['Teknisi Ahli', 'Loadbank Testing', 'Zero Downtime Target'],
+  },
+  {
+    id: 'proj-3',
+    category: 'Sistem Filtrasi',
+    categorySlug: 'filtrasi',
+    title: 'Implementasi Sistem Fuel & Oil Filtration',
+    desc: 'Instalasi sistem filtrasi bahan bakar dan oli modern yang mampu meningkatkan efisiensi pembakaran mesin dan menghemat biaya filter pengganti hingga 50%.',
+    image: '/projects/project-filtration.webp',
+    tags: ['Hemat Biaya sd 50%', 'Fuel & Oil Filter', 'Multi-Sektor'],
+  },
+  {
+    id: 'proj-4',
+    category: 'Sistem Filtrasi',
+    categorySlug: 'filtrasi',
+    title: 'Instalasi Heavy-Duty Fuel Filtration Vessel',
+    desc: 'Pemasangan tabung bejana filtrasi bertekanan tinggi untuk membersihkan partikulat mikro dan memisahkan kadar air pada bahan bakar solar industri berat & tambang.',
+    image: '/projects/project-vessel.webp',
+    tags: ['High-Pressure Vessel', 'Pertambangan & Pabrik', 'Multi-Stage Filter'],
+  },
+];
+---
+
+<section id="proyek" class="section section-dark">
+  <div class="hex-pattern"></div>
+  <div class="container" style="position: relative; z-index: 1;">
+
+    <!-- Section Header -->
+    <div class="projects-header">
+      <div class="section-label reveal">
+        Portofolio &amp; Dokumentasi
+      </div>
+      <h2 class="section-title reveal delay-100">
+        PROYEK &amp; PEKERJAAN<br />LAPANGAN KAMI
+      </h2>
+      <p class="section-desc reveal delay-200">
+        Bukti nyata komitmen PT Best Power Servis dalam menghadirkan keandalan pasokan energi dan sistem filtrasi berkualitas tinggi di berbagai sektor industri di seluruh Indonesia.
+      </p>
+    </div>
+
+    <!-- Filter Buttons (Desktop & Mobile) -->
+    <div class="projects-filter reveal delay-200" id="projectFilter">
+      <button class="filter-btn active" data-filter="all">Semua Proyek</button>
+      <button class="filter-btn" data-filter="rental">Rental &amp; Power</button>
+      <button class="filter-btn" data-filter="service">Service &amp; Perawatan</button>
+      <button class="filter-btn" data-filter="filtrasi">Sistem Filtrasi</button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid" id="projectsGrid">
+      {projects.map((p, i) => (
+        <article
+          class={`project-card reveal delay-${((i % 2) + 1) * 100}`}
+          data-category={p.categorySlug}
+        >
+          <!-- Image Container with Aspect Ratio & Fallback -->
+          <div class="project-img-wrap">
+            <img
+              src={p.image}
+              alt={p.title}
+              loading="lazy"
+              decoding="async"
+              onerror="this.onerror=null; this.src='/logo.webp'; this.style.objectFit='contain'; this.style.padding='40px';"
+            />
+            <div class="project-overlay"></div>
+            <span class="project-badge">{p.category}</span>
+          </div>
+
+          <!-- Card Content -->
+          <div class="project-body">
+            <h3 class="project-card-title">{p.title}</h3>
+            <p class="project-card-desc">{p.desc}</p>
+
+            <!-- Tags -->
+            <ul class="project-tags">
+              {p.tags.map((tag) => (
+                <li class="project-tag-item">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>{tag}</span>
+                </li>
+              ))}
+            </ul>
+
+            <!-- Direct Project Action -->
+            <div class="project-footer">
+              <a
+                href={`https://wa.me/628111464967?text=Halo%20PT%20Best%20Power%20Servis,%20saya%20tertarik%20dengan%20proyek%20${encodeURIComponent(p.title)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-cta-link"
+              >
+                <span>Konsultasikan Kebutuhan Serupa</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Bottom Showcase Banner -->
+    <div class="projects-bottom-banner reveal delay-300">
+      <div class="banner-inner">
+        <div class="banner-text">
+          <h4>Punya Kebutuhan Energi atau Filtrasi Khusus?</h4>
+          <p>
+            Tim ahli kami siap melakukan survei lapangan, perhitungan daya beban, dan rekomendasi sistem filtrasi optimal untuk fasilitas industri Anda.
+          </p>
+        </div>
+        <a
+          href="https://wa.me/628111464967?text=Halo%20PT%20Best%20Power%20Servis,%20saya%20ingin%20berkonsultasi%20mengenai%20kebutuhan%20proyek%20perusahaan%20kami."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-gold"
+        >
+          <span>Diskusikan Proyek Anda</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #proyek {
+    background-color: #0E0E0E;
+    position: relative;
+    border-top: 1px solid rgba(201, 146, 42, 0.12);
+  }
+
+  .projects-header {
+    max-width: 660px;
+    margin-bottom: 36px;
+  }
+
+  /* Filter Tabs */
+  .projects-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .filter-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .filter-btn:hover {
+    color: #fff;
+    border-color: rgba(201, 146, 42, 0.4);
+    background: rgba(201, 146, 42, 0.08);
+  }
+
+  .filter-btn.active {
+    background: linear-gradient(135deg, #C9922A, #E8B84B);
+    color: #000;
+    border-color: transparent;
+    box-shadow: 0 4px 18px rgba(201, 146, 42, 0.35);
+  }
+
+  /* Grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-bottom: 60px;
+  }
+
+  /* Card */
+  .project-card {
+    background: #161616;
+    border: 1px solid rgba(201, 146, 42, 0.14);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+    position: relative;
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201, 146, 42, 0.45);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 24px rgba(201, 146, 42, 0.1);
+  }
+
+  .project-card.hidden-filter {
+    display: none;
+  }
+
+  /* Image Box */
+  .project-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #111111;
+  }
+
+  .project-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .project-card:hover .project-img-wrap img {
+    transform: scale(1.06);
+  }
+
+  .project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(14,14,14,0.7) 100%);
+    pointer-events: none;
+  }
+
+  .project-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #E8B84B;
+    border: 1px solid rgba(201, 146, 42, 0.35);
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* Body */
+  .project-body {
+    padding: 26px 28px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .project-card-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    transition: color 0.25s ease;
+  }
+
+  .project-card:hover .project-card-title {
+    color: #F5C658;
+  }
+
+  .project-card-desc {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+
+  /* Tags */
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .project-tag-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(201, 146, 42, 0.08);
+    border: 1px solid rgba(201, 146, 42, 0.2);
+    color: #E8B84B;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.74rem;
+    font-weight: 600;
+  }
+
+  .project-tag-item svg {
+    color: #C9922A;
+    flex-shrink: 0;
+  }
+
+  /* Footer Action */
+  .project-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 16px;
+    margin-top: auto;
+  }
+
+  .project-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #C9922A;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: gap 0.25s ease, color 0.25s ease;
+  }
+
+  .project-cta-link:hover {
+    color: #F5C658;
+    gap: 12px;
+  }
+
+  /* Bottom Banner */
+  .projects-bottom-banner {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.85), rgba(16, 16, 16, 0.95));
+    border: 1px solid rgba(201, 146, 42, 0.25);
+    border-radius: 16px;
+    padding: 36px 40px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .banner-text h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .banner-text p {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  .banner-inner .btn {
+    flex-shrink: 0;
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 900px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .banner-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .banner-inner .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .projects-header {
+      margin-bottom: 24px;
+    }
+    .projects-filter {
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .filter-btn {
+      padding: 6px 14px;
+      font-size: 0.76rem;
+    }
+    .project-card {
+      border-radius: 14px;
+    }
+    .project-img-wrap {
+      aspect-ratio: 16 / 10;
+    }
+    .project-body {
+      padding: 18px 16px;
+    }
+    .project-card-title {
+      font-size: 1.05rem;
+    }
+    .project-card-desc {
+      font-size: 0.84rem;
+      margin-bottom: 16px;
+    }
+    .project-tags {
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .project-tag-item {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+    }
+    .projects-bottom-banner {
+      padding: 24px 18px;
+      border-radius: 14px;
+    }
+    .banner-text h4 {
+      font-size: 1.35rem;
+    }
+    .banner-text p {
+      font-size: 0.82rem;
+    }
+  }
+</style>
+
+<script>
+  // Filter tabs logic
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  if (filterBtns.length > 0 && projectCards.length > 0) {
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetCategory = btn.getAttribute('data-filter');
+
+        filterBtns.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        projectCards.forEach((card) => {
+          const cardCategory = card.getAttribute('data-category');
+          if (targetCategory === 'all' || cardCategory === targetCategory) {
+            (card as HTMLElement).classList.remove('hidden-filter');
+          } else {
+            (card as HTMLElement).classList.add('hidden-filter');
+          }
+        });
+      });
+    });
+  }
+</script>
+

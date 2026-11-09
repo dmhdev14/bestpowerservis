@@ -16,17 +16,17 @@ const advantages = [
 ];
 ---
 
-<section id="produk" class="section" style="background: #F5F2ED;">
-  <div class="container">
+<section id="produk" class="section section-dark">
+  <div class="hex-pattern"></div>
+  <div class="container" style="position: relative; z-index: 1;">
 
     <!-- Header -->
     <div class="products-header">
-      <div class="section-label reveal" style="color: #C9922A;">
-        <span style="background:#C9922A;display:block;width:32px;height:2px;"></span>
+      <div class="section-label reveal">
         Produk Kami
       </div>
-      <h2 class="section-title text-dark reveal delay-100">SOLUSI FILTRASI<br/>INDUSTRI LENGKAP</h2>
-      <p class="section-desc reveal delay-200" style="color: #666;">
+      <h2 class="section-title reveal delay-100">SOLUSI FILTRASI<br/>INDUSTRI LENGKAP</h2>
+      <p class="section-desc reveal delay-200">
         Kami menyediakan replacement filter element dari brand-brand global terpercaya dengan harga kompetitif dan kualitas terjamin.
       </p>
     </div>
@@ -152,7 +152,7 @@ const advantages = [
 </section>
 
 <style>
-  #produk { background: #F5F2ED; }
+  #produk { background: #121212; }
 
   .products-header {
     max-width: 640px;
@@ -206,8 +206,8 @@ const advantages = [
   }
 
   .brand-card {
-    background: #fff;
-    border: 1px solid rgba(0,0,0,0.08);
+    background: #181818;
+    border: 1px solid rgba(201, 146, 42, 0.15);
     border-radius: 12px;
     padding: 24px 16px;
     text-align: center;
@@ -215,13 +215,14 @@ const advantages = [
     overflow: hidden;
     cursor: default;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
 
   .brand-card:hover {
-    border-color: rgba(201, 146, 42, 0.4);
+    border-color: rgba(201, 146, 42, 0.5);
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(201,146,42,0.15);
+    box-shadow: 0 10px 30px rgba(201, 146, 42, 0.2);
+    background: #1E1E1E;
   }
 
   .brand-abbr {
@@ -236,14 +237,14 @@ const advantages = [
   .brand-name {
     font-size: 0.82rem;
     font-weight: 700;
-    color: #111;
+    color: #FFFFFF;
     margin-bottom: 2px;
     letter-spacing: 0.03em;
   }
 
   .brand-label {
     font-size: 0.68rem;
-    color: #888;
+    color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
     letter-spacing: 0.1em;
   }
@@ -274,12 +275,12 @@ const advantages = [
     display: inline-flex;
     align-items: center;
     padding: 6px 14px;
-    background: #fff;
-    border: 1px dashed rgba(201, 146, 42, 0.4);
+    background: rgba(201, 146, 42, 0.08);
+    border: 1px dashed rgba(201, 146, 42, 0.35);
     border-radius: 100px;
     font-size: 0.78rem;
     font-weight: 600;
-    color: #C9922A;
+    color: #E8B84B;
   }
 
   /* Filter advantages */
@@ -287,9 +288,11 @@ const advantages = [
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    background: #111;
+    background: #161616;
+    border: 1px solid rgba(201, 146, 42, 0.15);
     border-radius: 16px;
     padding: 28px 32px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   }
 
   .adv-item {
@@ -326,7 +329,7 @@ const advantages = [
   .vessel-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
-    color: #111;
+    color: #FFFFFF;
     margin-bottom: 16px;
     letter-spacing: 0.04em;
   }
@@ -334,7 +337,7 @@ const advantages = [
   .vessel-desc {
     font-size: 0.95rem;
     line-height: 1.8;
-    color: #555;
+    color: var(--text-silver);
     margin-bottom: 24px;
   }
 
@@ -351,7 +354,7 @@ const advantages = [
     gap: 10px;
     font-size: 0.88rem;
     font-weight: 500;
-    color: #333;
+    color: rgba(255, 255, 255, 0.85);
   }
 
   /* Vessel visual card */
@@ -418,18 +421,23 @@ const advantages = [
   }
 
   @media (max-width: 480px) {
-    .brands-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .brand-card { padding: 18px 10px; border-radius: 10px; }
-    .brand-abbr { font-size: 1.7rem; }
-    .brand-name { font-size: 0.78rem; }
-    .brand-label { font-size: 0.62rem; }
-    .brand-plus { gap: 8px; margin-bottom: 24px; }
-    .plus-badge { font-size: 0.72rem; padding: 6px 12px; }
-    .filter-advantages { grid-template-columns: 1fr; padding: 16px; gap: 12px; }
-    .vessel-card { padding: 32px 18px; border-radius: 14px; max-width: 100%; }
+    .brands-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
+    .brand-card { padding: 14px 6px; border-radius: 10px; }
+    .brand-abbr { font-size: 1.45rem; margin-bottom: 2px; }
+    .brand-name { font-size: 0.72rem; }
+    .brand-label { font-size: 0.58rem; }
+    .brand-plus { gap: 6px; margin-bottom: 20px; justify-content: center; }
+    .plus-badge { font-size: 0.7rem; padding: 5px 10px; }
+    .filter-advantages { grid-template-columns: 1fr 1fr; padding: 16px 12px; gap: 12px; border-radius: 12px; }
+    .adv-item { gap: 8px; }
+    .adv-icon { font-size: 1.25rem; }
+    .adv-text { font-size: 0.76rem; }
+    .adv-sub { font-size: 0.65rem; }
+    .vessel-card { padding: 28px 16px; border-radius: 14px; max-width: 100%; }
+    .vessel-icon-wrap svg { width: 90px; height: 120px; }
     .vessel-content .btn { width: 100%; justify-content: center; min-height: 48px; }
-    .vessel-title { font-size: 1.6rem; }
-    .vessel-desc { font-size: 0.92rem; line-height: 1.65; }
-    .vessel-features li { font-size: 0.85rem; }
+    .vessel-title { font-size: 1.55rem; }
+    .vessel-desc { font-size: 0.88rem; line-height: 1.6; }
+    .vessel-features li { font-size: 0.82rem; }
   }
 </style>

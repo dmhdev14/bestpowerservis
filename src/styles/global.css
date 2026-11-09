@@ -63,7 +63,6 @@ body {
   color: var(--text-white);
   overflow-x: hidden;
   width: 100%;
-  cursor: none;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -75,41 +74,6 @@ a {
 }
 
 ul { list-style: none; }
-
-/* =========================================
-   CUSTOM CURSOR
-   ========================================= */
-.cursor-dot {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  background: var(--gold);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.1s ease;
-  transform: translate(-50%, -50%);
-}
-
-.cursor-ring {
-  position: fixed;
-  width: 36px;
-  height: 36px;
-  border: 1.5px solid var(--gold);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-  transform: translate(-50%, -50%);
-  opacity: 0.6;
-}
-
-.cursor-ring.hovering {
-  width: 56px;
-  height: 56px;
-  opacity: 1;
-  border-color: var(--gold-light);
-}
 
 /* =========================================
    SCROLLBAR
@@ -394,8 +358,6 @@ ul { list-style: none; }
 @media (max-width: 768px) {
   .section { padding: 68px 0; }
   .container { padding: 0 20px; }
-  body { cursor: auto !important; }
-  .cursor-dot, .cursor-ring { display: none !important; }
   .section-title { font-size: clamp(2rem, 8vw, 3.2rem); }
   .section-desc { font-size: 0.95rem; line-height: 1.65; }
 }

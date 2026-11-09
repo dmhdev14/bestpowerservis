@@ -27,16 +27,20 @@ const missions = [
   <div class="hex-pattern"></div>
 
   <div class="container" style="position: relative; z-index: 1;">
-    <!-- Visi -->
-    <div class="visi-block">
-      <div class="section-label reveal">Visi</div>
-      <h2 class="visi-title reveal delay-100">
-        Menjadi mitra terpercaya dalam penyediaan
-        <span class="visi-highlight">solusi energi</span> dan
-        <span class="visi-highlight">sistem filtrasi industri</span>
-        dengan menghadirkan produk berkualitas tinggi yang inovatif dan efisien.
-      </h2>
-      <div class="gold-divider reveal delay-200" style="margin: 0 auto;"></div>
+    <!-- Visi Card -->
+    <div class="visi-block reveal">
+      <div class="visi-card">
+        <div class="visi-quote-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+          </svg>
+        </div>
+        <div class="section-label" style="justify-content: center; margin-bottom: 18px;">Visi Perusahaan</div>
+        <blockquote class="visi-text">
+          "Menjadi mitra terpercaya dalam penyediaan <span class="visi-highlight">solusi energi</span> dan <span class="visi-highlight">sistem filtrasi industri</span> dengan menghadirkan produk berkualitas tinggi yang inovatif dan efisien."
+        </blockquote>
+        <div class="gold-divider" style="margin: 24px auto 0;"></div>
+      </div>
     </div>
 
     <!-- Misi -->
@@ -44,6 +48,7 @@ const missions = [
       <div class="misi-header reveal">
         <div class="section-label">Misi</div>
         <h3 class="misi-title">Langkah Kami Mewujudkan Visi</h3>
+        <p class="misi-sub">5 pilar komitmen operasional PT Best Power Servis untuk kepuasan pelanggan.</p>
       </div>
 
       <div class="misi-grid">
@@ -63,92 +68,130 @@ const missions = [
 <style>
   #visi-misi {
     background: #0A0A0A;
-    text-align: center;
+    position: relative;
+    overflow: hidden;
   }
 
   /* Visi */
   .visi-block {
-    max-width: 800px;
-    margin: 0 auto 80px;
+    max-width: 940px;
+    margin: 0 auto 90px;
+    text-align: center;
   }
 
-  .visi-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    line-height: 1.2;
-    color: rgba(255,255,255,0.85);
-    letter-spacing: 0.04em;
-    margin-bottom: 28px;
+  .visi-card {
+    background: linear-gradient(145deg, rgba(26,26,26,0.6), rgba(13,13,13,0.85));
+    border: 1px solid rgba(201, 146, 42, 0.22);
+    border-radius: 20px;
+    padding: 44px 52px;
+    position: relative;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(201, 146, 42, 0.03);
+    backdrop-filter: blur(10px);
+  }
+
+  .visi-quote-icon {
+    color: rgba(201, 146, 42, 0.35);
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .visi-text {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+    line-height: 1.65;
+    color: #FFFFFF;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    max-width: 800px;
+    margin: 0 auto;
+    font-style: normal;
   }
 
   .visi-highlight {
-    color: #C9922A;
+    color: #E8B84B;
+    font-weight: 600;
     position: relative;
-  }
-
-  .visi-highlight::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #C9922A, #E8B84B);
-    border-radius: 2px;
+    text-shadow: 0 0 24px rgba(201, 146, 42, 0.25);
   }
 
   /* Misi */
   .misi-block { text-align: left; }
 
   .misi-header {
-    margin-bottom: 48px;
+    margin-bottom: 40px;
   }
 
   .misi-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     color: #fff;
     letter-spacing: 0.04em;
+    line-height: 1.1;
+    margin-bottom: 8px;
   }
 
+  .misi-sub {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 540px;
+  }
+
+  /* 2 + 3 Bento Grid on Desktop */
   .misi-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 24px;
   }
 
+  /* Row 1: 2 items, each 3 cols (50% width) */
+  .misi-grid > *:nth-child(1),
+  .misi-grid > *:nth-child(2) {
+    grid-column: span 3;
+  }
+
+  /* Row 2: 3 items, each 2 cols (33.3% width) */
+  .misi-grid > *:nth-child(3),
+  .misi-grid > *:nth-child(4),
+  .misi-grid > *:nth-child(5) {
+    grid-column: span 2;
+  }
+
   .misi-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(201, 146, 42, 0.12);
+    background: #141414;
+    border: 1px solid rgba(201, 146, 42, 0.15);
     border-radius: 16px;
-    padding: 32px 28px;
+    padding: 34px 28px;
     position: relative;
     overflow: hidden;
     transition: all 0.35s ease;
     cursor: default;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   .misi-card:hover {
-    background: rgba(201, 146, 42, 0.05);
-    border-color: rgba(201, 146, 42, 0.35);
+    background: #1A1A1A;
+    border-color: rgba(201, 146, 42, 0.45);
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 24px rgba(201, 146, 42, 0.08);
   }
 
   .misi-number {
     position: absolute;
-    top: 16px;
-    right: 20px;
+    top: 18px;
+    right: 22px;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3.5rem;
-    color: rgba(201, 146, 42, 0.06);
+    color: rgba(201, 146, 42, 0.09);
     line-height: 1;
     pointer-events: none;
     transition: color 0.35s ease;
   }
 
   .misi-card:hover .misi-number {
-    color: rgba(201, 146, 42, 0.12);
+    color: rgba(201, 146, 42, 0.22);
   }
 
   .misi-icon {
@@ -158,20 +201,22 @@ const missions = [
     align-items: center;
     justify-content: center;
     background: rgba(201, 146, 42, 0.1);
+    border: 1px solid rgba(201, 146, 42, 0.2);
     border-radius: 12px;
-    color: #C9922A;
+    color: #E8B84B;
     margin-bottom: 20px;
-    transition: background 0.35s ease;
+    transition: all 0.35s ease;
   }
 
   .misi-card:hover .misi-icon {
-    background: rgba(201, 146, 42, 0.18);
+    background: rgba(201, 146, 42, 0.2);
+    box-shadow: 0 0 16px rgba(201, 146, 42, 0.2);
   }
 
   .misi-text {
-    font-size: 0.92rem;
-    line-height: 1.75;
-    color: rgba(255,255,255,0.6);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.75);
   }
 
   .misi-line {
@@ -187,26 +232,50 @@ const missions = [
 
   .misi-card:hover .misi-line { transform: scaleX(1); }
 
-  /* Last card spans full width on 5-item grid */
-  .misi-grid > *:last-child:nth-child(3n + 2) {
-    grid-column: 2 / 3;
-  }
-
-  @media (max-width: 900px) {
-    .misi-grid { grid-template-columns: 1fr 1fr; }
-    .misi-grid > *:last-child:nth-child(3n + 2) { grid-column: auto; }
+  @media (max-width: 992px) {
+    .misi-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .misi-grid > *:nth-child(1),
+    .misi-grid > *:nth-child(2),
+    .misi-grid > *:nth-child(3),
+    .misi-grid > *:nth-child(4) {
+      grid-column: span 1;
+    }
+    .misi-grid > *:nth-child(5) {
+      grid-column: span 2;
+    }
   }
 
   @media (max-width: 600px) {
-    .visi-block { margin-bottom: 48px; text-align: left; }
-    .visi-title { font-size: 1.65rem; line-height: 1.25; margin-bottom: 20px; }
-    .gold-divider { margin: 0 !important; }
-    .misi-header { margin-bottom: 28px; }
-    .misi-grid { grid-template-columns: 1fr; gap: 16px; }
-    .misi-card { padding: 24px 20px; border-radius: 12px; }
-    .misi-icon { width: 42px; height: 42px; margin-bottom: 16px; }
-    .misi-number { font-size: 2.8rem; top: 12px; right: 16px; }
-    .misi-text { font-size: 0.88rem; line-height: 1.65; }
-    #visi-misi { text-align: left; }
+    .visi-block { margin-bottom: 44px; }
+    .visi-card { padding: 28px 18px; border-radius: 14px; }
+    .visi-text { font-size: 1.02rem; line-height: 1.55; }
+    .misi-header { margin-bottom: 24px; }
+    .misi-title { font-size: 1.85rem; }
+    .misi-sub { font-size: 0.85rem; }
+    .misi-grid { grid-template-columns: 1fr; gap: 12px; }
+    .misi-grid > *:nth-child(5) { grid-column: auto; }
+    .misi-card {
+      padding: 16px 18px;
+      border-radius: 12px;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .misi-icon {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      margin-bottom: 0;
+      border-radius: 10px;
+    }
+    .misi-icon :global(svg) {
+      width: 20px;
+      height: 20px;
+    }
+    .misi-number { display: none; }
+    .misi-text { font-size: 0.86rem; line-height: 1.55; }
   }
 </style>
