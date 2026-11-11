@@ -231,7 +231,6 @@ const {
 
       // Navbar — throttled scroll handler
       const navbar = document.getElementById('navbar');
-      let lastScroll = 0;
       let scrollTicking = false;
 
       window.addEventListener('scroll', () => {
@@ -252,7 +251,6 @@ const {
               link.classList.toggle('active', link.getAttribute('href') === '#' + current);
             });
 
-            lastScroll = currentScroll;
             scrollTicking = false;
           });
           scrollTicking = true;
