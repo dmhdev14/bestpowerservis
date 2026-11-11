@@ -1,27 +1,40 @@
 ---
 const navLinks = [
-  { label: 'Tentang Kami', href: '#tentang' },
-  { label: 'Visi & Misi', href: '#visi-misi' },
-  { label: 'Layanan', href: '#layanan' },
-  { label: 'Proyek', href: '#proyek' },
-  { label: 'Produk', href: '#produk' },
-  { label: 'Keunggulan', href: '#keunggulan' },
-  { label: 'Kontak', href: '#kontak' },
+  { label: 'Beranda', href: '/' },
+  { label: 'Tentang Kami', href: '/tentang' },
+  { label: 'Visi & Misi', href: '/visi-misi' },
+  { label: 'Layanan', href: '/layanan' },
+  { label: 'Proyek', href: '/proyek' },
+  { label: 'Produk', href: '/produk' },
+  { label: 'Keunggulan', href: '/keunggulan' },
+  { label: 'Kontak', href: '/kontak' },
 ];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isLinkActive = (href: string) => {
+  if (href === '/') return currentPath === '/';
+  return currentPath === href || currentPath.startsWith(`${href}/`);
+};
 ---
 
 <header id="navbar">
   <div class="nav-container">
     <!-- Logo -->
-    <a href="#hero" class="nav-logo">
+    <a href="/" class="nav-logo">
       <img src="/logo.webp" alt="Best Power Servis Logo" width="52" height="52" />
       <span class="nav-logo-text">Best Power Servis</span>
     </a>
 
     <!-- Desktop Links -->
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Navigasi Utama">
       {navLinks.map(link => (
-        <a href={link.href} class="nav-link">{link.label}</a>
+        <a
+          href={link.href}
+          class={`nav-link ${isLinkActive(link.href) ? 'active' : ''}`}
+          aria-current={isLinkActive(link.href) ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
       ))}
     </nav>
 
@@ -36,7 +49,13 @@ const navLinks = [
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     {navLinks.map(link => (
-      <a href={link.href} class="mobile-link">{link.label}</a>
+      <a
+        href={link.href}
+        class={`mobile-link ${isLinkActive(link.href) ? 'active' : ''}`}
+        aria-current={isLinkActive(link.href) ? 'page' : undefined}
+      >
+        {link.label}
+      </a>
     ))}
   </div>
 </header>
@@ -67,20 +86,20 @@ const navLinks = [
     padding: 0 40px;
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 24px;
   }
 
   /* Logo */
   .nav-logo {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     flex-shrink: 0;
   }
 
   .nav-logo img {
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
     object-fit: contain;
     filter: brightness(1.1);
     transition: transform 0.3s ease;
@@ -89,7 +108,7 @@ const navLinks = [
 
   .nav-logo-text {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(1.18rem, 1.8vw, 1.45rem);
+    font-size: clamp(1.12rem, 1.6vw, 1.38rem);
     font-weight: 800;
     color: #EBB136;
     letter-spacing: -0.01em;
@@ -107,28 +126,29 @@ const navLinks = [
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     margin-left: auto;
   }
 
   .nav-link {
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: rgba(255,255,255,0.75);
-    padding: 8px 14px;
+    padding: 8px 11px;
     border-radius: 6px;
     transition: color 0.25s ease, background 0.25s ease;
     letter-spacing: 0.01em;
     position: relative;
+    white-space: nowrap;
   }
 
   .nav-link::after {
     content: '';
     position: absolute;
     bottom: 2px;
-    left: 14px;
-    right: 14px;
-    height: 1px;
+    left: 11px;
+    right: 11px;
+    height: 1.5px;
     background: #C9922A;
     transform: scaleX(0);
     transform-origin: center;
@@ -138,6 +158,11 @@ const navLinks = [
   .nav-link:hover,
   .nav-link.active {
     color: #fff;
+  }
+
+  .nav-link.active {
+    color: #E8B84B;
+    font-weight: 600;
   }
 
   .nav-link:hover::after,
@@ -220,7 +245,7 @@ const navLinks = [
                 padding 0.35s ease;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
   }
 
   .mobile-menu.open {
@@ -235,38 +260,48 @@ const navLinks = [
   .mobile-link {
     font-size: 1rem;
     font-weight: 500;
-    color: rgba(255,255,255,0.85);
-    padding: 13px 0;
+    color: rgba(255,255,255,0.8);
+    padding: 12px 0;
     border-bottom: 1px solid rgba(255,255,255,0.06);
     transition: color 0.2s ease, padding-left 0.2s ease;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-  .mobile-link:hover {
+  .mobile-link:last-child {
+    border-bottom: none;
+  }
+  .mobile-link:hover,
+  .mobile-link.active {
     color: #E8B84B;
     padding-left: 6px;
   }
+  .mobile-link.active {
+    font-weight: 700;
+  }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1024px) {
     header { padding: 14px 0; }
     header.scrolled { padding: 10px 0; }
+    .nav-container { padding: 0 24px; gap: 0; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
-    .nav-container { gap: 0; }
   }
 
   @media (max-width: 480px) {
     .nav-container { padding: 0 16px; }
     .nav-logo { gap: 10px; }
     .nav-logo img { width: 38px; height: 38px; }
-    .nav-logo-text { font-size: 1.12rem; }
+    .nav-logo-text { font-size: 1.08rem; }
     .mobile-menu {
       padding: 0 20px;
     }
     .mobile-menu.open {
-      padding: 14px 20px 24px;
+      padding: 12px 20px 22px;
     }
     .mobile-link {
-      padding: 13px 0;
+      padding: 12px 0;
       font-size: 0.95rem;
     }
   }
