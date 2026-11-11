@@ -41,9 +41,20 @@ const {
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Skip loader synchronously on repeat page navigations within the same session -->
+    <script is:inline>
+      try {
+        if (window.sessionStorage && window.sessionStorage.getItem('bps_visited')) {
+          document.documentElement.classList.add('skip-loader');
+        }
+      } catch (e) {
+        // Ignore storage restrictions
+      }
+    </script>
   </head>
   <body>
-    <!-- Page Loader (only shown once per session) -->
+    <!-- Page Loader (shown once per session) -->
     <div id="pageLoader">
       <div class="loader-inner">
         <img src="/logo.webp" alt="Best Power Servis" width="64" height="64" />
@@ -52,15 +63,6 @@ const {
         </div>
       </div>
     </div>
-    <script is:inline>
-      try {
-        if (sessionStorage.getItem('bps_visited')) {
-          document.getElementById('pageLoader')?.classList.add('hidden');
-        } else {
-          sessionStorage.setItem('bps_visited', '1');
-        }
-      } catch {}
-    </script>
 
     <Navbar />
 
@@ -86,6 +88,9 @@ const {
     </a>
 
     <style>
+      html.skip-loader #pageLoader {
+        display: none !important;
+      }
       #pageLoader {
         position: fixed;
         inset: 0;
@@ -190,123 +195,145 @@ const {
     </style>
 
     <script>
-      // Page Loader with fast safety fallback
-      const hidePageLoader = () => {
-        const loader = document.getElementById('pageLoader');
-        if (loader && !loader.classList.contains('hidden')) {
-          loader.classList.add('hidden');
+      function initLayout(): void {
+        // Mark session visited and hide page loader safely
+        try {
+          window.sessionStorage.setItem('bps_visited', '1');
+        } catch {
+          // Ignore storage restrictions
         }
-      };
 
-      window.addEventListener('load', () => {
-        setTimeout(hidePageLoader, 450);
-      });
-      setTimeout(hidePageLoader, 1500);
-
-      // Immediately reveal above-the-fold elements on both Home and Subpages
-      document.querySelectorAll('#hero .reveal, .subpage-main > section:first-child .reveal, .subpage-main > section:first-child .reveal-left, .subpage-main > section:first-child .reveal-right').forEach((el) => {
-        el.classList.add('visible');
-      });
-
-      // Intersection Observer for reveal animations
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+        const hidePageLoader = (): void => {
+          const loader = document.getElementById('pageLoader');
+          if (loader && !loader.classList.contains('hidden')) {
+            loader.classList.add('hidden');
           }
-        });
-      }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
-
-      document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el) => {
-        revealObserver.observe(el);
-      });
-
-      // Counter animation (shared — used by About, Hero & Products sections)
-      function animateCounter(el: Element) {
-        const target = parseInt(el.getAttribute('data-target') || '0');
-        const duration = 1800;
-        const start = performance.now();
-        function update(now: number) {
-          const progress = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.floor(eased * target).toLocaleString();
-          if (progress < 1) requestAnimationFrame(update);
-        }
-        requestAnimationFrame(update);
-      }
-
-      const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-            entry.target.classList.add('counted');
-            animateCounter(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
-
-      document.querySelectorAll('[data-counter]').forEach((el) => {
-        counterObserver.observe(el);
-      });
-
-      // Navbar — throttled scroll handler
-      const navbar = document.getElementById('navbar');
-      let scrollTicking = false;
-
-      const updateNavbarScroll = () => {
-        if (navbar) {
-          navbar.classList.toggle('scrolled', window.scrollY > 30);
-        }
-      };
-      updateNavbarScroll();
-
-      window.addEventListener('scroll', () => {
-        if (!scrollTicking) {
-          requestAnimationFrame(() => {
-            updateNavbarScroll();
-            scrollTicking = false;
-          });
-          scrollTicking = true;
-        }
-      });
-
-      // Mobile menu
-      const menuBtn = document.getElementById('menuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      if (menuBtn && mobileMenu) {
-        const toggleMenu = (open?: boolean) => {
-          const shouldOpen = open !== undefined ? open : !mobileMenu.classList.contains('open');
-          mobileMenu.classList.toggle('open', shouldOpen);
-          menuBtn.classList.toggle('active', shouldOpen);
-          menuBtn.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
         };
 
-        menuBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          toggleMenu();
+        window.addEventListener('load', () => {
+          window.setTimeout(hidePageLoader, 450);
+        });
+        window.setTimeout(hidePageLoader, 1500);
+
+        // Immediately reveal above-the-fold elements on both Home and Subpages
+        const aboveFoldSelectors =
+          '#hero .reveal, .subpage-main > section:first-child .reveal, .subpage-main > section:first-child .reveal-left, .subpage-main > section:first-child .reveal-right';
+        document.querySelectorAll(aboveFoldSelectors).forEach((el) => {
+          el.classList.add('visible');
         });
 
-        mobileMenu.querySelectorAll('a').forEach((link) => {
-          link.addEventListener('click', () => {
-            toggleMenu(false);
+        // Intersection Observer for reveal animations
+        const revealObserver = new IntersectionObserver(
+          (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+              }
+            });
+          },
+          { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
+        );
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el) => {
+          revealObserver.observe(el);
+        });
+
+        // Counter animation (shared — used by About, Hero & Products sections)
+        const animateCounter = (el: Element): void => {
+          const target = parseInt(el.getAttribute('data-target') || '0', 10);
+          const duration = 1800;
+          const start = performance.now();
+
+          const update = (now: number): void => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(eased * target).toLocaleString();
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            }
+          };
+
+          requestAnimationFrame(update);
+        };
+
+        const counterObserver = new IntersectionObserver(
+          (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                entry.target.classList.add('counted');
+                animateCounter(entry.target);
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+
+        document.querySelectorAll('[data-counter]').forEach((el) => {
+          counterObserver.observe(el);
+        });
+
+        // Navbar — throttled scroll handler
+        const navbar = document.getElementById('navbar');
+        let scrollTicking = false;
+
+        const updateNavbarScroll = (): void => {
+          if (navbar) {
+            navbar.classList.toggle('scrolled', window.scrollY > 30);
+          }
+        };
+        updateNavbarScroll();
+
+        window.addEventListener('scroll', () => {
+          if (!scrollTicking) {
+            requestAnimationFrame(() => {
+              updateNavbarScroll();
+              scrollTicking = false;
+            });
+            scrollTicking = true;
+          }
+        });
+
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuBtn && mobileMenu) {
+          const toggleMenu = (open?: boolean): void => {
+            const shouldOpen = open !== undefined ? open : !mobileMenu.classList.contains('open');
+            mobileMenu.classList.toggle('open', shouldOpen);
+            menuBtn.classList.toggle('active', shouldOpen);
+            menuBtn.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+          };
+
+          menuBtn.addEventListener('click', (e: Event) => {
+            e.stopPropagation();
+            toggleMenu();
           });
-        });
 
-        document.addEventListener('click', (e) => {
-          if (
-            mobileMenu.classList.contains('open') &&
-            !mobileMenu.contains(e.target as Node) &&
-            !menuBtn.contains(e.target as Node)
-          ) {
-            toggleMenu(false);
-          }
-        });
+          mobileMenu.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+              toggleMenu(false);
+            });
+          });
 
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
-            toggleMenu(false);
-          }
-        });
+          document.addEventListener('click', (e: Event) => {
+            if (
+              mobileMenu.classList.contains('open') &&
+              !mobileMenu.contains(e.target as Node) &&
+              !menuBtn.contains(e.target as Node)
+            ) {
+              toggleMenu(false);
+            }
+          });
+
+          document.addEventListener('keydown', (e: KeyboardEvent) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+              toggleMenu(false);
+            }
+          });
+        }
       }
+
+      initLayout();
     </script>
   </body>
 </html>
