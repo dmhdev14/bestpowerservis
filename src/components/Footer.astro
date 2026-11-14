@@ -1,20 +1,5 @@
 ---
 import { logoBase64 } from '../data/logo';
-
-const navLinks = [
-  { label: 'Beranda', href: '/' },
-  { label: 'Portofolio Proyek', href: '/proyek' },
-  { label: 'Katalog Produk', href: '/produk' },
-  { label: 'Kontak & Konsultasi', href: '/kontak' },
-];
-
-const serviceLinks = [
-  { label: 'Rental Genset & Loadbank', href: '/layanan' },
-  { label: 'Service & Perawatan Mesin', href: '/layanan' },
-  { label: 'Penyediaan Suku Cadang', href: '/layanan' },
-  { label: 'Sistem Filtrasi Industri', href: '/layanan' },
-  { label: 'Part Filter Brand Global', href: '/produk' },
-];
 ---
 
 <footer id="footer">
@@ -66,43 +51,7 @@ const serviceLinks = [
         </div>
       </div>
 
-      <!-- Column 2: Navigation Links -->
-      <div class="footer-nav-group">
-        <div class="footer-nav-title">
-          <span>Navigasi</span>
-          <div class="footer-title-bar"></div>
-        </div>
-        <ul class="footer-nav">
-          {navLinks.map(l => (
-            <li>
-              <a href={l.href}>
-                <span class="f-link-arrow">›</span>
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Column 3: Services -->
-      <div class="footer-nav-group">
-        <div class="footer-nav-title">
-          <span>Layanan Utama</span>
-          <div class="footer-title-bar"></div>
-        </div>
-        <ul class="footer-nav">
-          {serviceLinks.map(s => (
-            <li>
-              <a href={s.href}>
-                <span class="f-link-arrow">›</span>
-                {s.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Column 4: Location & Operating Info -->
+      <!-- Column 2: Location & Operating Info -->
       <div class="footer-nav-group">
         <div class="footer-nav-title">
           <span>Kantor Operasional</span>
@@ -194,8 +143,9 @@ const serviceLinks = [
 
   .footer-grid {
     display: grid;
-    grid-template-columns: 2.2fr 1fr 1.3fr 1.8fr;
-    gap: 48px;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: start;
   }
 
   /* =========================================
@@ -313,7 +263,7 @@ const serviceLinks = [
   }
 
   /* =========================================
-     COLUMNS 2 & 3: NAV GROUPS
+     COLUMN 2: LOCATION & OPERATIONAL
      ========================================= */
   .footer-nav-title {
     margin-bottom: 22px;
@@ -336,46 +286,6 @@ const serviceLinks = [
     margin-top: 6px;
     border-radius: 2px;
   }
-
-  .footer-nav {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .footer-nav a {
-    font-size: 0.86rem;
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.25s ease;
-  }
-
-  .f-link-arrow {
-    color: rgba(201, 146, 42, 0.4);
-    font-size: 1rem;
-    line-height: 1;
-    transition: transform 0.25s ease, color 0.25s ease;
-  }
-
-  .footer-nav a:hover {
-    color: #FFFFFF;
-    transform: translateX(3px);
-  }
-
-  .footer-nav a:hover .f-link-arrow {
-    color: #E8B84B;
-    transform: translateX(2px);
-  }
-
-  /* =========================================
-     COLUMN 4: LOCATION & OPERATIONAL
-     ========================================= */
   .footer-address-box {
     display: flex;
     align-items: flex-start;
@@ -504,27 +414,17 @@ const serviceLinks = [
   /* =========================================
      RESPONSIVE BREAKPOINTS
      ========================================= */
-  @media (max-width: 1024px) {
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 40px 32px;
-    }
-    .footer-brand {
-      grid-column: span 2;
-    }
-  }
-
-  @media (max-width: 600px) {
+  @media (max-width: 860px) {
     .footer-top {
       padding: 50px 0 36px;
     }
     .footer-grid {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 36px;
     }
-    .footer-brand {
-      grid-column: span 1;
-    }
+  }
+
+  @media (max-width: 600px) {
     .footer-bottom-inner {
       flex-direction: column;
       align-items: flex-start;
