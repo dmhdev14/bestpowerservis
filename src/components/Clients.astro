@@ -1,0 +1,206 @@
+---
+import { clients } from '../data/clients';
+
+// Double the list for infinite seamless marquee loop
+const marqueeList = [...clients, ...clients];
+---
+
+<section id="klien" class="clients-section">
+  <div class="container">
+
+    <!-- Simple Sleek Header -->
+    <div class="clients-header">
+      <h2 class="clients-title">OUR CLIENTS</h2>
+    </div>
+
+  </div>
+
+  <!-- Infinite Marquee Track -->
+  <div class="marquee-wrapper">
+    <div class="marquee-gradient marquee-gradient-left"></div>
+    <div class="marquee-gradient marquee-gradient-right"></div>
+    
+    <div class="marquee-track" id="marqueeTrack">
+      {marqueeList.map((client, idx) => (
+        <div class="marquee-item" title={client.name} key={`m-${client.id}-${idx}`}>
+          <div class="marquee-card">
+            <img
+              src={client.logo}
+              alt={client.name}
+              loading="lazy"
+              width="190"
+              height="60"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .clients-section {
+    background: #090909;
+    padding: 50px 0 54px;
+    position: relative;
+    border-top: 1px solid rgba(201, 146, 42, 0.15);
+    border-bottom: 1px solid rgba(201, 146, 42, 0.15);
+    overflow: hidden;
+  }
+
+  /* =========================================
+     SIMPLE HEADER
+     ========================================= */
+  .clients-header {
+    text-align: center;
+    margin: 0 auto 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .clients-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.12rem;
+    font-weight: 800;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #E8B84B;
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    margin: 0;
+  }
+
+  .clients-title::before,
+  .clients-title::after {
+    content: '';
+    width: 48px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, #C9922A);
+  }
+
+  .clients-title::after {
+    background: linear-gradient(90deg, #C9922A, transparent);
+  }
+
+  /* =========================================
+     INFINITE MARQUEE
+     ========================================= */
+  .marquee-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 18px 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .marquee-gradient {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 140px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .marquee-gradient-left {
+    left: 0;
+    background: linear-gradient(to right, #090909, transparent);
+  }
+
+  .marquee-gradient-right {
+    right: 0;
+    background: linear-gradient(to left, #090909, transparent);
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 28px;
+    width: max-content;
+    animation: marqueeScroll 36s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marqueeScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .marquee-item {
+    flex-shrink: 0;
+  }
+
+  /* Enlarged & Full Color Cards */
+  .marquee-card {
+    height: 94px;
+    width: 230px;
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    /* Direct full vibrant colors (no grayscale) */
+    filter: none;
+    opacity: 1;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .marquee-card img {
+    max-height: 62px;
+    max-width: 185px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.35s ease;
+  }
+
+  .marquee-card:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 12px 30px rgba(201, 146, 42, 0.3);
+    border-color: #E8B84B;
+  }
+
+  .marquee-card:hover img {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 680px) {
+    .clients-section {
+      padding: 40px 0 44px;
+    }
+    .clients-title {
+      font-size: 0.95rem;
+      letter-spacing: 0.2em;
+      gap: 12px;
+    }
+    .clients-title::before,
+    .clients-title::after {
+      width: 28px;
+    }
+    .marquee-card {
+      height: 76px;
+      width: 180px;
+      padding: 10px 18px;
+    }
+    .marquee-card img {
+      max-height: 48px;
+      max-width: 145px;
+    }
+    .marquee-gradient {
+      width: 60px;
+    }
+  }
+</style>
