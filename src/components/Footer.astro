@@ -1,14 +1,19 @@
 ---
 import { logoBase64 } from '../data/logo';
+
 const navLinks = [
   { label: 'Beranda', href: '/' },
-  { label: 'Tentang Kami', href: '/#tentang' },
-  { label: 'Visi & Misi', href: '/#visi-misi' },
-  { label: 'Layanan', href: '/#layanan' },
-  { label: 'Keunggulan', href: '/#keunggulan' },
-  { label: 'Proyek', href: '/proyek' },
-  { label: 'Produk', href: '/produk' },
-  { label: 'Kontak', href: '/kontak' },
+  { label: 'Portofolio Proyek', href: '/proyek' },
+  { label: 'Katalog Produk', href: '/produk' },
+  { label: 'Kontak & Konsultasi', href: '/kontak' },
+];
+
+const serviceLinks = [
+  { label: 'Rental Genset & Loadbank', href: '/layanan' },
+  { label: 'Service & Perawatan Mesin', href: '/layanan' },
+  { label: 'Penyediaan Suku Cadang', href: '/layanan' },
+  { label: 'Sistem Filtrasi Industri', href: '/layanan' },
+  { label: 'Part Filter Brand Global', href: '/produk' },
 ];
 ---
 
@@ -16,219 +21,517 @@ const navLinks = [
   <div class="footer-top">
     <div class="container footer-grid">
 
-      <!-- Brand -->
+      <!-- Column 1: Brand & Credibility -->
       <div class="footer-brand">
         <a href="/" class="footer-logo">
-          <img src={logoBase64} alt="Best Power Servis" width="50" height="50" />
-          <span class="footer-logo-text">Best Power Servis</span>
+          <img src={logoBase64} alt="Best Power Servis" width="46" height="46" />
+          <div class="footer-logo-wrap">
+            <span class="footer-logo-text">Best Power Servis</span>
+            <span class="footer-logo-sub">PT BEST POWER SERVIS</span>
+          </div>
         </a>
+
         <p class="footer-tagline">
           "Solusi Energi dan Filtrasi Terbaik untuk Industri Anda."
         </p>
+
+        <!-- Trust / Legal Badge -->
+        <div class="footer-legal-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+          <span>Legalitas Resmi • Beroperasi Sejak 2023</span>
+        </div>
+
         <div class="footer-contacts">
           <a href="tel:08111464967" class="footer-contact-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            0811-1464-967
+            <div class="f-contact-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <span>0811-1464-967</span>
           </a>
+
           <a href="mailto:sales@bestpower.id" class="footer-contact-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            sales@bestpower.id
+            <div class="f-contact-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <span>sales@bestpower.id</span>
           </a>
         </div>
       </div>
 
-      <!-- Nav -->
+      <!-- Column 2: Navigation Links -->
       <div class="footer-nav-group">
-        <div class="footer-nav-title">Navigasi</div>
+        <div class="footer-nav-title">
+          <span>Navigasi</span>
+          <div class="footer-title-bar"></div>
+        </div>
         <ul class="footer-nav">
           {navLinks.map(l => (
-            <li><a href={l.href}>{l.label}</a></li>
+            <li>
+              <a href={l.href}>
+                <span class="f-link-arrow">›</span>
+                {l.label}
+              </a>
+            </li>
           ))}
         </ul>
       </div>
 
-      <!-- Services -->
+      <!-- Column 3: Services -->
       <div class="footer-nav-group">
-        <div class="footer-nav-title">Layanan</div>
+        <div class="footer-nav-title">
+          <span>Layanan Utama</span>
+          <div class="footer-title-bar"></div>
+        </div>
         <ul class="footer-nav">
-          <li><a href="/layanan">Rental Genset & Loadbank</a></li>
-          <li><a href="/layanan">Service & Perawatan</a></li>
-          <li><a href="/layanan">Suku Cadang Genset</a></li>
-          <li><a href="/layanan">Sistem Filtrasi</a></li>
-          <li><a href="/produk">Part Filter</a></li>
+          {serviceLinks.map(s => (
+            <li>
+              <a href={s.href}>
+                <span class="f-link-arrow">›</span>
+                {s.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
-      <!-- Address -->
+      <!-- Column 4: Location & Operating Info -->
       <div class="footer-nav-group">
-        <div class="footer-nav-title">Lokasi</div>
-        <p class="footer-address">
-          Greenhill Residences Blok D2/5 RT. 011 RW. 10, Jatisari, Jatiasih, Bekasi, Jawa Barat 17426
-        </p>
-        <a href="https://wa.me/628111464967" target="_blank" rel="noopener" class="footer-wa-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+        <div class="footer-nav-title">
+          <span>Kantor Operasional</span>
+          <div class="footer-title-bar"></div>
+        </div>
+        
+        <div class="footer-address-box">
+          <div class="f-address-pin">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <p class="footer-address-text">
+            Greenhill Residences Blok D2/5 RT. 011 RW. 10, Jatisari, Jatiasih, Kota Bekasi, Jawa Barat 17426
+          </p>
+        </div>
+
+        <div class="footer-hours">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
           </svg>
-          Chat WhatsApp
+          <span>Senin – Sabtu | Emergency Support 24/7</span>
+        </div>
+
+        <a
+          href="https://maps.google.com/?q=Greenhill+Residences+Jatisari+Jatiasih+Bekasi"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-maps-link"
+        >
+          <span>Petunjuk Arah Google Maps</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
         </a>
       </div>
 
     </div>
   </div>
 
-  <!-- Footer Bottom -->
+  <!-- Footer Bottom Bar -->
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <span>© {new Date().getFullYear()} PT Best Power Servis. Hak Cipta Dilindungi.</span>
-      <span class="footer-divider">|</span>
-      <span>Bekasi, Jawa Barat, Indonesia</span>
+      <div class="footer-copyright">
+        © {new Date().getFullYear()} <strong>PT Best Power Servis</strong>. Hak Cipta Dilindungi.
+      </div>
+      <div class="footer-meta">
+        <span>Solusi Energi &amp; Filtrasi Terpercaya</span>
+        <span class="f-dot">•</span>
+        <span>Bekasi, Indonesia</span>
+      </div>
+      <a href="#navbar" class="footer-back-to-top" aria-label="Kembali ke atas">
+        <span>Ke Atas</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="18 15 12 9 6 15"/>
+        </svg>
+      </a>
     </div>
   </div>
 </footer>
 
 <style>
   footer {
-    background: #0A0A0A;
-    border-top: 1px solid rgba(201, 146, 42, 0.12);
+    background: #090909;
+    border-top: 1px solid rgba(201, 146, 42, 0.2);
+    position: relative;
+    overflow: hidden;
   }
 
-  .footer-top { padding: 72px 0 48px; }
+  /* Subtle Top Glow Border */
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #E8B84B, transparent);
+    pointer-events: none;
+  }
+
+  .footer-top {
+    padding: 72px 0 54px;
+  }
 
   .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    grid-template-columns: 2.2fr 1fr 1.3fr 1.8fr;
     gap: 48px;
   }
 
-  /* Brand */
+  /* =========================================
+     COLUMN 1: BRAND
+     ========================================= */
   .footer-logo {
     display: flex;
     align-items: center;
-    gap: 14px;
-    margin-bottom: 20px;
+    gap: 12px;
+    text-decoration: none;
+    margin-bottom: 18px;
   }
 
   .footer-logo img {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     object-fit: contain;
+    filter: drop-shadow(0 0 12px rgba(201, 146, 42, 0.3));
+    transition: transform 0.3s ease;
+  }
+
+  .footer-logo:hover img {
+    transform: scale(1.05);
+  }
+
+  .footer-logo-wrap {
+    display: flex;
+    flex-direction: column;
   }
 
   .footer-logo-text {
     font-family: 'Inter', sans-serif;
-    font-size: 1.35rem;
+    font-size: 1.28rem;
     font-weight: 800;
     color: #EBB136;
     letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  .footer-logo-sub {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    margin-top: 2px;
   }
 
   .footer-tagline {
     font-size: 0.88rem;
     font-style: italic;
-    color: rgba(255,255,255,0.4);
-    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.65;
     margin-bottom: 20px;
+    max-width: 340px;
+  }
+
+  .footer-legal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201, 146, 42, 0.08);
+    border: 1px solid rgba(201, 146, 42, 0.22);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #E8B84B;
+    margin-bottom: 22px;
+  }
+
+  .footer-legal-badge svg {
+    color: #E8B84B;
+    flex-shrink: 0;
   }
 
   .footer-contacts {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-  }
-
-  .footer-contact-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.5);
-    transition: color 0.2s ease;
-  }
-  .footer-contact-item:hover { color: #C9922A; }
-
-  /* Nav Groups */
-  .footer-nav-title {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #C9922A;
-    margin-bottom: 20px;
-  }
-
-  .footer-nav {
-    display: flex;
-    flex-direction: column;
     gap: 10px;
   }
 
-  .footer-nav a {
-    font-size: 0.875rem;
-    color: rgba(255,255,255,0.45);
-    transition: color 0.2s ease;
-  }
-  .footer-nav a:hover { color: #fff; }
-
-  .footer-address {
-    font-size: 0.85rem;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 20px;
-  }
-
-  .footer-wa-btn {
+  .footer-contact-item {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
-    background: rgba(37, 211, 102, 0.12);
-    border: 1px solid rgba(37, 211, 102, 0.25);
-    border-radius: 8px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: #25D366;
-    transition: all 0.3s ease;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: all 0.2s ease;
   }
 
-  .footer-wa-btn:hover {
-    background: rgba(37, 211, 102, 0.2);
-    border-color: rgba(37, 211, 102, 0.5);
+  .f-contact-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #C9922A;
+    transition: all 0.2s ease;
+  }
+
+  .footer-contact-item:hover {
+    color: #FFFFFF;
+  }
+
+  .footer-contact-item:hover .f-contact-icon {
+    background: rgba(201, 146, 42, 0.15);
+    border-color: #C9922A;
+    color: #E8B84B;
     transform: translateY(-1px);
   }
 
-  /* Bottom Bar */
+  /* =========================================
+     COLUMNS 2 & 3: NAV GROUPS
+     ========================================= */
+  .footer-nav-title {
+    margin-bottom: 22px;
+  }
+
+  .footer-nav-title span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #E8B84B;
+    display: block;
+  }
+
+  .footer-title-bar {
+    width: 24px;
+    height: 2px;
+    background: #C9922A;
+    margin-top: 6px;
+    border-radius: 2px;
+  }
+
+  .footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-nav a {
+    font-size: 0.86rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.25s ease;
+  }
+
+  .f-link-arrow {
+    color: rgba(201, 146, 42, 0.4);
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform 0.25s ease, color 0.25s ease;
+  }
+
+  .footer-nav a:hover {
+    color: #FFFFFF;
+    transform: translateX(3px);
+  }
+
+  .footer-nav a:hover .f-link-arrow {
+    color: #E8B84B;
+    transform: translateX(2px);
+  }
+
+  /* =========================================
+     COLUMN 4: LOCATION & OPERATIONAL
+     ========================================= */
+  .footer-address-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .f-address-pin {
+    color: #C9922A;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .footer-address-text {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+  }
+
+  .footer-hours {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(201, 146, 42, 0.85);
+    background: rgba(201, 146, 42, 0.06);
+    border: 1px solid rgba(201, 146, 42, 0.15);
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 18px;
+  }
+
+  .footer-hours svg {
+    color: #E8B84B;
+    flex-shrink: 0;
+  }
+
+  .footer-maps-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #E8B84B;
+    text-decoration: none;
+    border: 1px solid rgba(201, 146, 42, 0.3);
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+  }
+
+  .footer-maps-link:hover {
+    background: rgba(201, 146, 42, 0.12);
+    border-color: #E8B84B;
+    color: #FFF;
+    transform: translateY(-2px);
+  }
+
+  .footer-maps-link svg {
+    transition: transform 0.25s ease;
+  }
+
+  .footer-maps-link:hover svg {
+    transform: translate(2px, -2px);
+  }
+
+  /* =========================================
+     BOTTOM BAR
+     ========================================= */
   .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.05);
-    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 22px 0;
+    background: #060606;
   }
 
   .footer-bottom-inner {
     display: flex;
     align-items: center;
-    gap: 16px;
+    justify-content: space-between;
     font-size: 0.78rem;
-    color: rgba(255,255,255,0.25);
+    color: rgba(255, 255, 255, 0.4);
+    gap: 16px;
+    flex-wrap: wrap;
   }
 
-  .footer-divider { color: rgba(255,255,255,0.12); }
-
-  @media (max-width: 900px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-copyright strong {
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 600;
   }
 
-  @media (max-width: 520px) {
+  .footer-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .f-dot {
+    color: rgba(201, 146, 42, 0.5);
+  }
+
+  .footer-back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(201, 146, 42, 0.8);
+    text-decoration: none;
+    background: rgba(201, 146, 42, 0.06);
+    border: 1px solid rgba(201, 146, 42, 0.15);
+    padding: 5px 12px;
+    border-radius: 50px;
+    transition: all 0.25s ease;
+  }
+
+  .footer-back-to-top:hover {
+    color: #E8B84B;
+    border-color: #E8B84B;
+    background: rgba(201, 146, 42, 0.15);
+    transform: translateY(-2px);
+  }
+
+  /* =========================================
+     RESPONSIVE BREAKPOINTS
+     ========================================= */
+  @media (max-width: 1024px) {
     .footer-grid {
       grid-template-columns: 1fr 1fr;
-      gap: 28px 16px;
+      gap: 40px 32px;
     }
     .footer-brand {
       grid-column: span 2;
-      margin-bottom: 4px;
     }
-    .footer-nav-group:last-child {
-      grid-column: span 2;
+  }
+
+  @media (max-width: 600px) {
+    .footer-top {
+      padding: 50px 0 36px;
     }
-    .footer-bottom-inner { flex-direction: column; gap: 6px; text-align: center; }
-    .footer-divider { display: none; }
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .footer-brand {
+      grid-column: span 1;
+    }
+    .footer-bottom-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .footer-meta {
+      display: none;
+    }
   }
 </style>
