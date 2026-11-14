@@ -1,281 +1,657 @@
 ---
 const missions = [
   {
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
-    text: 'Menyediakan genset dan loadbank berkualitas tinggi dengan berbagai kapasitas untuk kebutuhan temporary power.',
+    num: '01',
+    pilar: 'PILAR 01',
+    title: 'Rental Genset & Loadbank Terpadu',
+    desc: 'Menyediakan genset dan loadbank berkualitas tinggi dengan kapasitas lengkap (silent & open type) untuk kebutuhan temporary power industri nasional.',
+    tag: 'Unit 500+ kVA • Siap 24/7',
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><circle cx="8" cy="14" r="2"/><circle cx="16" cy="14" r="2"/></svg>`,
   },
   {
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
-    text: 'Memberikan layanan perawatan dan perbaikan genset secara profesional guna memastikan kinerja optimal.',
+    num: '02',
+    pilar: 'PILAR 02',
+    title: 'Perawatan & Service Berkala',
+    desc: 'Memberikan layanan pemeliharaan berkala, tune-up, pengujian loadbank, serta overhaul mesin oleh teknisi berpengalaman untuk memastikan performa optimal.',
+    tag: 'Teknisi Ahli • Zero Downtime',
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
   },
   {
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>`,
-    text: 'Menyediakan suku cadang genset berkualitas untuk memastikan kelancaran operasional pelanggan.',
+    num: '03',
+    pilar: 'PILAR 03',
+    title: 'Penyediaan Suku Cadang Orisinal',
+    desc: 'Menjamin ketersediaan suku cadang genset berkualitas tinggi baik komponen orisinal maupun kompatibel multi-merek guna kelancaran operasional pelanggan.',
+    tag: 'Multi-Brand • Ready Stock',
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>`,
   },
   {
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
-    text: 'Menyediakan sistem filtrasi dan part filter berkualitas yang meningkatkan efisiensi bahan bakar dan umur peralatan.',
+    num: '04',
+    pilar: 'PILAR 04',
+    title: 'Efisiensi Sistem Filtrasi',
+    desc: 'Menghadirkan sistem filtrasi canggih serta part filter berkualitas tinggi yang terbukti meningkatkan efisiensi bahan bakar dan memperpanjang umur mesin.',
+    tag: 'Hemat Biaya sd 50% • Fuel & Oil',
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>`,
   },
   {
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>`,
-    text: 'Bermitra dengan principal filter global untuk menghadirkan teknologi filtrasi terbaik di industri.',
+    num: '05',
+    pilar: 'PILAR 05',
+    title: 'Kemitraan Principal Terkemuka Dunia',
+    desc: 'Bermitra strategis dengan produsen filter ternama dunia (Parker, Hydac, Pall, Cimtek) untuk menyajikan teknologi filtrasi mutakhir di industri Indonesia.',
+    tag: 'Parker • Hydac • Pall • Cimtek',
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
   },
 ];
 ---
 
 <section id="visi-misi" class="section section-darker">
+  <!-- Decorative background elements -->
   <div class="hex-pattern"></div>
+  <div class="visi-ambient-glow"></div>
 
   <div class="container" style="position: relative; z-index: 1;">
-    <!-- Visi Card -->
-    <div class="visi-block reveal">
-      <div class="visi-card">
-        <div class="visi-quote-icon">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-          </svg>
-        </div>
-        <div class="section-label" style="justify-content: center; margin-bottom: 18px;">Visi Perusahaan</div>
-        <blockquote class="visi-text">
-          "Menjadi mitra terpercaya dalam penyediaan <span class="visi-highlight">solusi energi</span> dan <span class="visi-highlight">sistem filtrasi industri</span> dengan menghadirkan produk berkualitas tinggi yang inovatif dan efisien."
-        </blockquote>
-        <div class="gold-divider" style="margin: 24px auto 0;"></div>
-      </div>
+    
+    <!-- Section Title Top -->
+    <div class="vm-top-header reveal">
+      <div class="section-label" style="justify-content: center;">Arah &amp; Komitmen Perusahaan</div>
+      <h2 class="section-title text-center">VISI &amp; MISI KAMI</h2>
+      <p class="section-desc text-center" style="margin: 0 auto 50px;">
+        Fondasi filosofis dan pilar operasional yang menjadi kompas PT Best Power Servis dalam memberikan standar tertinggi bagi industri energi dan filtrasi.
+      </p>
     </div>
 
-    <!-- Misi -->
-    <div class="misi-block">
-      <div class="misi-header reveal">
-        <div class="section-label">Misi</div>
-        <h3 class="misi-title">Langkah Kami Mewujudkan Visi</h3>
-        <p class="misi-sub">5 pilar komitmen operasional PT Best Power Servis untuk kepuasan pelanggan.</p>
-      </div>
+    <!-- VISI SHOWCASE (ELEVATED HERO CARD) -->
+    <div class="visi-hero-card reveal delay-100">
+      <!-- Industrial corner brackets -->
+      <span class="corner-bracket top-left"></span>
+      <span class="corner-bracket top-right"></span>
+      <span class="corner-bracket bottom-left"></span>
+      <span class="corner-bracket bottom-right"></span>
 
-      <div class="misi-grid">
-        {missions.map((m, i) => (
-          <div class={`misi-card reveal delay-${(i + 1) * 100}`}>
-            <div class="misi-number">0{i + 1}</div>
-            <div class="misi-icon" set:html={m.icon}></div>
-            <p class="misi-text">{m.text}</p>
-            <div class="misi-line"></div>
+      <div class="visi-card-inner">
+        <!-- Visi Badge & Icon -->
+        <div class="visi-badge-row">
+          <div class="visi-chip">
+            <span class="visi-dot"></span>
+            VISI UTAMA PERUSAHAAN
           </div>
-        ))}
+          <div class="visi-quote-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Vision Statement Quote -->
+        <blockquote class="visi-statement">
+          "Menjadi mitra terpercaya dalam penyediaan <span class="highlight-gold">solusi energi</span> dan <span class="highlight-gold">sistem filtrasi industri</span> dengan menghadirkan produk berkualitas tinggi yang <span class="highlight-gold">inovatif dan efisien</span>."
+        </blockquote>
+
+        <!-- 3 Core Philosophy Pillars -->
+        <div class="visi-pillars">
+          <div class="v-pillar-item">
+            <div class="v-pillar-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <span>Keandalan Energi Teruji</span>
+          </div>
+
+          <div class="v-pillar-item">
+            <div class="v-pillar-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span>Filtrasi Standar Global</span>
+          </div>
+
+          <div class="v-pillar-item">
+            <div class="v-pillar-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <span>Efisiensi Operasional Klien</span>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- MISI HEADER -->
+    <div class="misi-header-wrap reveal delay-200">
+      <div class="misi-header-left">
+        <div class="section-label">Pilar Operasional</div>
+        <h3 class="misi-title">5 LANGKAH MEWUJUDKAN VISI</h3>
+      </div>
+      <p class="misi-header-desc">
+        Komitmen nyata dan tindakan strategis yang kami jalankan setiap hari demi kepuasan serta kelancaran operasional mitra industri.
+      </p>
+    </div>
+
+    <!-- 6-CARD BALANCED BENTO GRID (5 Misi + 1 Featured Impact CTA) -->
+    <div class="misi-grid">
+      {missions.map((m, i) => (
+        <div class={`misi-card reveal delay-${((i % 3) + 1) * 100}`}>
+          <div class="misi-card-glow"></div>
+          
+          <div class="misi-card-top">
+            <div class="misi-icon-box" set:html={m.icon}></div>
+            <span class="misi-pill-num">{m.pilar}</span>
+          </div>
+
+          <h4 class="misi-card-title">{m.title}</h4>
+          <p class="misi-card-desc">{m.desc}</p>
+
+          <div class="misi-card-footer">
+            <span class="misi-tag">{m.tag}</span>
+          </div>
+          <div class="misi-card-accent-line"></div>
+        </div>
+      ))}
+
+      <!-- Card 6: Interactive CTA Card to balance the grid perfectly into 3x2 -->
+      <div class="misi-card misi-cta-card reveal delay-300">
+        <div class="misi-cta-bg-glow"></div>
+        <div class="misi-card-top">
+          <div class="misi-icon-box gold-filled">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <span class="misi-pill-num cta-badge">KONSULTASI GRATIS</span>
+        </div>
+
+        <h4 class="misi-card-title">Siap Bermitra dengan Kami?</h4>
+        <p class="misi-card-desc">
+          Diskusikan kebutuhan rental genset, service berkala, atau sistem filtrasi industri Anda langsung dengan tim teknis kami.
+        </p>
+
+        <div class="misi-card-footer">
+          <a href="/kontak" class="misi-cta-btn">
+            <span>Hubungi Kami</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+        <div class="misi-card-accent-line cta-line"></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <style>
   #visi-misi {
-    background: #0A0A0A;
+    background: #0B0B0B;
     position: relative;
     overflow: hidden;
+    padding: 110px 0;
   }
 
-  /* Visi */
-  .visi-block {
-    max-width: 940px;
-    margin: 0 auto 90px;
+  /* Ambient Glow */
+  .visi-ambient-glow {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 450px;
+    background: radial-gradient(ellipse at center, rgba(201, 146, 42, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .vm-top-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .text-center { text-align: center; }
+
+  /* =========================================
+     ELEVATED VISI HERO CARD
+     ========================================= */
+  .visi-hero-card {
+    position: relative;
+    background: linear-gradient(145deg, rgba(24, 24, 24, 0.85), rgba(12, 12, 12, 0.95));
+    border: 1px solid rgba(201, 146, 42, 0.28);
+    border-radius: 20px;
+    padding: 48px 56px;
+    margin-bottom: 75px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 40px rgba(201, 146, 42, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .visi-hero-card:hover {
+    border-color: rgba(201, 146, 42, 0.5);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 50px rgba(201, 146, 42, 0.12);
+    transform: translateY(-2px);
+  }
+
+  /* Industrial Corner Brackets */
+  .corner-bracket {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: #E8B84B;
+    pointer-events: none;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, border-color 0.3s ease;
+  }
+
+  .visi-hero-card:hover .corner-bracket {
+    opacity: 1;
+    border-color: #F5C658;
+  }
+
+  .corner-bracket.top-left {
+    top: 10px;
+    left: 10px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+  }
+  .corner-bracket.top-right {
+    top: 10px;
+    right: 10px;
+    border-top: 2px solid;
+    border-right: 2px solid;
+  }
+  .corner-bracket.bottom-left {
+    bottom: 10px;
+    left: 10px;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+  }
+  .corner-bracket.bottom-right {
+    bottom: 10px;
+    right: 10px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+  }
+
+  .visi-card-inner {
+    position: relative;
+    z-index: 1;
     text-align: center;
   }
 
-  .visi-card {
-    background: linear-gradient(145deg, rgba(26,26,26,0.6), rgba(13,13,13,0.85));
-    border: 1px solid rgba(201, 146, 42, 0.22);
-    border-radius: 20px;
-    padding: 44px 52px;
-    position: relative;
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(201, 146, 42, 0.03);
-    backdrop-filter: blur(10px);
+  .visi-badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 18px;
+  }
+
+  .visi-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201, 146, 42, 0.1);
+    border: 1px solid rgba(201, 146, 42, 0.35);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #E8B84B;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .visi-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #E8B84B;
+    box-shadow: 0 0 10px #E8B84B;
   }
 
   .visi-quote-icon {
     color: rgba(201, 146, 42, 0.35);
-    margin-bottom: 8px;
     display: flex;
-    justify-content: center;
+    align-items: center;
   }
 
-  .visi-text {
+  .visi-statement {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(1.15rem, 2.2vw, 1.65rem);
-    line-height: 1.65;
+    font-size: clamp(1.2rem, 2.3vw, 1.7rem);
+    line-height: 1.68;
     color: #FFFFFF;
     font-weight: 500;
     letter-spacing: -0.01em;
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 920px;
+    margin: 0 auto 36px;
     font-style: normal;
   }
 
-  .visi-highlight {
-    color: #E8B84B;
-    font-weight: 600;
-    position: relative;
-    text-shadow: 0 0 24px rgba(201, 146, 42, 0.25);
+  .highlight-gold {
+    color: #F0BC42;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FFF1C5 0%, #E8B84B 60%, #C9922A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(201, 146, 42, 0.3);
   }
 
-  /* Misi */
-  .misi-block { text-align: left; }
+  .visi-pillars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-top: 18px;
+    border-top: 1px dashed rgba(201, 146, 42, 0.2);
+  }
 
-  .misi-header {
-    margin-bottom: 40px;
+  .v-pillar-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.02em;
+    transition: all 0.25s ease;
+  }
+
+  .v-pillar-item:hover {
+    background: rgba(201, 146, 42, 0.08);
+    border-color: rgba(201, 146, 42, 0.35);
+    color: #E8B84B;
+  }
+
+  .v-pillar-icon {
+    color: #C9922A;
+    display: flex;
+    align-items: center;
+  }
+
+  /* =========================================
+     MISI HEADER & GRID
+     ========================================= */
+  .misi-header-wrap {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 38px;
   }
 
   .misi-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    color: #fff;
+    font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+    color: #FFFFFF;
     letter-spacing: 0.04em;
-    line-height: 1.1;
-    margin-bottom: 8px;
+    line-height: 1;
+    margin-top: 8px;
   }
 
-  .misi-sub {
+  .misi-header-desc {
+    max-width: 480px;
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.5);
-    max-width: 540px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-bottom: 6px;
   }
 
-  /* 2 + 3 Bento Grid on Desktop */
+  /* 3 x 2 Perfectly Balanced Bento Grid */
   .misi-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
 
-  /* Row 1: 2 items, each 3 cols (50% width) */
-  .misi-grid > *:nth-child(1),
-  .misi-grid > *:nth-child(2) {
-    grid-column: span 3;
-  }
-
-  /* Row 2: 3 items, each 2 cols (33.3% width) */
-  .misi-grid > *:nth-child(3),
-  .misi-grid > *:nth-child(4),
-  .misi-grid > *:nth-child(5) {
-    grid-column: span 2;
-  }
-
   .misi-card {
-    background: #141414;
-    border: 1px solid rgba(201, 146, 42, 0.15);
+    background: #131313;
+    border: 1px solid rgba(201, 146, 42, 0.16);
     border-radius: 16px;
-    padding: 34px 28px;
+    padding: 32px 28px;
     position: relative;
     overflow: hidden;
-    transition: all 0.35s ease;
-    cursor: default;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+  }
+
+  .misi-card-glow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle at top right, rgba(201, 146, 42, 0.12), transparent 70%);
+    pointer-events: none;
+    transition: opacity 0.35s ease;
   }
 
   .misi-card:hover {
-    background: #1A1A1A;
+    transform: translateY(-5px);
+    background: #171717;
     border-color: rgba(201, 146, 42, 0.45);
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 24px rgba(201, 146, 42, 0.08);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(201, 146, 42, 0.08);
   }
 
-  .misi-number {
-    position: absolute;
-    top: 18px;
-    right: 22px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.5rem;
-    color: rgba(201, 146, 42, 0.09);
-    line-height: 1;
-    pointer-events: none;
-    transition: color 0.35s ease;
+  .misi-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
   }
 
-  .misi-card:hover .misi-number {
-    color: rgba(201, 146, 42, 0.22);
-  }
-
-  .misi-icon {
-    width: 48px;
-    height: 48px;
+  .misi-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: rgba(201, 146, 42, 0.1);
+    border: 1px solid rgba(201, 146, 42, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(201, 146, 42, 0.1);
-    border: 1px solid rgba(201, 146, 42, 0.2);
-    border-radius: 12px;
     color: #E8B84B;
-    margin-bottom: 20px;
     transition: all 0.35s ease;
   }
 
-  .misi-card:hover .misi-icon {
-    background: rgba(201, 146, 42, 0.2);
-    box-shadow: 0 0 16px rgba(201, 146, 42, 0.2);
+  .misi-card:hover .misi-icon-box {
+    background: rgba(201, 146, 42, 0.22);
+    border-color: #E8B84B;
+    color: #FFF;
+    box-shadow: 0 0 20px rgba(201, 146, 42, 0.3);
+    transform: scale(1.05);
   }
 
-  .misi-text {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.75);
+  .misi-pill-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: rgba(201, 146, 42, 0.7);
+    background: rgba(201, 146, 42, 0.06);
+    border: 1px solid rgba(201, 146, 42, 0.18);
+    padding: 4px 10px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
   }
 
-  .misi-line {
+  .misi-card:hover .misi-pill-num {
+    color: #E8B84B;
+    border-color: rgba(201, 146, 42, 0.4);
+    background: rgba(201, 146, 42, 0.14);
+  }
+
+  .misi-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.52rem;
+    color: #FFFFFF;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+  }
+
+  .misi-card:hover .misi-card-title {
+    color: #F5C658;
+  }
+
+  .misi-card-desc {
+    font-size: 0.88rem;
+    line-height: 1.68;
+    color: rgba(255, 255, 255, 0.62);
+    margin-bottom: 22px;
+    flex-grow: 1;
+  }
+
+  .misi-card-footer {
+    display: flex;
+    align-items: center;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .misi-tag {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: #E8B84B;
+    letter-spacing: 0.03em;
+  }
+
+  .misi-card-accent-line {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 2px;
+    height: 2.5px;
     background: linear-gradient(90deg, transparent, #C9922A, transparent);
     transform: scaleX(0);
+    transform-origin: center;
     transition: transform 0.4s ease;
   }
 
-  .misi-card:hover .misi-line { transform: scaleX(1); }
+  .misi-card:hover .misi-card-accent-line {
+    transform: scaleX(1);
+  }
 
-  @media (max-width: 992px) {
+  /* Card 6: CTA Variant */
+  .misi-cta-card {
+    background: linear-gradient(145deg, rgba(30, 24, 15, 0.95), rgba(15, 15, 15, 0.98));
+    border-color: rgba(201, 146, 42, 0.35);
+  }
+
+  .misi-cta-bg-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(201, 146, 42, 0.08), transparent 70%);
+    pointer-events: none;
+  }
+
+  .misi-icon-box.gold-filled {
+    background: #C9922A;
+    color: #000;
+    border-color: #E8B84B;
+    box-shadow: 0 0 16px rgba(201, 146, 42, 0.35);
+  }
+
+  .misi-cta-card:hover .misi-icon-box.gold-filled {
+    background: #E8B84B;
+    transform: rotate(10deg) scale(1.08);
+  }
+
+  .cta-badge {
+    color: #E8B84B;
+    border-color: rgba(201, 146, 42, 0.4);
+    background: rgba(201, 146, 42, 0.15);
+  }
+
+  .misi-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #C9922A;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: all 0.25s ease;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .misi-cta-btn:hover {
+    background: #E8B84B;
+    box-shadow: 0 0 20px rgba(232, 184, 75, 0.4);
+    transform: translateX(2px);
+  }
+
+  .misi-cta-btn svg {
+    transition: transform 0.25s ease;
+  }
+  .misi-cta-btn:hover svg {
+    transform: translateX(4px);
+  }
+
+  .cta-line {
+    background: linear-gradient(90deg, #C9922A, #E8B84B);
+    transform: scaleX(1);
+    opacity: 0.6;
+  }
+  .misi-cta-card:hover .cta-line {
+    opacity: 1;
+    height: 3px;
+  }
+
+  /* =========================================
+     RESPONSIVE BREAKPOINTS
+     ========================================= */
+  @media (max-width: 1024px) {
     .misi-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
-    .misi-grid > *:nth-child(1),
-    .misi-grid > *:nth-child(2),
-    .misi-grid > *:nth-child(3),
-    .misi-grid > *:nth-child(4) {
-      grid-column: span 1;
+    .misi-header-wrap {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
     }
-    .misi-grid > *:nth-child(5) {
-      grid-column: span 2;
+    .visi-hero-card {
+      padding: 36px 32px;
+      margin-bottom: 50px;
     }
   }
 
-  @media (max-width: 600px) {
-    .visi-block { margin-bottom: 44px; }
-    .visi-card { padding: 28px 18px; border-radius: 14px; }
-    .visi-text { font-size: 1.02rem; line-height: 1.55; }
-    .misi-header { margin-bottom: 24px; }
-    .misi-title { font-size: 1.85rem; }
-    .misi-sub { font-size: 0.85rem; }
-    .misi-grid { grid-template-columns: 1fr; gap: 12px; }
-    .misi-grid > *:nth-child(5) { grid-column: auto; }
+  @media (max-width: 768px) {
+    #visi-misi {
+      padding: 70px 0;
+    }
+    .visi-hero-card {
+      padding: 28px 20px;
+      border-radius: 16px;
+    }
+    .visi-statement {
+      font-size: 1.08rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .visi-pillars {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+    .v-pillar-item {
+      justify-content: center;
+    }
+    .misi-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
     .misi-card {
-      padding: 16px 18px;
-      border-radius: 12px;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 14px;
+      padding: 24px 20px;
     }
-    .misi-icon {
-      width: 38px;
-      height: 38px;
-      min-width: 38px;
-      margin-bottom: 0;
-      border-radius: 10px;
-    }
-    .misi-icon :global(svg) {
-      width: 20px;
-      height: 20px;
-    }
-    .misi-number { display: none; }
-    .misi-text { font-size: 0.86rem; line-height: 1.55; }
   }
 </style>
