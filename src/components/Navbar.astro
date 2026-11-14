@@ -1,12 +1,9 @@
 ---
+import { logoBase64 } from '../data/logo';
 const navLinks = [
   { label: 'Beranda', href: '/' },
-  { label: 'Tentang Kami', href: '/tentang' },
-  { label: 'Visi & Misi', href: '/visi-misi' },
-  { label: 'Layanan', href: '/layanan' },
   { label: 'Proyek', href: '/proyek' },
   { label: 'Produk', href: '/produk' },
-  { label: 'Keunggulan', href: '/keunggulan' },
   { label: 'Kontak', href: '/kontak' },
 ];
 
@@ -21,7 +18,7 @@ const isLinkActive = (href: string) => {
   <div class="nav-container">
     <!-- Logo -->
     <a href="/" class="nav-logo">
-      <img src="/logo.webp" alt="Best Power Servis Logo" width="52" height="52" />
+      <img src={logoBase64} alt="Best Power Servis Logo" width="52" height="52" />
       <span class="nav-logo-text">Best Power Servis</span>
     </a>
 

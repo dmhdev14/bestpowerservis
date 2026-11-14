@@ -1,24 +1,25 @@
 ---
+import { logoBase64 } from '../data/logo';
 const navLinks = [
   { label: 'Beranda', href: '/' },
-  { label: 'Tentang Kami', href: '/tentang' },
-  { label: 'Visi & Misi', href: '/visi-misi' },
-  { label: 'Layanan', href: '/layanan' },
+  { label: 'Tentang Kami', href: '/#tentang' },
+  { label: 'Visi & Misi', href: '/#visi-misi' },
+  { label: 'Layanan', href: '/#layanan' },
+  { label: 'Keunggulan', href: '/#keunggulan' },
   { label: 'Proyek', href: '/proyek' },
   { label: 'Produk', href: '/produk' },
-  { label: 'Keunggulan', href: '/keunggulan' },
   { label: 'Kontak', href: '/kontak' },
 ];
 ---
 
-<footer>
+<footer id="footer">
   <div class="footer-top">
     <div class="container footer-grid">
 
       <!-- Brand -->
       <div class="footer-brand">
         <a href="/" class="footer-logo">
-          <img src="/logo.webp" alt="Best Power Servis" width="50" height="50" />
+          <img src={logoBase64} alt="Best Power Servis" width="50" height="50" />
           <span class="footer-logo-text">Best Power Servis</span>
         </a>
         <p class="footer-tagline">
