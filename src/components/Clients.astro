@@ -5,12 +5,14 @@ import { clients } from '../data/clients';
 const marqueeList = [...clients, ...clients];
 ---
 
-<section id="klien" class="clients-section">
+<section id="industri" class="clients-section">
+  <!-- Anchor alias for legacy #klien links -->
+  <div id="klien" style="position: absolute; top: 0; left: 0;"></div>
   <div class="container">
 
     <!-- Simple Sleek Header -->
     <div class="clients-header">
-      <h2 class="clients-title">OUR CLIENTS</h2>
+      <h2 class="clients-title">OUR CLIENTS &amp; INDUSTRIES</h2>
     </div>
 
   </div>
@@ -21,8 +23,8 @@ const marqueeList = [...clients, ...clients];
     <div class="marquee-gradient marquee-gradient-right"></div>
     
     <div class="marquee-track" id="marqueeTrack">
-      {marqueeList.map((client, idx) => (
-        <div class="marquee-item" title={client.name} key={`m-${client.id}-${idx}`}>
+      {marqueeList.map((client) => (
+        <div class="marquee-item" title={client.name}>
           <div class="marquee-card">
             <img
               src={client.logo}
