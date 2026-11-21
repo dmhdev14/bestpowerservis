@@ -104,8 +104,8 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    opacity: 0.38;
-    filter: brightness(0.85) contrast(1.15) saturate(1.1);
+    opacity: 0.68;
+    filter: brightness(0.98) contrast(1.12) saturate(1.15);
     transform: scale(1.02);
     animation: heroSlowZoom 24s ease-in-out infinite alternate;
   }
@@ -119,10 +119,10 @@
     position: absolute;
     inset: 0;
     background:
-      /* Center vignette for supreme text contrast */
-      radial-gradient(circle at 50% 48%, rgba(10, 10, 10, 0.65) 0%, rgba(10, 10, 10, 0.9) 75%),
-      /* Seamless top & bottom fade into adjacent dark layout */
-      linear-gradient(to bottom, rgba(10, 10, 10, 0.8) 0%, transparent 22%, transparent 65%, rgba(11, 11, 11, 0.92) 88%, #0D0D0D 100%);
+      /* Softer center vignette so the industrial machinery details are clearly visible */
+      radial-gradient(ellipse at 50% 50%, rgba(10, 10, 10, 0.38) 0%, rgba(10, 10, 10, 0.62) 65%, rgba(10, 10, 10, 0.85) 100%),
+      /* Top & bottom gentle gradient to blend with navbar and next section */
+      linear-gradient(to bottom, rgba(10, 10, 10, 0.82) 0%, rgba(10, 10, 10, 0.15) 20%, rgba(10, 10, 10, 0.15) 70%, rgba(11, 11, 11, 0.88) 90%, #0D0D0D 100%);
     pointer-events: none;
   }
 
@@ -186,8 +186,10 @@
     align-items: center;
     gap: 8px;
     padding: 8px 18px;
-    background: rgba(201, 146, 42, 0.1);
-    border: 1px solid rgba(201, 146, 42, 0.25);
+    background: rgba(10, 10, 10, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(201, 146, 42, 0.35);
     border-radius: 100px;
     font-size: 0.75rem;
     font-weight: 600;
@@ -195,6 +197,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 28px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   }
 
   .badge-dot {
@@ -228,7 +231,7 @@
 
   .title-line-1 {
     color: #FFFFFF;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+    text-shadow: 0 4px 24px rgba(0,0,0,0.95), 0 2px 8px rgba(0,0,0,0.9);
   }
 
   .title-line-2 {
@@ -237,7 +240,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 4px 30px rgba(201,146,42,0.35));
+    filter: drop-shadow(0 4px 25px rgba(0,0,0,0.95)) drop-shadow(0 4px 35px rgba(201,146,42,0.45));
   }
 
   /* Tagline & Desc */
@@ -245,24 +248,25 @@
     font-family: 'Inter', sans-serif;
     font-size: clamp(1.2rem, 2.5vw, 1.75rem);
     font-weight: 400;
-    color: rgba(255,255,255,0.9);
+    color: rgba(255,255,255,0.95);
     margin-bottom: 18px;
     line-height: 1.4;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    text-shadow: 0 3px 16px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.85);
   }
 
   .hero-tagline em {
     font-style: italic;
     color: #E8B84B;
+    text-shadow: 0 0 20px rgba(232, 184, 75, 0.4);
   }
 
   .hero-desc {
     font-size: clamp(0.9rem, 1.5vw, 1.05rem);
     line-height: 1.75;
-    color: rgba(255,255,255,0.72);
+    color: rgba(255,255,255,0.82);
     max-width: 620px;
     margin: 0 auto 36px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    text-shadow: 0 2px 14px rgba(0,0,0,0.95), 0 1px 3px rgba(0,0,0,0.9);
   }
 
   /* CTA Buttons */
@@ -333,7 +337,7 @@
       justify-content: center;
     }
     .hero-bg-image {
-      opacity: 0.42;
+      opacity: 0.65;
     }
     .hero-content {
       padding: 16px 16px 20px;
