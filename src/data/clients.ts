@@ -24,7 +24,7 @@ export const clients: Client[] = [
     shortName: 'Sewatama',
     category: 'Energi & Power',
     logo: '/logos/sewatama.webp',
-    desc: 'Pelopor penyedia solusi ketenagalistrikan terpadu dan rental genset industri.',
+    desc: 'Pelopor penyedia solusi ketenagalistrikan terpadu dan penyedia temporary power industri.',
     tag: 'Power Solution',
   },
   {
