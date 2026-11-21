@@ -101,12 +101,12 @@ export const clients: Client[] = [
   },
   {
     id: 'digitas',
-    name: 'Digitas Indonesia',
-    shortName: 'Digitas',
-    category: 'Finansial & Korporasi',
-    logo: '/logos/digitas.webp',
-    desc: 'Agensi teknologi digital, data, dan transformasi modern internasional.',
-    tag: 'Teknologi & Digital',
+    name: 'Digital Edge DC',
+    shortName: 'Digital Edge',
+    category: 'Data Center & IT',
+    logo: '/logos/Logo Digitas dengan Siluet Antelop Abstrak.webp',
+    desc: 'Penyedia infrastruktur data center canggih, interkoneksi, dan solusi daya terpercaya.',
+    tag: 'Data Center & Cloud',
   },
   {
     id: 'atlas-copco',
