@@ -20,19 +20,9 @@ const services = [
   },
   {
     icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-      <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
-    </svg>`,
-    num: '03',
-    title: 'Penyediaan Suku Cadang',
-    desc: 'Menyediakan berbagai jenis suku cadang genset berkualitas tinggi. Komponen asli dan kompatibel untuk berbagai merek genset dengan ketersediaan terjamin.',
-    points: ['Komponen asli & kompatibel', 'Multi-merek genset', 'Stok selalu tersedia'],
-  },
-  {
-    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
       <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
     </svg>`,
-    num: '04',
+    num: '03',
     title: 'Sistem Filtrasi & Part Filter',
     desc: 'Solusi filtrasi bahan bakar yang dirancang untuk meningkatkan efisiensi mesin. Teknologi canggih mampu meningkatkan efisiensi hingga 50% dibandingkan filter OEM.',
     points: ['Fuel & Oil Filter premium', 'Hemat hingga 50% vs OEM', 'Multi-sektor industri'],
@@ -85,7 +75,7 @@ const services = [
   /* Grid */
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
 
@@ -216,7 +206,7 @@ const services = [
 
   .card-points li svg { flex-shrink: 0; }
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     .services-header { margin-bottom: 40px; }
     .services-grid { grid-template-columns: 1fr; gap: 20px; }
     .service-card { padding: 30px 24px; }

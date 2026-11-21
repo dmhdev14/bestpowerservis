@@ -1,5 +1,5 @@
 ---
-import { clients } from '../data/clients';
+import { clients } from "../data/clients";
 
 // Double the list for infinite seamless marquee loop
 const marqueeList = [...clients, ...clients];
@@ -9,33 +9,33 @@ const marqueeList = [...clients, ...clients];
   <!-- Anchor alias for legacy #klien links -->
   <div id="klien" style="position: absolute; top: 0; left: 0;"></div>
   <div class="container">
-
     <!-- Simple Sleek Header -->
     <div class="clients-header">
-      <h2 class="clients-title">OUR CLIENTS &amp; INDUSTRIES</h2>
+      <h2 class="clients-title">OUR CLIENTS</h2>
     </div>
-
   </div>
 
   <!-- Infinite Marquee Track -->
   <div class="marquee-wrapper">
     <div class="marquee-gradient marquee-gradient-left"></div>
     <div class="marquee-gradient marquee-gradient-right"></div>
-    
+
     <div class="marquee-track" id="marqueeTrack">
-      {marqueeList.map((client) => (
-        <div class="marquee-item" title={client.name}>
-          <div class="marquee-card">
-            <img
-              src={client.logo}
-              alt={client.name}
-              loading="lazy"
-              width="190"
-              height="60"
-            />
+      {
+        marqueeList.map((client) => (
+          <div class="marquee-item" title={client.name}>
+            <div class="marquee-card">
+              <img
+                src={client.logo}
+                alt={client.name}
+                loading="lazy"
+                width="190"
+                height="60"
+              />
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
@@ -62,12 +62,12 @@ const marqueeList = [...clients, ...clients];
   }
 
   .clients-title {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 1.12rem;
     font-weight: 800;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: #E8B84B;
+    color: #e8b84b;
     display: inline-flex;
     align-items: center;
     gap: 18px;
@@ -76,14 +76,14 @@ const marqueeList = [...clients, ...clients];
 
   .clients-title::before,
   .clients-title::after {
-    content: '';
+    content: "";
     width: 48px;
     height: 1.5px;
-    background: linear-gradient(90deg, transparent, #C9922A);
+    background: linear-gradient(90deg, transparent, #c9922a);
   }
 
   .clients-title::after {
-    background: linear-gradient(90deg, #C9922A, transparent);
+    background: linear-gradient(90deg, #c9922a, transparent);
   }
 
   /* =========================================
@@ -146,7 +146,7 @@ const marqueeList = [...clients, ...clients];
   .marquee-card {
     height: 94px;
     width: 230px;
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 14px;
     padding: 14px 24px;
     display: flex;
@@ -172,7 +172,7 @@ const marqueeList = [...clients, ...clients];
   .marquee-card:hover {
     transform: translateY(-4px) scale(1.04);
     box-shadow: 0 12px 30px rgba(201, 146, 42, 0.3);
-    border-color: #E8B84B;
+    border-color: #e8b84b;
   }
 
   .marquee-card:hover img {

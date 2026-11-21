@@ -14,7 +14,7 @@ interface NavItem {
 }
 
 const navLinks: NavItem[] = [
-  { label: 'Beranda', href: '/' },
+  { label: 'HOME', href: '/' },
   {
     label: 'OUR SOLUTIONS',
     href: '/#layanan',
@@ -26,7 +26,7 @@ const navLinks: NavItem[] = [
     ],
   },
   { label: 'INDUSTRIES', href: '/#industri' },
-  { label: 'Contact', href: '/kontak' },
+  { label: 'CONTACT', href: '/kontak' },
 ];
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -202,12 +202,13 @@ const isLinkActive = (href: string) => {
 
   .nav-link {
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 700;
     color: rgba(255,255,255,0.78);
     padding: 8px 14px;
     border-radius: 6px;
     transition: color 0.25s ease, background 0.25s ease;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     position: relative;
     white-space: nowrap;
     text-decoration: none;
@@ -447,7 +448,7 @@ const isLinkActive = (href: string) => {
 
   .mobile-link {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     color: rgba(255,255,255,0.8);
     padding: 12px 0;
     border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -456,6 +457,8 @@ const isLinkActive = (href: string) => {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 
   .mobile-link:last-child {
@@ -494,6 +497,8 @@ const isLinkActive = (href: string) => {
     font-family: inherit;
     text-align: left;
     transition: color 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 
   .mobile-dropdown-toggle:hover,
