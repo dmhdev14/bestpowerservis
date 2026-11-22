@@ -243,6 +243,35 @@ ul { list-style: none; }
   .container { padding: 0 20px; }
   .section-title { font-size: clamp(2rem, 8vw, 3.2rem); }
   .section-desc { font-size: 0.95rem; line-height: 1.65; }
+
+  /* Mobile Performance & Zero-Lag Reveal:
+     Eliminate artificial staggered animation delays on mobile screens so content
+     appears instantaneously when entering sections without awkward blank gaps or lag. */
+  .delay-100,
+  .delay-150,
+  .delay-200,
+  .delay-250,
+  .delay-300,
+  .delay-400,
+  .delay-500 {
+    transition-delay: 0s !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right {
+    opacity: 0;
+    transform: translateY(12px) !important;
+    transition: opacity 0.25s ease, transform 0.25s ease !important;
+    will-change: opacity, transform;
+  }
+
+  .reveal.visible,
+  .reveal-left.visible,
+  .reveal-right.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
 }
 
 @media (max-width: 480px) {

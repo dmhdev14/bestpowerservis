@@ -547,6 +547,18 @@ import { logoBase64 } from '../data/logo';
     }
   }
 
+  @media (max-width: 768px) {
+    /* Mobile Zero-Delay: Instantly reveal text and cards without staggered lag */
+    .about-text [class*="reveal"],
+    .about-visual[class*="reveal"],
+    .reveal-left,
+    .reveal-right {
+      transition-delay: 0s !important;
+      transition-duration: 0.25s !important;
+      transform: none !important;
+    }
+  }
+
   @media (max-width: 600px) {
     .about-lead {
       font-size: 1rem;
