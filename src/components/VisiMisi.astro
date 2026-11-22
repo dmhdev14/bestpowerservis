@@ -735,9 +735,19 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 768px), (hover: none) and (pointer: coarse) {
     #visi-misi {
       padding: 68px 0 76px;
+    }
+
+    /* Mobile & iPhone Zero-Delay: Instantly visible with zero black screen */
+    .reveal,
+    [class*="reveal"] {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      transition: none !important;
+      transition-delay: 0s !important;
     }
 
     .visi-hero-card {

@@ -547,15 +547,17 @@ import { logoBase64 } from '../data/logo';
     }
   }
 
-  @media (max-width: 768px) {
-    /* Mobile Zero-Delay: Instantly reveal text and cards without staggered lag */
+  @media (max-width: 768px), (hover: none) and (pointer: coarse) {
+    /* Mobile & iPhone Zero-Delay: Instantly reveal text and cards without any blank screen or delay */
     .about-text [class*="reveal"],
     .about-visual[class*="reveal"],
     .reveal-left,
     .reveal-right {
-      transition-delay: 0s !important;
-      transition-duration: 0.25s !important;
+      opacity: 1 !important;
+      visibility: visible !important;
       transform: none !important;
+      transition: none !important;
+      transition-delay: 0s !important;
     }
   }
 

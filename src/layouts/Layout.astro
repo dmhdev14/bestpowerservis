@@ -162,6 +162,8 @@ const {
       }
       #pageLoader.hidden {
         pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.35s ease 0.25s;
       }
 
       /* Split Curtains */
@@ -491,6 +493,16 @@ const {
         document.querySelectorAll(aboveFoldSelectors).forEach((el) => {
           el.classList.add('visible');
         });
+
+        // On mobile / touch devices (iPhone, iPad, Android), immediately unveil ALL reveal elements
+        // so that iOS Safari momentum scrolling never encounters blank black sections
+        const isTouchOrMobile =
+          window.innerWidth <= 768 || window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+        if (isTouchOrMobile) {
+          document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el) => {
+            el.classList.add('visible');
+          });
+        }
 
         // Run proactive check for viewport/nearby elements immediately and on initial touch/scroll
         checkInitialVisible();
