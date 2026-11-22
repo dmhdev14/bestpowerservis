@@ -1,0 +1,740 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const industries = [
+  {
+    num: '01',
+    title: 'Data Center',
+    tagline: 'CRITICAL POWER & COMMISSIONING',
+    statement:
+      'Dukungan Loadbank Rental dan Testing Services untuk kebutuhan pengujian UPS, generator, commissioning, dan critical power infrastructure.',
+    highlights: [
+      'Uji Beban Terkalibrasi (Loadbank Resistive & Reactive)',
+      'Commissioning & Validasi Fasilitas Kritis Tier III & IV',
+      'Pengujian Keandalan Baterai UPS & Generator Darurat',
+    ],
+    footerTag: 'ZERO-DOWNTIME READINESS',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+      <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+      <line x1="6" y1="6" x2="6.01" y2="6"/>
+      <line x1="6" y1="18" x2="6.01" y2="18"/>
+      <path d="M12 6h4"/>
+      <path d="M12 18h4"/>
+    </svg>`,
+  },
+  {
+    num: '02',
+    title: 'Mining & Heavy Equipment',
+    tagline: 'HEAVY EXTRACTION & MOBILITY',
+    statement:
+      'Solusi Fuel Filtration System serta layanan pemeliharaan genset untuk mendukung operasional pertambangan dan peralatan berat.',
+    highlights: [
+      'Fuel & Oil Filtration Vessel Kapasitas Besar Lapangan Tambang',
+      'Pemeliharaan Berkala Genset & Mesin Berat Tambang',
+      'Perlindungan Injektor Diesel & Hemat Filter s/d 50% vs OEM',
+    ],
+    footerTag: 'HEAVY-DUTY RELIABILITY',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+      <polyline points="2 17 12 22 22 17"/>
+      <polyline points="2 12 12 17 22 12"/>
+    </svg>`,
+  },
+  {
+    num: '03',
+    title: 'Manufacturing & Industrial Facilities',
+    tagline: 'CONTINUOUS PRODUCTION & AUDIT',
+    statement:
+      'Dukungan pengujian sistem kelistrikan, pengelolaan kualitas bahan bakar, serta pemeliharaan generator untuk kebutuhan fasilitas industri.',
+    highlights: [
+      'Audit & Pengujian Kapasitas Distribusi Kelistrikan Pabrik',
+      'Pemurnian Solar Industri & Filtrasi Pelumas Presisi',
+      'Preventive Maintenance Generator & Respon Darurat Siaga 24 Jam',
+    ],
+    footerTag: 'PLANT CONTINUITY',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 21h18"/>
+      <path d="M19 21v-4"/>
+      <path d="M19 13a4 4 0 0 0-4-4h-1V3L6 11h4v10"/>
+      <path d="M14 9l5-5"/>
+    </svg>`,
+  },
+];
+---
+
+<Layout
+  title="Industries — PT Best Power Servis | Solusi Sektor Strategis"
+  description="Solusi energi dan sistem filtrasi industri terpercaya untuk Data Center, Mining & Heavy Equipment, serta Manufacturing & Industrial Facilities di seluruh Indonesia."
+>
+  <main class="industries-page">
+    <div class="hex-pattern"></div>
+    <div class="ambient-glow"></div>
+
+    <div class="container page-content">
+      <!-- ========================================================
+           CLEAN LUXURY HERO HEADER
+           ======================================================== -->
+      <header class="ind-hero">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="/">HOME</a>
+          <span class="bc-slash">/</span>
+          <span class="bc-current">INDUSTRIES</span>
+        </nav>
+
+        <div class="chip-badge">
+          <span class="chip-dot"></span>
+          SEKTOR INDUSTRI
+        </div>
+
+        <h1 class="ind-title">
+          SOLUSI SEKTOR <span class="gold-foil">INDUSTRI</span>
+        </h1>
+
+        <p class="ind-lead">
+          <strong>PT Best Power Servis</strong> memahami bahwa setiap sektor industri memiliki kebutuhan teknis dan tantangan operasional yang berbeda. Kami menyediakan solusi yang disesuaikan dengan kebutuhan pelanggan untuk mendukung keandalan sistem dan keberlangsungan operasional.
+        </p>
+
+        <div class="gold-hairline"></div>
+      </header>
+
+      <!-- ========================================================
+           THE 3 EXECUTIVE CARDS (CLEAN, SPACIOUS, MONUMENTAL)
+           ======================================================== -->
+      <section class="ind-grid">
+        {
+          industries.map((sec) => (
+            <article class="ind-card">
+              <!-- Precision Metallic Corner Brackets -->
+              <span class="corner-mark top-left"></span>
+              <span class="corner-mark bottom-right"></span>
+
+              <!-- Large Monumental Watermark -->
+              <div class="card-watermark" aria-hidden="true">{sec.num}</div>
+
+              <!-- Card Top Row -->
+              <div class="card-top">
+                <div class="card-icon-box">
+                  <Fragment set:html={sec.icon} />
+                </div>
+                <div class="card-meta">
+                  <span class="meta-tagline">{sec.tagline}</span>
+                  <span class="meta-num">{sec.num}</span>
+                </div>
+              </div>
+
+              <!-- Industry Title -->
+              <h2 class="card-title">{sec.title}</h2>
+              <div class="card-divider"></div>
+
+              <!-- Core Statement (Direct User Quote with Gold Highlight) -->
+              <p class="card-statement">
+                {sec.num === '01' ? (
+                  <>
+                    Dukungan <span class="gold-text">Loadbank Rental dan Testing Services</span> untuk kebutuhan pengujian UPS, generator, commissioning, dan critical power infrastructure.
+                  </>
+                ) : sec.num === '02' ? (
+                  <>
+                    <span class="gold-text">Solusi Fuel Filtration System</span> serta layanan pemeliharaan genset untuk mendukung operasional pertambangan dan peralatan berat.
+                  </>
+                ) : (
+                  <>
+                    Dukungan <span class="gold-text">pengujian sistem kelistrikan</span>, pengelolaan kualitas bahan bakar, serta pemeliharaan generator untuk kebutuhan fasilitas industri.
+                  </>
+                )}
+              </p>
+
+              <!-- Clean Capability Highlights (No Cluttered Nested Boxes) -->
+              <div class="card-highlights">
+                <div class="highlights-label">KAPABILITAS UTAMA:</div>
+                <ul class="highlights-list">
+                  {sec.highlights.map((h) => (
+                    <li class="highlight-item">
+                      <span class="h-bullet"></span>
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Card Footer Grounding -->
+              <div class="card-footer">
+                <span class="footer-tag">{sec.footerTag}</span>
+                <span class="footer-dot"></span>
+              </div>
+            </article>
+          ))
+        }
+      </section>
+
+      <!-- ========================================================
+           SLEEK EXECUTIVE CONSULTATION BANNER
+           ======================================================== -->
+      <section class="consultation-banner">
+        <div class="banner-inner">
+          <div class="banner-text">
+            <span class="banner-chip">KONSULTASI TEKNIS</span>
+            <h3 class="banner-heading">KONSULTASIKAN KEBUTUHAN SEKTOR INDUSTRI ANDA</h3>
+            <p class="banner-desc">
+              Tim rekayasa teknis PT Best Power Servis siap membantu perencanaan pengujian beban, sistem filtrasi, dan pemeliharaan daya di fasilitas Anda.
+            </p>
+          </div>
+
+          <div class="banner-actions">
+            <a
+              href="https://wa.me/628111464967?text=Halo%20PT%20Best%20Power%20Servis,%20saya%20ingin%20konsultasi%20solusi%20untuk%20sektor%20industri%20kami."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-gold banner-btn"
+            >
+              Konsultasi WhatsApp
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <a href="/kontak" class="btn btn-outline banner-btn">
+              Hubungi Kami
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  /* =========================================
+     PAGE CONTAINER & AMBIENCE
+     ========================================= */
+  .industries-page {
+    background-color: #0d0d0d;
+    position: relative;
+    padding: 130px 0 100px;
+    overflow: hidden;
+    min-height: 100vh;
+  }
+
+  .ambient-glow {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 750px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(201, 146, 42, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* =========================================
+     HERO HEADER
+     ========================================= */
+  .ind-hero {
+    text-align: center;
+    max-width: 840px;
+    margin: 0 auto 56px;
+  }
+
+  .breadcrumb-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Inter", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .breadcrumb-nav a {
+    color: #c9922a;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb-nav a:hover {
+    color: #e8b84b;
+  }
+
+  .bc-slash {
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .bc-current {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .chip-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 100px;
+    background: rgba(201, 146, 42, 0.08);
+    border: 1px solid rgba(201, 146, 42, 0.25);
+    color: #e8b84b;
+    font-family: "Inter", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .chip-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #e8b84b;
+    box-shadow: 0 0 8px #e8b84b;
+  }
+
+  .ind-title {
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+  }
+
+  .gold-foil {
+    background: linear-gradient(135deg, #ffffff 0%, #e8b84b 55%, #c9922a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+
+  .ind-lead {
+    font-family: "Inter", sans-serif;
+    font-size: 1.08rem;
+    line-height: 1.76;
+    color: rgba(255, 255, 255, 0.82);
+    margin: 0 auto 32px;
+    text-wrap: pretty;
+  }
+
+  .ind-lead strong {
+    color: #e8b84b;
+    font-weight: 600;
+  }
+
+  .gold-hairline {
+    width: 64px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e8b84b, transparent);
+    margin: 0 auto;
+    border-radius: 2px;
+  }
+
+  /* =========================================
+     3-COLUMN CARDS GRID (QUIET LUXURY)
+     ========================================= */
+  .ind-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 56px;
+  }
+
+  .ind-card {
+    background: linear-gradient(165deg, #161616 0%, #101010 100%);
+    border: 1px solid rgba(201, 146, 42, 0.22);
+    border-radius: 18px;
+    padding: 38px 30px 30px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
+    transition: transform 0.35s cubic-bezier(0.2, 0, 0.2, 1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+  }
+
+  .ind-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(232, 184, 75, 0.48);
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.7),
+                0 0 32px rgba(201, 146, 42, 0.12);
+  }
+
+  /* Corner Brackets */
+  .corner-mark {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: rgba(201, 146, 42, 0.55);
+    pointer-events: none;
+    z-index: 2;
+    transition: all 0.3s ease;
+  }
+
+  .corner-mark.top-left {
+    top: 10px;
+    left: 10px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+  }
+
+  .corner-mark.bottom-right {
+    bottom: 10px;
+    right: 10px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+  }
+
+  .ind-card:hover .corner-mark {
+    border-color: #f5c658;
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Monumental Watermark Numeral */
+  .card-watermark {
+    position: absolute;
+    top: -14px;
+    right: 16px;
+    font-family: "Oswald", sans-serif;
+    font-size: 6.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(201, 146, 42, 0.04);
+    pointer-events: none;
+    z-index: 0;
+    transition: color 0.35s ease;
+  }
+
+  .ind-card:hover .card-watermark {
+    color: rgba(201, 146, 42, 0.09);
+  }
+
+  /* Top Row */
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(201, 146, 42, 0.1);
+    border: 1px solid rgba(201, 146, 42, 0.28);
+    color: #e8b84b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ind-card:hover .card-icon-box {
+    transform: scale(1.08);
+    background: #c9922a;
+    color: #0d0d0d;
+    box-shadow: 0 0 18px rgba(201, 146, 42, 0.45);
+  }
+
+  .card-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .meta-tagline {
+    font-family: "Inter", sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: rgba(201, 146, 42, 0.75);
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .meta-num {
+    font-family: "Oswald", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    background: linear-gradient(135deg, #ffffff 0%, #e8b84b 55%, #c9922a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Title & Hairline */
+  .card-title {
+    font-family: "Oswald", sans-serif;
+    font-size: 1.55rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.22;
+    color: #ffffff;
+    margin: 0 0 16px;
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+  }
+
+  .card-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      rgba(232, 184, 75, 0.6) 0%,
+      rgba(201, 146, 42, 0.2) 75%,
+      transparent 100%
+    );
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Core Statement */
+  .card-statement {
+    font-family: "Inter", sans-serif;
+    font-size: 0.98rem;
+    line-height: 1.72;
+    color: rgba(255, 255, 255, 0.88);
+    margin: 0 0 28px;
+    position: relative;
+    z-index: 1;
+    text-wrap: pretty;
+  }
+
+  .gold-text {
+    color: #f5c658;
+    font-weight: 600;
+  }
+
+  /* Highlights List */
+  .card-highlights {
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 2px solid #c9922a;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+  }
+
+  .highlights-label {
+    font-family: "Inter", sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: #e8b84b;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .highlights-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: "Inter", sans-serif;
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .h-bullet {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #e8b84b;
+    margin-top: 7px;
+    flex-shrink: 0;
+    box-shadow: 0 0 6px rgba(232, 184, 75, 0.7);
+  }
+
+  /* Card Footer Grounding */
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-tag {
+    font-family: "Inter", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: rgba(201, 146, 42, 0.75);
+    text-transform: uppercase;
+  }
+
+  .footer-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #e8b84b;
+    box-shadow: 0 0 8px #e8b84b;
+  }
+
+  /* =========================================
+     EXECUTIVE CONSULTATION BANNER
+     ========================================= */
+  .consultation-banner {
+    background: linear-gradient(135deg, #151515 0%, #101010 100%);
+    border: 1px solid rgba(201, 146, 42, 0.28);
+    border-radius: 18px;
+    padding: 38px 42px;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 36px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .banner-text {
+    max-width: 680px;
+  }
+
+  .banner-chip {
+    font-family: "Inter", sans-serif;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #e8b84b;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .banner-heading {
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.22;
+    margin: 0 0 10px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .banner-desc {
+    font-family: "Inter", sans-serif;
+    font-size: 0.94rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.76);
+    margin: 0;
+  }
+
+  .banner-actions {
+    display: flex;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+
+  .banner-btn {
+    white-space: nowrap;
+    padding: 14px 26px;
+  }
+
+  /* =========================================
+     RESPONSIVE BREAKPOINTS (Mobile & iPhone)
+     ========================================= */
+  @media (max-width: 1080px) {
+    .ind-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .banner-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .banner-actions {
+      width: 100%;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .banner-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px), (hover: none) and (pointer: coarse) {
+    .industries-page {
+      padding: 110px 0 68px;
+    }
+
+    .ind-title {
+      font-size: 2.1rem;
+    }
+
+    .ind-lead {
+      font-size: 0.98rem;
+      line-height: 1.66;
+    }
+
+    .ind-card {
+      padding: 30px 22px 24px;
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+    }
+
+    .card-statement {
+      font-size: 0.92rem;
+      line-height: 1.64;
+    }
+
+    .consultation-banner {
+      padding: 28px 20px;
+    }
+
+    .banner-heading {
+      font-size: 1.45rem;
+    }
+
+    .banner-desc {
+      font-size: 0.88rem;
+    }
+  }
+</style>
