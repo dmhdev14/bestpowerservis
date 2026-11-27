@@ -1,39 +1,18 @@
 ---
 import SolutionPageTemplate from '../components/SolutionPageTemplate.astro';
-
-const capabilities = [
-  {
-    label: 'Proteksi Injektor Common-Rail',
-    desc: 'Mencegah penyumbatan dan keausan dini pada nozzle injector presisi tinggi akibat solar kotor.'
-  },
-  {
-    label: 'Penghematan Filter Mesin s/d 50%',
-    desc: 'Solar yang telah dimurnikan di tangki induk memperpanjang usia elemen filter bawaan OEM secara drastis.'
-  },
-  {
-    label: 'Efisiensi Rasio Pembakaran',
-    desc: 'Bahan bakar bebas air dan sedimen mengoptimalkan atomisasi solar sehingga konsumsi bahan bakar lebih efisien.'
-  },
-  {
-    label: 'Vessel Spesifikasi Industri',
-    desc: 'Unit vessel dan skid tangguh bersertifikasi tekanan kerja tinggi yang siap ditempatkan di lingkungan ekstrem.'
-  }
-];
+import FiltrationProductSlider from '../components/FiltrationProductSlider.astro';
 ---
 
 <SolutionPageTemplate
-  pageTitle="Industrial Fuel Filtration Systems — PT Best Power Servis"
-  pageDescription="Solusi Industrial Fuel Filtration Systems dan bejana filtrasi solar untuk memurnikan bahan bakar diesel dan biosolar, melindungi mesin, dan menekan biaya filter hingga 50%."
-  titleMain="INDUSTRIAL FUEL"
+  pageTitle="Industrial Filtration Systems — PT Best Power Servis"
+  pageDescription="Solusi Industrial Filtration Systems dan bejana filtrasi solar untuk memurnikan bahan bakar diesel dan biosolar, melindungi mesin, dan menekan biaya filter hingga 50%."
+  titleMain="INDUSTRIAL"
   titleHighlight="FILTRATION SYSTEMS"
   narrativeLead="menyediakan solusi sistem filtrasi bahan bakar untuk mendukung kualitas dan keandalan operasional mesin serta peralatan industri."
   narrativeCol1="Kontaminasi air, partikel, dan kotoran dalam bahan bakar dapat memengaruhi performa mesin, mempercepat keausan komponen, dan meningkatkan risiko gangguan operasional."
   narrativeCol2="Melalui sistem filtrasi yang dirancang sesuai kebutuhan aplikasi, BPS membantu pelanggan mengelola kualitas bahan bakar diesel dan biosolar untuk mendukung perlindungan mesin serta efisiensi operasional."
-  image="/projects/filter.webp"
-  imageAlt="Instalasi Fuel Filtration Vessel dan Skid PT Best Power Servis di fasilitas industri"
-  showcaseTag="TEKNOLOGI PURIFIKASI SOLAR"
-  showcaseHeading="PERLINDUNGAN MAKSIMAL MESIN INDUSTRI"
-  showcaseDesc="Dengan mengintegrasikan teknologi bejana separasi air dan media filtrasi sub-mikron, kami memastikan suplai solar selalu dalam kondisi prima bebas kontaminasi lumpur dan air."
-  capabilities={capabilities}
-/>
+  showShowcase={false}
+>
+  <FiltrationProductSlider />
+</SolutionPageTemplate>
 

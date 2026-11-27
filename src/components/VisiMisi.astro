@@ -330,9 +330,10 @@
   }
 
   .visi-badge-row {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 24px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     padding-bottom: 18px;
@@ -362,6 +363,8 @@
   }
 
   .visi-quote-icon {
+    position: absolute;
+    right: 0;
     color: rgba(201, 146, 42, 0.35);
     display: flex;
     align-items: center;
@@ -753,6 +756,10 @@
     .visi-hero-card {
       padding: 26px 18px;
       border-radius: 14px;
+    }
+
+    .visi-quote-icon {
+      display: none;
     }
 
     .visi-statement {

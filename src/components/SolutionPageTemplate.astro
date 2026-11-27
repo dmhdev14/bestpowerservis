@@ -24,13 +24,14 @@ export interface Props {
   narrativeLead: string;
   narrativeCol1: string;
   narrativeCol2: string;
-  image: string;
-  imageAlt: string;
+  showShowcase?: boolean;
+  image?: string;
+  imageAlt?: string;
   imageBadge?: string;
-  showcaseTag: string;
-  showcaseHeading: string;
-  showcaseDesc: string;
-  capabilities: CapabilityItem[];
+  showcaseTag?: string;
+  showcaseHeading?: string;
+  showcaseDesc?: string;
+  capabilities?: CapabilityItem[];
   suiteChip?: string;
   suiteTitle?: string;
   suiteDesc?: string;
@@ -53,6 +54,7 @@ const {
   narrativeLead,
   narrativeCol1,
   narrativeCol2,
+  showShowcase = true,
   image,
   imageAlt,
   imageBadge,
@@ -119,48 +121,53 @@ const {
       <!-- ========================================================
            EDITORIAL SHOWCASE: REAL IMAGE & CAPABILITIES
            ======================================================== -->
-      <section class="showcase-banner anim-slide-up delay-1">
-        <span class="crosshair top-left"></span>
-        <span class="crosshair top-right"></span>
-        <span class="crosshair bottom-left"></span>
-        <span class="crosshair bottom-right"></span>
+      {showShowcase && image && capabilities && (
+        <section class="showcase-banner anim-slide-up delay-1">
+          <span class="crosshair top-left"></span>
+          <span class="crosshair top-right"></span>
+          <span class="crosshair bottom-left"></span>
+          <span class="crosshair bottom-right"></span>
 
-        <div class="showcase-grid">
-          <div class="showcase-media">
-            <img
-              src={image}
-              alt={imageAlt}
-              class="showcase-img"
-              width="640"
-              height="400"
-              loading="eager"
-            />
-            <div class="showcase-overlay"></div>
-          </div>
+          <div class="showcase-grid">
+            <div class="showcase-media">
+              <img
+                src={image}
+                alt={imageAlt}
+                class="showcase-img"
+                width="640"
+                height="400"
+                loading="eager"
+              />
+              <div class="showcase-overlay"></div>
+            </div>
 
-          <div class="showcase-content">
-            <span class="section-tag">{showcaseTag}</span>
-            <h2 class="showcase-heading">{showcaseHeading}</h2>
-            <p class="showcase-desc">{showcaseDesc}</p>
+            <div class="showcase-content">
+              <span class="section-tag">{showcaseTag}</span>
+              <h2 class="showcase-heading">{showcaseHeading}</h2>
+              <p class="showcase-desc">{showcaseDesc}</p>
 
-            <div class="capabilities-grid">
-              {capabilities.map((cap) => (
-                <div class="cap-item">
-                  <div class="cap-check">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+              <div class="capabilities-grid">
+                {capabilities.map((cap) => (
+                  <div class="cap-item">
+                    <div class="cap-check">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </div>
+                    <div class="cap-text">
+                      <strong class="cap-title">{cap.label}</strong>
+                      <span class="cap-detail">{cap.desc}</span>
+                    </div>
                   </div>
-                  <div class="cap-text">
-                    <strong class="cap-title">{cap.label}</strong>
-                    <span class="cap-detail">{cap.desc}</span>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      <!-- Slot for page-specific content -->
+      <slot />
     </div>
   </div>
 </Layout>
