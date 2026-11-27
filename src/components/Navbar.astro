@@ -14,9 +14,9 @@ interface NavItem {
 }
 
 const navLinks: NavItem[] = [
-  { label: 'HOME', href: '/' },
+  { label: 'BERANDA', href: '/' },
   {
-    label: 'OUR SOLUTIONS',
+    label: 'SOLUSI KAMI',
     href: '/#layanan',
     isDropdown: true,
     children: [
@@ -25,8 +25,8 @@ const navLinks: NavItem[] = [
       { label: 'Generator Service & Maintenance', href: '/generator-service-maintenance' },
     ],
   },
-  { label: 'INDUSTRIES', href: '/industries' },
-  { label: 'CONTACT', href: '/kontak' },
+  { label: 'INDUSTRI', href: '/industries' },
+  { label: 'KONTAK', href: '/kontak' },
 ];
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';

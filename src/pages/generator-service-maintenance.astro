@@ -1,68 +1,68 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
 const servicesList = [
   {
-    num: '01',
-    title: 'Preventive Maintenance',
-    desc: 'Program pemeliharaan berkala terjadwal (bulanan atau per 250/500 jam operasi) mencakup pengecekan multi-titik, pembersihan unit, penggantian filter, dan pelumasan untuk mencegah keausan komponen.',
-    badge: 'SCHEDULED CARE'
+    num: "01",
+    title: "Preventive Maintenance",
+    desc: "Program pemeliharaan berkala terjadwal (bulanan atau per 250/500 jam operasi) mencakup pengecekan multi-titik, pembersihan unit, penggantian filter, dan pelumasan untuk mencegah keausan komponen.",
+    badge: "SCHEDULED CARE",
   },
   {
-    num: '02',
-    title: 'Corrective Maintenance',
-    desc: 'Tindakan perbaikan terencana untuk mengatasi anomali performa mesin, perbaikan kebocoran fluida, rekondisi komponen pendingin radiator, serta penggantian suku cadang yang mengalami penurunan fungsi.',
-    badge: 'REPAIR & RESTORATION'
+    num: "02",
+    title: "Corrective Maintenance",
+    desc: "Tindakan perbaikan terencana untuk mengatasi anomali performa mesin, perbaikan kebocoran fluida, rekondisi komponen pendingin radiator, serta penggantian suku cadang yang mengalami penurunan fungsi.",
+    badge: "REPAIR & RESTORATION",
   },
   {
-    num: '03',
-    title: 'Generator Troubleshooting',
-    desc: 'Investigasi diagnostik menyeluruh untuk mengidentifikasi akar masalah saat genset gagal start, mengalami trip proteksi, fluktuasi tegangan, overheating, atau kegagalan sinkronisasi panel.',
-    badge: 'DIAGNOSTIC EXPERTISE'
+    num: "03",
+    title: "Generator Troubleshooting",
+    desc: "Investigasi diagnostik menyeluruh untuk mengidentifikasi akar masalah saat genset gagal start, mengalami trip proteksi, fluktuasi tegangan, overheating, atau kegagalan sinkronisasi panel.",
+    badge: "DIAGNOSTIC EXPERTISE",
   },
   {
-    num: '04',
-    title: 'Engine Inspection & Servicing',
-    desc: 'Pemeriksaan mekanikal blok mesin diesel dan gas, penyetelan celah katup, inspeksi turbocharger, sistem injeksi bahan bakar, serta pengujian kompresi ruang bakar oleh teknisi berpengalaman.',
-    badge: 'ENGINE SPECIALIST'
+    num: "04",
+    title: "Engine Inspection & Servicing",
+    desc: "Pemeriksaan mekanikal blok mesin diesel dan gas, penyetelan celah katup, inspeksi turbocharger, sistem injeksi bahan bakar, serta pengujian kompresi ruang bakar oleh teknisi berpengalaman.",
+    badge: "ENGINE SPECIALIST",
   },
   {
-    num: '05',
-    title: 'Electrical System Inspection',
-    desc: 'Inspeksi winding alternator, uji resistansi isolasi (megger test), verifikasi modul kontrol ATS/AMF, sensor proteksi darurat, serta kalibrasi sistem pengisian baterai aki generator.',
-    badge: 'ELECTRICAL & CONTROL'
+    num: "05",
+    title: "Electrical System Inspection",
+    desc: "Inspeksi winding alternator, uji resistansi isolasi (megger test), verifikasi modul kontrol ATS/AMF, sensor proteksi darurat, serta kalibrasi sistem pengisian baterai aki generator.",
+    badge: "ELECTRICAL & CONTROL",
   },
   {
-    num: '06',
-    title: 'Generator Performance Check',
-    desc: 'Pengujian beban performa dinamis untuk mengevaluasi stabilitas voltase, regulasi frekuensi, dan respon termal mesin guna memastikan genset beroperasi optimal sesuai rating kapasitas pabrikan.',
-    badge: 'PERFORMANCE AUDIT'
+    num: "06",
+    title: "Generator Performance Check",
+    desc: "Pengujian beban performa dinamis untuk mengevaluasi stabilitas voltase, regulasi frekuensi, dan respon termal mesin guna memastikan genset beroperasi optimal sesuai rating kapasitas pabrikan.",
+    badge: "PERFORMANCE AUDIT",
   },
   {
-    num: '07',
-    title: 'Maintenance Contract Services',
-    desc: 'Perjanjian kerja sama pemeliharaan jangka panjang (kontrak tahunan) dengan jadwal servis rutin terprogram, prioritas penanganan darurat 24/7, serta logbook pemeliharaan terintegrasi.',
-    badge: 'ANNUAL CONTRACT (SLA)'
-  }
+    num: "07",
+    title: "Maintenance Contract Services",
+    desc: "Perjanjian kerja sama pemeliharaan jangka panjang (kontrak tahunan) dengan jadwal servis rutin terprogram, prioritas penanganan darurat 24/7, serta logbook pemeliharaan terintegrasi.",
+    badge: "ANNUAL CONTRACT (SLA)",
+  },
 ];
 
 const capabilities = [
   {
-    label: 'Mitigasi Kerusakan Total',
-    desc: 'Mendeteksi gejala keausan lebih dini sebelum merambat menjadi kerusakan mesin fatal berbiaya besar.'
+    label: "Mitigasi Kerusakan Total",
+    desc: "Mendeteksi gejala keausan lebih dini sebelum merambat menjadi kerusakan mesin fatal berbiaya besar.",
   },
   {
-    label: 'Kesiagaan Tanggap Darurat',
-    desc: 'Dukungan teknisi panggilan darurat untuk merespon gangguan genset fasilitas industri pelanggan.'
+    label: "Kesiagaan Tanggap Darurat",
+    desc: "Dukungan teknisi panggilan darurat untuk merespon gangguan genset fasilitas industri pelanggan.",
   },
   {
-    label: 'Suku Cadang Berkualitas Tinggi',
-    desc: 'Jaminan penggunaan filter, pelumas, dan komponen pengganti sesuai standar pabrikan generator.'
+    label: "Suku Cadang Berkualitas Tinggi",
+    desc: "Jaminan penggunaan filter, pelumas, dan komponen pengganti sesuai standar pabrikan generator.",
   },
   {
-    label: 'Laporan Servis & Riwayat Log',
-    desc: 'Dokumentasi teknis transparan mencakup parameter operasi sebelum dan sesudah pelaksanaan servis.'
-  }
+    label: "Laporan Servis & Riwayat Log",
+    desc: "Dokumentasi teknis transparan mencakup parameter operasi sebelum dan sesudah pelaksanaan servis.",
+  },
 ];
 ---
 
@@ -95,38 +95,59 @@ const capabilities = [
         </div>
 
         <h1 class="service-title">
-          GENERATOR SERVICE &amp; <span class="gold-foil">MAINTENANCE CONTRACTS</span>
+          GENERATOR SERVICE &amp;{" "}
+          <span class="gold-foil">MAINTENANCE CONTRACTS</span>
         </h1>
 
         <!-- Mandatory Tagline from User Request -->
-        <p class="service-tagline">
-          Keeping Power Running.
-        </p>
+        <p class="service-tagline">Keeping Power Running.</p>
 
         <!-- Mandatory Lead Narrative (Verbatim from User) -->
         <div class="service-narrative-card">
           <p class="narrative-lead">
-            <strong>PT Best Power Servis</strong> menyediakan layanan servis dan pemeliharaan generator set untuk membantu menjaga performa, keandalan, dan kesiapan operasional sistem pembangkit listrik pelanggan.
+            <strong>PT Best Power Servis</strong> menyediakan layanan servis dan
+            pemeliharaan generator set untuk membantu menjaga performa,
+            keandalan, dan kesiapan operasional sistem pembangkit listrik
+            pelanggan.
           </p>
           <div class="narrative-divider"></div>
           <div class="narrative-sub-grid">
             <div class="narrative-col">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+              >
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="12" y1="8" x2="12" y2="12"></line>
                 <line x1="12" y1="16" x2="12.01" y2="16"></line>
               </svg>
               <p>
-                Kami memahami bahwa gangguan pada generator dapat berdampak langsung terhadap kelangsungan operasional perusahaan. Karena itu, BPS menawarkan pendekatan pemeliharaan yang terencana dan berorientasi pada pencegahan gangguan.
+                Kami memahami bahwa gangguan pada generator dapat berdampak
+                langsung terhadap kelangsungan operasional perusahaan. Karena
+                itu, BPS menawarkan pendekatan pemeliharaan yang terencana dan
+                berorientasi pada pencegahan gangguan.
               </p>
             </div>
             <div class="narrative-col">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+              >
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                 <polyline points="9 12 11 14 15 10"></polyline>
               </svg>
               <p>
-                Dengan dukungan tenaga teknis dan pendekatan kerja profesional, kami siap membantu kebutuhan perawatan genset untuk berbagai sektor industri.
+                Dengan dukungan tenaga teknis dan pendekatan kerja profesional,
+                kami siap membantu kebutuhan perawatan genset untuk berbagai
+                sektor industri.
               </p>
             </div>
           </div>
@@ -166,16 +187,27 @@ const capabilities = [
           <!-- Right: Key Technical Standards -->
           <div class="showcase-content">
             <span class="section-tag">PENDEKATAN PEMELIHARAAN TERENCANA</span>
-            <h2 class="showcase-heading">PERFORMA ANDAL &amp; BEBAS DOWNTIME</h2>
+            <h2 class="showcase-heading">
+              PERFORMA ANDAL &amp; BEBAS DOWNTIME
+            </h2>
             <p class="showcase-desc">
-              Dengan jadwal servis terjadwal dan tim teknisi berpengalaman, kami memastikan generator cadangan Anda siap mengambil alih beban seketika saat listrik utama padam.
+              Dengan jadwal servis terjadwal dan tim teknisi berpengalaman, kami
+              memastikan generator cadangan Anda siap mengambil alih beban
+              seketika saat listrik utama padam.
             </p>
 
             <div class="capabilities-grid">
               {capabilities.map((cap) => (
                 <div class="cap-item">
                   <div class="cap-check">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="3"
+                    >
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                   </div>
@@ -198,7 +230,8 @@ const capabilities = [
           <span class="suite-chip">LINGKUP PEMELIHARAAN &amp; SERVIS</span>
           <h2 class="suite-title">OUR SERVICES</h2>
           <p class="suite-desc">
-            Spektrum layanan pemeliharaan lengkap dari inspeksi komponen tunggal hingga kontrak pemeliharaan tahunan fasilitas industri.
+            Spektrum layanan pemeliharaan lengkap dari inspeksi komponen tunggal
+            hingga kontrak pemeliharaan tahunan fasilitas industri.
           </p>
           <div class="gold-accent-line"></div>
         </div>
@@ -230,7 +263,9 @@ const capabilities = [
           <span class="dock-chip">KONSULTASI PEMELIHARAAN GENSET</span>
           <h3 class="dock-title">AMANKAN KONTINUITAS DAYA OPERASIONAL ANDA</h3>
           <p class="dock-desc">
-            Diskusikan jadwal servis berkala atau paket kontrak pemeliharaan (Maintenance Contract Services) bersama tim engineering PT Best Power Servis.
+            Diskusikan jadwal servis berkala atau paket kontrak pemeliharaan
+            (Maintenance Contract Services) bersama tim engineering PT Best
+            Power Servis.
           </p>
         </div>
         <div class="dock-actions">
@@ -241,8 +276,15 @@ const capabilities = [
             class="dock-btn-whatsapp"
           >
             <span>Konsultasi WhatsApp</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
           <a href="/kontak" class="dock-btn-outline">
@@ -250,7 +292,6 @@ const capabilities = [
           </a>
         </div>
       </section>
-
     </div>
   </main>
 </Layout>
@@ -260,7 +301,7 @@ const capabilities = [
      PAGE CONTAINER & INDUSTRIAL AMBIENCE
      ========================================= */
   .service-page {
-    background-color: #0A0A0A;
+    background-color: #0a0a0a;
     position: relative;
     padding: 120px 0 100px;
     overflow: hidden;
@@ -297,14 +338,22 @@ const capabilities = [
     transform: translateX(-50%);
     width: 700px;
     height: 420px;
-    background: radial-gradient(circle, rgba(201, 146, 42, 0.09) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(201, 146, 42, 0.09) 0%,
+      transparent 70%
+    );
   }
   .glow-side {
     bottom: 20%;
     right: 5%;
     width: 500px;
     height: 450px;
-    background: radial-gradient(circle, rgba(232, 184, 75, 0.05) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(232, 184, 75, 0.05) 0%,
+      transparent 70%
+    );
   }
 
   /* =========================================
@@ -337,9 +386,15 @@ const capabilities = [
   .breadcrumb-nav a:hover {
     color: #e8b84b;
   }
-  .bc-slash { color: rgba(255, 255, 255, 0.2); }
-  .bc-section { color: rgba(255, 255, 255, 0.6); }
-  .bc-current { color: rgba(255, 255, 255, 0.9); }
+  .bc-slash {
+    color: rgba(255, 255, 255, 0.2);
+  }
+  .bc-section {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .bc-current {
+    color: rgba(255, 255, 255, 0.9);
+  }
 
   .chip-badge {
     display: inline-flex;
@@ -368,8 +423,15 @@ const capabilities = [
   }
 
   @keyframes radarPulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.4); opacity: 0.6; }
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.4);
+      opacity: 0.6;
+    }
   }
 
   .service-title {
@@ -417,7 +479,7 @@ const capabilities = [
     font-family: "Inter", sans-serif;
     font-size: 1.05rem;
     line-height: 1.75;
-    color: #FFFFFF;
+    color: #ffffff;
     margin: 0 0 20px;
   }
 
@@ -484,14 +546,34 @@ const capabilities = [
     position: absolute;
     width: 12px;
     height: 12px;
-    border-color: #C9922A;
+    border-color: #c9922a;
     pointer-events: none;
     z-index: 4;
   }
-  .crosshair.top-left { top: 8px; left: 8px; border-top: 2px solid; border-left: 2px solid; }
-  .crosshair.top-right { top: 8px; right: 8px; border-top: 2px solid; border-right: 2px solid; }
-  .crosshair.bottom-left { bottom: 8px; left: 8px; border-bottom: 2px solid; border-left: 2px solid; }
-  .crosshair.bottom-right { bottom: 8px; right: 8px; border-bottom: 2px solid; border-right: 2px solid; }
+  .crosshair.top-left {
+    top: 8px;
+    left: 8px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+  }
+  .crosshair.top-right {
+    top: 8px;
+    right: 8px;
+    border-top: 2px solid;
+    border-right: 2px solid;
+  }
+  .crosshair.bottom-left {
+    bottom: 8px;
+    left: 8px;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+  }
+  .crosshair.bottom-right {
+    bottom: 8px;
+    right: 8px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+  }
 
   .showcase-grid {
     display: grid;
@@ -521,7 +603,11 @@ const capabilities = [
   .showcase-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(10, 10, 10, 0.1) 0%, rgba(10, 10, 10, 0.85) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(10, 10, 10, 0.1) 0%,
+      rgba(10, 10, 10, 0.85) 100%
+    );
   }
 
   .media-live-chip {
@@ -539,7 +625,7 @@ const capabilities = [
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.14em;
-    color: #E8B84B;
+    color: #e8b84b;
     z-index: 3;
     backdrop-filter: blur(8px);
   }
@@ -548,8 +634,8 @@ const capabilities = [
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #E8B84B;
-    box-shadow: 0 0 8px #E8B84B;
+    background: #e8b84b;
+    box-shadow: 0 0 8px #e8b84b;
   }
 
   .showcase-content {
@@ -564,7 +650,7 @@ const capabilities = [
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.18em;
-    color: #C9922A;
+    color: #c9922a;
     text-transform: uppercase;
     margin-bottom: 8px;
   }
@@ -573,7 +659,7 @@ const capabilities = [
     font-family: "Bebas Neue", "Oswald", sans-serif;
     font-size: clamp(1.8rem, 2.5vw, 2.3rem);
     letter-spacing: 0.03em;
-    color: #FFFFFF;
+    color: #ffffff;
     margin: 0 0 12px;
     line-height: 1.1;
   }
@@ -603,7 +689,7 @@ const capabilities = [
   }
 
   .cap-check {
-    color: #E8B84B;
+    color: #e8b84b;
     flex-shrink: 0;
     margin-top: 2px;
   }
@@ -618,7 +704,7 @@ const capabilities = [
     font-family: "Inter", sans-serif;
     font-size: 0.84rem;
     font-weight: 700;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
   .cap-detail {
@@ -647,7 +733,7 @@ const capabilities = [
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.2em;
-    color: #E8B84B;
+    color: #e8b84b;
     background: rgba(201, 146, 42, 0.08);
     border: 1px solid rgba(201, 146, 42, 0.25);
     padding: 4px 14px;
@@ -660,7 +746,7 @@ const capabilities = [
     font-family: "Bebas Neue", "Oswald", sans-serif;
     font-size: clamp(2.2rem, 3.5vw, 3rem);
     letter-spacing: 0.04em;
-    color: #FFFFFF;
+    color: #ffffff;
     margin: 0 0 10px;
   }
 
@@ -695,13 +781,18 @@ const capabilities = [
     flex-direction: column;
     overflow: hidden;
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
-    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    transition:
+      transform 0.35s ease,
+      border-color 0.35s ease,
+      box-shadow 0.35s ease;
   }
 
   .svc-card:hover {
     transform: translateY(-5px);
     border-color: rgba(201, 146, 42, 0.4);
-    box-shadow: 0 20px 52px rgba(0, 0, 0, 0.65), 0 0 24px rgba(201, 146, 42, 0.08);
+    box-shadow:
+      0 20px 52px rgba(0, 0, 0, 0.65),
+      0 0 24px rgba(201, 146, 42, 0.08);
   }
 
   .svc-beam {
@@ -729,7 +820,7 @@ const capabilities = [
   .svc-num {
     font-family: "Bebas Neue", sans-serif;
     font-size: 1.6rem;
-    color: #E8B84B;
+    color: #e8b84b;
     line-height: 1;
   }
 
@@ -749,7 +840,7 @@ const capabilities = [
     font-family: "Bebas Neue", "Oswald", sans-serif;
     font-size: 1.45rem;
     letter-spacing: 0.03em;
-    color: #FFFFFF;
+    color: #ffffff;
     margin: 0 0 12px;
     line-height: 1.15;
   }
@@ -778,7 +869,7 @@ const capabilities = [
     gap: 36px;
     background: #111111;
     border: 1px solid rgba(201, 146, 42, 0.25);
-    border-left: 4px solid #C9922A;
+    border-left: 4px solid #c9922a;
     padding: 32px 38px;
     border-radius: 4px;
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
@@ -794,7 +885,7 @@ const capabilities = [
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.16em;
-    color: #E8B84B;
+    color: #e8b84b;
     text-transform: uppercase;
     margin-bottom: 8px;
   }
@@ -802,7 +893,7 @@ const capabilities = [
   .dock-title {
     font-family: "Bebas Neue", "Oswald", sans-serif;
     font-size: clamp(1.6rem, 2.2vw, 2.2rem);
-    color: #FFFFFF;
+    color: #ffffff;
     margin: 0 0 8px;
     letter-spacing: 0.03em;
     line-height: 1.1;
@@ -829,8 +920,8 @@ const capabilities = [
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: #C9922A;
-    color: #0A0A0A;
+    background: #c9922a;
+    color: #0a0a0a;
     padding: 12px 20px;
     border-radius: 4px;
     font-family: "Inter", sans-serif;
@@ -840,7 +931,7 @@ const capabilities = [
     transition: all 0.25s ease;
   }
   .dock-btn-whatsapp:hover {
-    background: #E8B84B;
+    background: #e8b84b;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(201, 146, 42, 0.35);
   }
@@ -862,7 +953,7 @@ const capabilities = [
   }
   .dock-btn-outline:hover {
     border-color: rgba(201, 146, 42, 0.45);
-    color: #FFFFFF;
+    color: #ffffff;
     background: rgba(201, 146, 42, 0.06);
   }
 
@@ -879,18 +970,34 @@ const capabilities = [
     animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  .delay-1 { animation-delay: 0.15s; }
-  .delay-2 { animation-delay: 0.3s; }
-  .delay-3 { animation-delay: 0.45s; }
+  .delay-1 {
+    animation-delay: 0.15s;
+  }
+  .delay-2 {
+    animation-delay: 0.3s;
+  }
+  .delay-3 {
+    animation-delay: 0.45s;
+  }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   @keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @media (max-width: 1024px) {
