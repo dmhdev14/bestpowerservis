@@ -15,9 +15,7 @@ const sectors = [
       'Loadbank Rental & Testing',
       'UPS & Generator Commissioning',
       'Validasi Standar Tier II – Tier IV'
-    ],
-    link: '/loadbank-rental-testing',
-    linkText: 'Eksplorasi Layanan Loadbank'
+    ]
   },
   {
     num: '02',
@@ -32,9 +30,7 @@ const sectors = [
       'Fuel Filtration System (B35 / B40)',
       'Hemat Filter Mesin s/d 50% vs OEM',
       'Pemeliharaan Genset Tambang Siaga'
-    ],
-    link: '/fuel-filtration-systems',
-    linkText: 'Eksplorasi Fuel Filtration'
+    ]
   },
   {
     num: '03',
@@ -49,9 +45,7 @@ const sectors = [
       'Audit Sistem Kelistrikan Pabrik',
       'Pemurnian Solar Tangki Harian',
       'Preventive Maintenance Siaga 24 Jam'
-    ],
-    link: '/generator-service-maintenance',
-    linkText: 'Eksplorasi Pemeliharaan Genset'
+    ]
   }
 ];
 ---
@@ -60,7 +54,7 @@ const sectors = [
   title="Industries — PT Best Power Servis | Solusi Sektor Strategis"
   description="Solusi energi dan sistem filtrasi industri untuk Data Center, Mining & Heavy Equipment, serta Manufacturing & Industrial Facilities di seluruh Indonesia."
 >
-  <main class="industries-page">
+  <div class="industries-page">
     <!-- Ambient Backdrop Effects -->
     <div class="ind-grid-bg"></div>
     <div class="ambient-glow glow-1"></div>
@@ -163,16 +157,6 @@ const sectors = [
                   ))}
                 </div>
 
-                <!-- Dedicated Action Button -->
-                <div class="action-footer">
-                  <a href={sec.link} class="btn-gold-action">
-                    <span>{sec.linkText}</span>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
-                </div>
-
               </div>
             </div>
           </article>
@@ -209,7 +193,7 @@ const sectors = [
       </section>
 
     </div>
-  </main>
+  </div>
 </Layout>
 
 <style>
@@ -587,7 +571,7 @@ const sectors = [
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 28px;
+    margin-bottom: 0;
   }
 
   .scope-tag {
@@ -612,43 +596,6 @@ const sectors = [
   .cinematic-card:hover .scope-tag {
     border-color: rgba(201, 146, 42, 0.3);
     background: rgba(201, 146, 42, 0.06);
-  }
-
-  /* Action Button */
-  .action-footer {
-    display: flex;
-    align-items: center;
-  }
-
-  .btn-gold-action {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: #C9922A;
-    color: #0A0A0A;
-    padding: 13px 26px;
-    border-radius: 4px;
-    font-family: "Inter", sans-serif;
-    font-size: 0.88rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-    box-shadow: 0 6px 20px rgba(201, 146, 42, 0.25);
-    transition: all 0.3s ease;
-  }
-
-  .btn-gold-action:hover {
-    background: #E8B84B;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(201, 146, 42, 0.4);
-  }
-
-  .btn-gold-action svg {
-    transition: transform 0.3s ease;
-  }
-
-  .btn-gold-action:hover svg {
-    transform: translateX(5px);
   }
 
   /* =========================================
@@ -845,19 +792,16 @@ const sectors = [
     }
     .tags-row {
       gap: 8px;
-      margin-bottom: 22px;
+      margin-bottom: 0;
     }
     .scope-tag {
       font-size: 0.74rem;
       padding: 5px 10px;
     }
-    .btn-gold-action {
-      width: 100%;
-      justify-content: center;
-      text-align: center;
-    }
+  }
 
-    /* Zero Delay on Mobile/Touch Devices (Prevents iOS Black Screen) */
+  /* Zero Delay on Mobile & All Touch Devices (Prevents iOS/iPad Black Screen) */
+  @media (max-width: 768px), (hover: none) and (pointer: coarse) {
     .anim-slide-up,
     .anim-fade-in,
     .cinematic-card,

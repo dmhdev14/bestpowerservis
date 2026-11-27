@@ -1,0 +1,517 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+export interface CapabilityItem {
+  label: string;
+  desc: string;
+}
+
+export interface SolutionCardItem {
+  num: string;
+  title: string;
+  desc: string;
+  badge: string;
+}
+
+export interface Props {
+  pageTitle: string;
+  pageDescription: string;
+  breadcrumbCurrent?: string;
+  chipBadge?: string;
+  titleMain: string;
+  titleHighlight: string;
+  tagline?: string;
+  narrativeLead: string;
+  narrativeCol1: string;
+  narrativeCol2: string;
+  image: string;
+  imageAlt: string;
+  imageBadge?: string;
+  showcaseTag: string;
+  showcaseHeading: string;
+  showcaseDesc: string;
+  capabilities: CapabilityItem[];
+  suiteChip?: string;
+  suiteTitle?: string;
+  suiteDesc?: string;
+  items?: SolutionCardItem[];
+  spanLastCard?: boolean;
+  dockChip?: string;
+  dockTitle?: string;
+  dockDesc?: string;
+  waText?: string;
+}
+
+const {
+  pageTitle,
+  pageDescription,
+  breadcrumbCurrent,
+  chipBadge,
+  titleMain,
+  titleHighlight,
+  tagline,
+  narrativeLead,
+  narrativeCol1,
+  narrativeCol2,
+  image,
+  imageAlt,
+  imageBadge,
+  showcaseTag,
+  showcaseHeading,
+  showcaseDesc,
+  capabilities,
+  suiteChip,
+  suiteTitle,
+  suiteDesc,
+  items,
+  spanLastCard = false,
+  dockChip,
+  dockTitle,
+  dockDesc,
+  waText,
+} = Astro.props;
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <div class="service-page">
+    <!-- Ambient Blueprint Grid & Glow -->
+    <div class="page-grid-bg"></div>
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-side"></div>
+
+    <div class="container relative-z">
+      <!-- ========================================================
+           BREADCRUMB & HERO HEADER
+           ======================================================== -->
+      <header class="service-hero anim-fade-in">
+        <h1 class="service-title">
+          {titleMain} <span class="gold-foil">{titleHighlight}</span>
+        </h1>
+
+        <!-- Lead Narrative -->
+        <div class="service-narrative-card">
+          <p class="narrative-lead">
+            <strong>PT Best Power Servis</strong> {narrativeLead}
+          </p>
+          <div class="narrative-divider"></div>
+          <div class="narrative-sub-grid">
+            <div class="narrative-col">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <p>{narrativeCol1}</p>
+            </div>
+            <div class="narrative-col">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <polyline points="9 12 11 14 15 10"></polyline>
+              </svg>
+              <p>{narrativeCol2}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gold-accent-line"></div>
+      </header>
+
+      <!-- ========================================================
+           EDITORIAL SHOWCASE: REAL IMAGE & CAPABILITIES
+           ======================================================== -->
+      <section class="showcase-banner anim-slide-up delay-1">
+        <span class="crosshair top-left"></span>
+        <span class="crosshair top-right"></span>
+        <span class="crosshair bottom-left"></span>
+        <span class="crosshair bottom-right"></span>
+
+        <div class="showcase-grid">
+          <div class="showcase-media">
+            <img
+              src={image}
+              alt={imageAlt}
+              class="showcase-img"
+              width="640"
+              height="400"
+              loading="eager"
+            />
+            <div class="showcase-overlay"></div>
+          </div>
+
+          <div class="showcase-content">
+            <span class="section-tag">{showcaseTag}</span>
+            <h2 class="showcase-heading">{showcaseHeading}</h2>
+            <p class="showcase-desc">{showcaseDesc}</p>
+
+            <div class="capabilities-grid">
+              {capabilities.map((cap) => (
+                <div class="cap-item">
+                  <div class="cap-check">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                  <div class="cap-text">
+                    <strong class="cap-title">{cap.label}</strong>
+                    <span class="cap-detail">{cap.desc}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* =========================================
+     PAGE CONTAINER & INDUSTRIAL AMBIENCE
+     ========================================= */
+  .service-page {
+    background-color: #0A0A0A;
+    position: relative;
+    padding: 120px 0 100px;
+    overflow: hidden;
+    min-height: 100vh;
+  }
+
+  .relative-z {
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201, 146, 42, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201, 146, 42, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .ambient-glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(100px);
+    z-index: 0;
+  }
+  .glow-top {
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(201, 146, 42, 0.09) 0%, transparent 70%);
+  }
+  .glow-side {
+    bottom: 20%;
+    right: 5%;
+    width: 500px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(232, 184, 75, 0.05) 0%, transparent 70%);
+  }
+
+  /* =========================================
+     HERO & NARRATIVE
+     ========================================= */
+  .service-hero {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 60px;
+  }
+
+
+  .service-title {
+    font-family: "Bebas Neue", "Oswald", sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4.4rem);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    line-height: 1.05;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+  }
+
+  .gold-foil {
+    background: linear-gradient(135deg, #ffffff 0%, #e8b84b 55%, #c9922a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+
+  .service-narrative-card {
+    background: #111111;
+    border: 1px solid rgba(201, 146, 42, 0.22);
+    border-left: 4px solid #c9922a;
+    border-radius: 4px;
+    padding: 28px 32px;
+    text-align: left;
+    margin-bottom: 30px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  }
+
+  .narrative-lead {
+    font-family: "Inter", sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #FFFFFF;
+    margin: 0 0 20px;
+  }
+
+  .narrative-lead strong {
+    color: #e8b84b;
+    font-weight: 600;
+  }
+
+  .narrative-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin-bottom: 20px;
+  }
+
+  .narrative-sub-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .narrative-col {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .narrative-col svg {
+    color: #e8b84b;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .narrative-col p {
+    font-family: "Inter", sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0;
+  }
+
+  .gold-accent-line {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e8b84b, transparent);
+    margin: 0 auto;
+    border-radius: 2px;
+  }
+
+  /* =========================================
+     SHOWCASE BANNER (IMAGE & STANDARDS)
+     ========================================= */
+  .showcase-banner {
+    position: relative;
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0;
+    box-shadow: 0 20px 56px rgba(0, 0, 0, 0.6);
+  }
+
+  .crosshair {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-color: #C9922A;
+    pointer-events: none;
+    z-index: 4;
+  }
+  .crosshair.top-left { top: 8px; left: 8px; border-top: 2px solid; border-left: 2px solid; }
+  .crosshair.top-right { top: 8px; right: 8px; border-top: 2px solid; border-right: 2px solid; }
+  .crosshair.bottom-left { bottom: 8px; left: 8px; border-bottom: 2px solid; border-left: 2px solid; }
+  .crosshair.bottom-right { bottom: 8px; right: 8px; border-bottom: 2px solid; border-right: 2px solid; }
+
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: 460px 1fr;
+    min-height: 400px;
+  }
+
+  .showcase-media {
+    position: relative;
+    background: #080808;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+  }
+
+  .showcase-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .showcase-banner:hover .showcase-img {
+    transform: scale(1.04);
+  }
+
+  .showcase-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.1) 0%, rgba(10, 10, 10, 0.85) 100%);
+  }
+
+  .showcase-content {
+    padding: 38px 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .section-tag {
+    font-family: "Inter", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: #C9922A;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .showcase-heading {
+    font-family: "Bebas Neue", "Oswald", sans-serif;
+    font-size: clamp(1.8rem, 2.5vw, 2.3rem);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    margin: 0 0 12px;
+    line-height: 1.1;
+  }
+
+  .showcase-desc {
+    font-family: "Inter", sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0 0 24px;
+  }
+
+  .capabilities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .cap-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px 14px;
+    border-radius: 4px;
+  }
+
+  .cap-check {
+    color: #E8B84B;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .cap-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .cap-title {
+    font-family: "Inter", sans-serif;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+
+  .cap-detail {
+    font-family: "Inter", sans-serif;
+    font-size: 0.76rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  /* =========================================
+     ANIMATIONS & RESPONSIVE
+     ========================================= */
+  .anim-fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .anim-slide-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .delay-1 { animation-delay: 0.15s; }
+  .delay-2 { animation-delay: 0.3s; }
+  .delay-3 { animation-delay: 0.45s; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 1024px) {
+    .showcase-grid {
+      grid-template-columns: 1fr;
+    }
+    .showcase-media {
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      height: 280px;
+    }
+    .showcase-content {
+      padding: 30px 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .service-page {
+      padding: 95px 0 65px;
+    }
+    .service-hero {
+      margin-bottom: 36px;
+    }
+    .service-narrative-card {
+      padding: 20px 18px;
+    }
+    .narrative-sub-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .capabilities-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+
+  /* Zero Delay on Mobile & All Touch Devices (iPhone, iPad, Android) */
+  @media (max-width: 768px), (hover: none) and (pointer: coarse) {
+    .anim-slide-up,
+    .anim-fade-in,
+    .showcase-banner {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+      transition: border-color 0.2s ease !important;
+    }
+  }
+</style>

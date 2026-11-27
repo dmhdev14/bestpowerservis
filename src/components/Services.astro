@@ -1,12 +1,9 @@
 ---
 const services = [
   {
-    num: '01',
-    category: 'CRITICAL POWER VERIFICATION',
     title: 'Loadbank Rental & Testing',
     image: '/projects/loadbank.webp',
     imageAlt: 'Teknisi PT Best Power Servis melakukan pengujian loadbank di fasilitas industri',
-    badge: 'UNIT TERKALIBRASI K3',
     desc: 'Layanan rental dan pengujian dummy load presisi untuk memverifikasi kapasitas riil UPS, generator, serta infrastruktur daya kritis fasilitas Anda.',
     points: [
       'Pengujian beban step-load terkalibrasi',
@@ -17,28 +14,9 @@ const services = [
     linkText: 'Detail Layanan Loadbank'
   },
   {
-    num: '02',
-    category: 'PREVENTIVE & CORRECTIVE',
-    title: 'Generator Service & Maintenance',
-    image: '/projects/maintenance.webp',
-    imageAlt: 'Instalasi dan pemeliharaan genset industri PT Best Power Servis',
-    badge: 'SIAGA & KONTRAK RESMI',
-    desc: 'Pemeliharaan terencana dan perbaikan komprehensif sistem genset industri guna menjaga kesiapan operasional serta mengeliminasi risiko downtime.',
-    points: [
-      'Preventive & corrective maintenance rutin',
-      'Troubleshooting & inspeksi elektrikal mesin',
-      'Kontrak servis berkala dengan jaminan SLA'
-    ],
-    link: '/generator-service-maintenance',
-    linkText: 'Detail Pemeliharaan Genset'
-  },
-  {
-    num: '03',
-    category: 'FLUID PURIFICATION & EFFICIENCY',
     title: 'Fuel Filtration Systems',
     image: '/projects/filter.webp',
     imageAlt: 'Unit bejana filtrasi bahan bakar solar industri PT Best Power Servis',
-    badge: 'HEMAT FILTER S/D 50%',
     desc: 'Teknologi purifikasi solar diesel dan biosolar (B35/B40) multi-tahap untuk memisahkan kontaminasi air terlarut dan melindungi injektor mesin.',
     points: [
       'Pemisahan air bebas & partikulat sub-mikron',
@@ -47,6 +25,19 @@ const services = [
     ],
     link: '/fuel-filtration-systems',
     linkText: 'Detail Solusi Filtrasi'
+  },
+  {
+    title: 'Generator Service & Maintenance',
+    image: '/projects/maintenance_2.webp',
+    imageAlt: 'Instalasi dan pemeliharaan genset industri PT Best Power Servis',
+    desc: 'Pemeliharaan terencana dan perbaikan komprehensif sistem genset industri guna menjaga kesiapan operasional serta mengeliminasi risiko downtime.',
+    points: [
+      'Preventive & corrective maintenance rutin',
+      'Troubleshooting & inspeksi elektrikal mesin',
+      'Kontrak servis berkala dengan jaminan SLA'
+    ],
+    link: '/generator-service-maintenance',
+    linkText: 'Detail Pemeliharaan Genset'
   }
 ];
 ---
@@ -76,77 +67,64 @@ const services = [
     <!-- 3 Industrial Gateway Cards Grid -->
     <div class="services-gateway-grid">
       {services.map((s, i) => (
-        <article class={`gateway-card reveal delay-${(i + 1) * 100}`}>
-          <!-- Edge Hover Beam Animation -->
-          <div class="card-beam"></div>
+        <div class={`gateway-reveal reveal delay-${(i + 1) * 100}`}>
+          <article class="gateway-card">
+            <!-- Edge Hover Beam Animation -->
+            <div class="card-beam"></div>
 
-          <!-- Precision Metallic Corner Crosshairs -->
-          <span class="crosshair top-left"></span>
-          <span class="crosshair top-right"></span>
-          <span class="crosshair bottom-left"></span>
-          <span class="crosshair bottom-right"></span>
+            <!-- Precision Metallic Corner Crosshairs -->
+            <span class="crosshair top-left"></span>
+            <span class="crosshair top-right"></span>
+            <span class="crosshair bottom-left"></span>
+            <span class="crosshair bottom-right"></span>
 
-          <!-- Card Header Image Stage -->
-          <div class="card-image-stage">
-            <img
-              src={s.image}
-              alt={s.imageAlt}
-              class="stage-img"
-              width="480"
-              height="260"
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="stage-gradient"></div>
-
-            <!-- Number Watermark -->
-            <span class="stage-num-watermark">{s.num}</span>
-
-            <!-- Status Badge -->
-            <div class="stage-status-chip">
-              <span class="chip-pulse-dot"></span>
-              <span>{s.badge}</span>
-            </div>
-          </div>
-
-          <!-- Card Body Stage -->
-          <div class="card-body-stage">
-            <div class="card-category">
-              <span class="cat-idx">{s.num}</span>
-              <span class="cat-sep">/</span>
-              <span class="cat-text">{s.category}</span>
+            <!-- Card Header Image Stage -->
+            <div class="card-image-stage">
+              <img
+                src={s.image}
+                alt={s.imageAlt}
+                class="stage-img"
+                width="480"
+                height="260"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="stage-gradient"></div>
             </div>
 
-            <h3 class="card-title">{s.title}</h3>
+            <!-- Card Body Stage -->
+            <div class="card-body-stage">
+              <h3 class="card-title">{s.title}</h3>
 
-            <p class="card-desc">{s.desc}</p>
+              <p class="card-desc">{s.desc}</p>
 
-            <!-- Specification Checklist -->
-            <ul class="card-checklist">
-              {s.points.map(p => (
-                <li class="check-item">
-                  <div class="check-icon">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
-                  <span>{p}</span>
-                </li>
-              ))}
-            </ul>
+              <!-- Specification Checklist -->
+              <ul class="card-checklist">
+                {s.points.map(p => (
+                  <li class="check-item">
+                    <div class="check-icon">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </div>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
 
-            <!-- Dedicated Action Button linking to specific page -->
-            <div class="card-action-wrap">
-              <a href={s.link} class="btn-gateway">
-                <span>{s.linkText}</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
+              <!-- Dedicated Action Button linking to specific page -->
+              <div class="card-action-wrap">
+                <a href={s.link} class="btn-gateway">
+                  <span>{s.linkText}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+
             </div>
-
-          </div>
-        </article>
+          </article>
+        </div>
       ))}
     </div>
 
@@ -244,8 +222,13 @@ const services = [
     gap: 28px;
   }
 
+  .gateway-reveal {
+    display: flex;
+  }
+
   .gateway-card {
     position: relative;
+    width: 100%;
     background: #131313;
     border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 4px;
@@ -336,44 +319,6 @@ const services = [
     );
   }
 
-  .stage-num-watermark {
-    position: absolute;
-    bottom: -10px;
-    right: 14px;
-    font-family: 'Bebas Neue', 'Oswald', sans-serif;
-    font-size: 5rem;
-    line-height: 1;
-    color: rgba(255, 255, 255, 0.06);
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  .stage-status-chip {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    background: rgba(14, 14, 14, 0.88);
-    border: 1px solid rgba(201, 146, 42, 0.35);
-    padding: 5px 12px;
-    border-radius: 3px;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: #E8B84B;
-    z-index: 3;
-    backdrop-filter: blur(8px);
-  }
-
-  .chip-pulse-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #E8B84B;
-    box-shadow: 0 0 8px #E8B84B;
-  }
 
   /* Body Stage */
   .card-body-stage {
@@ -382,26 +327,6 @@ const services = [
     flex-direction: column;
     flex: 1;
   }
-
-  .card-category {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: "Inter", sans-serif;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    color: #C9922A;
-    margin-bottom: 8px;
-  }
-
-  .cat-idx {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    color: #E8B84B;
-  }
-  .cat-sep { color: rgba(255, 255, 255, 0.2); }
-  .cat-text { color: #A3A3A3; }
 
   .card-title {
     font-family: 'Bebas Neue', 'Oswald', sans-serif;
@@ -522,9 +447,12 @@ const services = [
     .card-body-stage {
       padding: 24px 20px;
     }
+  }
 
-    /* Zero Delay on Mobile/Touch */
+  /* Zero Delay on Mobile & All Touch Devices */
+  @media (max-width: 768px), (hover: none) and (pointer: coarse) {
     .gateway-card,
+    .gateway-reveal,
     .reveal {
       opacity: 1 !important;
       transform: none !important;
@@ -533,3 +461,4 @@ const services = [
     }
   }
 </style>
+
